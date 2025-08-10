@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+  <defs>
+    <clipPath id="clipCircle">
+      <circle cx="128" cy="128" r="120" />
+    </clipPath>
+  </defs>
+  <!-- Circular background (transparent) -->
+  <circle cx="128" cy="128" r="120" fill="transparent" />
+  <!-- Company logo clipped to a circle -->
+  <image href="Syphon Labs Logo.png" x="16" y="16" width="224" height="224" preserveAspectRatio="xMidYMid slice" clip-path="url(#clipCircle)"/>
+</svg>
+
