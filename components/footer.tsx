@@ -60,31 +60,11 @@ export default function Footer() {
                   Careers
                 </Link>
               </li>
-              <li>
-                <Link href="#contact" className="hover:text-white transition-colors">
-                  Contact
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="hover:text-white transition-colors">
-                  Blog
-                </Link>
-              </li>
             </ul>
           </div>
           <div>
             <h3 className="font-semibold mb-6 text-lg">Support</h3>
             <ul className="space-y-3 text-gray-400">
-              <li>
-                <Link href="#" className="hover:text-white transition-colors">
-                  Documentation
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="hover:text-white transition-colors">
-                  Help Center
-                </Link>
-              </li>
               <li>
                 <Link href="#" className="hover:text-white transition-colors">
                   Privacy Policy

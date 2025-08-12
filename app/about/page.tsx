@@ -4,10 +4,11 @@ import { Button } from "@/components/ui/button"
 import Navigation from "@/components/navigation"
 import MobileMenu from "@/components/mobile-menu"
 import Footer from "@/components/footer"
+import Newsletter from "@/components/newsletter"
 import { Users } from "lucide-react"
 import Link from "next/link"
 import { motion } from "framer-motion"
-import { GraduationCap, Brain, Lightbulb, Globe, Code, TrendingUp, Shield } from "lucide-react"
+import { GraduationCap, Brain, Lightbulb, Globe, Code, Shield } from "lucide-react"
 
 export default function AboutPage() {
   return (
@@ -53,8 +54,8 @@ export default function AboutPage() {
                 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-gray-900 leading-tight mb-6"
               >
                 Pioneering the Future of{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-600 via-indigo-700 to-blue-700">
-                  AI-Powered File Management
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-700 to-blue-700">
+                  Human‑Centered AI
                 </span>
               </motion.h1>
               
@@ -86,14 +87,13 @@ export default function AboutPage() {
           {/* subtle grid overlay */}
           <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23e5e7eb%22%20fill-opacity%3D%220.25%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%221%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-30 pointer-events-none"></div>
           <div className="container relative z-10">
-            <div className="grid gap-12 lg:grid-cols-2 lg:gap-8 items-center">
+            <div className="grid gap-12 items-center justify-items-center">
               <motion.div
                 initial={{ opacity: 0, x: -30 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6 }}
-                className="relative space-y-6 pl-4"
+                className="relative space-y-6 px-4 text-center max-w-3xl"
               >
-                <div className="absolute -left-1 top-0 bottom-0 w-1.5 rounded-full bg-gradient-to-b from-violet-500 to-indigo-600 hidden lg:block"></div>
                 <div className="space-y-3">
                   <div className="inline-flex items-center rounded-full border border-violet-200 bg-violet-50 px-3 py-1 text-sm text-violet-700 font-medium">
                     <GraduationCap className="h-4 w-4 mr-2" />
@@ -107,90 +107,27 @@ export default function AboutPage() {
                   </h2>
                 </div>
 
-                <div className="space-y-4 text-base text-gray-600 leading-relaxed">
-                  <p>
-                    We founded Syphon Labs to transform scattered files and workflows into a living knowledge layer, organized automatically and surfaced the moment you need it.
-                  </p>
-                  <p>
-                    We build practical AI that teams can trust: fast, explainable, and private by design. You keep ownership; we provide leverage.
-                  </p>
-                  <p>
-                    Today, products like Syphon Draft and Recruiter bring context‑aware automation to writing and hiring so people move faster with clarity and confidence.
-                  </p>
+                <div className="group/story relative overflow-hidden rounded-3xl p-[2px] bg-gradient-to-r from-indigo-500/25 via-blue-500/20 to-sky-500/25 max-w-3xl mx-auto shadow-xl">
+                  <div className="relative rounded-3xl border border-white/70 bg-white/95 backdrop-blur-sm p-8">
+                    {/* decorative glows */}
+                    <div className="pointer-events-none absolute -top-10 -left-10 h-24 w-24 rounded-full bg-indigo-200/50 blur-2xl" />
+                    <div className="pointer-events-none absolute -bottom-12 -right-12 h-28 w-28 rounded-full bg-blue-200/50 blur-2xl" />
+                    {/* watermark */}
+                    <img src="/Syphon Labs Logo 2.png" alt="" className="pointer-events-none absolute -top-6 -right-6 h-24 w-24 opacity-10 blur-[1px] rounded-full" />
+                    {/* accent bar */}
+                    <div className="mx-auto mb-4 h-1.5 w-16 rounded-full bg-gradient-to-r from-indigo-600 to-blue-700" />
+                    <div className="space-y-4 text-base text-gray-700 leading-relaxed">
+                      <p>
+                        We founded Syphon Labs to transform scattered files and workflows into a living knowledge layer, organized automatically and surfaced the moment you need it.
+                      </p>
+                      <p>
+                        We build practical AI that teams can trust: fast, intuitive, and private by design. You keep ownership, we provide the leverage.
+                      </p>
+                    </div>
+                  </div>
                 </div>
 
-                <div className="flex flex-wrap gap-3">
-                  <div className="flex items-center gap-2 text-sm text-gray-600">
-                    <div className="h-2 w-2 bg-violet-500 rounded-full"></div>
-                    <span>Engineering‑led</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-sm text-gray-600">
-                    <div className="h-2 w-2 bg-indigo-500 rounded-full"></div>
-                    <span>Private by default</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-sm text-gray-600">
-                    <div className="h-2 w-2 bg-purple-500 rounded-full"></div>
-                    <span>Design that ships</span>
-                  </div>
-                </div>
-              </motion.div>
-              
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                className="relative"
-              >
-                <div className="grid gap-6 md:grid-cols-2">
-                  {[
-                    {
-                      icon: <Code className="h-6 w-6" />,
-                      title: "Production‑grade engineering",
-                      description: "Reliable systems, clean APIs, and performance at scale.",
-                      color: "from-indigo-600 to-blue-700",
-                      delay: 0
-                    },
-                    {
-                      icon: <Brain className="h-6 w-6" />,
-                      title: "Practical AI",
-                      description: "Context models that understand content and intent—no black boxes.",
-                      color: "from-indigo-600 to-blue-700",
-                      delay: 0.1
-                    },
-                    {
-                      icon: <Shield className="h-6 w-6" />,
-                      title: "Privacy‑first",
-                      description: "Local‑first options and transparent data handling; your data stays yours.",
-                      color: "from-blue-600 to-blue-700",
-                      delay: 0.2
-                    },
-                    {
-                      icon: <TrendingUp className="h-6 w-6" />,
-                      title: "Measurable outcomes",
-                      description: "Ship faster, decide with clarity, and automate the boring stuff.",
-                      color: "from-blue-700 to-blue-800",
-                      delay: 0.3
-                    }
-                  ].map((item, index) => (
-                    <motion.div
-                      key={index}
-                      initial={{ opacity: 0, y: 30 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.6, delay: item.delay }}
-                      className="group hover:scale-[1.03] transition-transform duration-300"
-                    >
-                      <div className="rounded-2xl p-6 border border-white/60 bg-white/70 backdrop-blur-md shadow-sm hover:shadow-xl transition-all duration-300 ring-1 ring-transparent hover:ring-violet-200">
-                        <div className={`h-12 w-12 bg-gradient-to-br ${item.color} rounded-full flex items-center justify-center mb-4 shadow-lg ring-4 ring-white/40`}>
-                          <div className="text-white">
-                            {item.icon}
-                          </div>
-                        </div>
-                        <h3 className="text-lg font-semibold text-gray-900 mb-3">{item.title}</h3>
-                        <p className="text-sm text-gray-600 leading-relaxed">{item.description}</p>
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
+                
               </motion.div>
             </div>
           </div>
@@ -235,9 +172,9 @@ export default function AboutPage() {
                   delay: 0
                 },
                 {
-                  icon: <Shield className="h-6 w-6" />,
-                  title: "Private by Design",
-                  description: "Local-first options and transparent data practices. Your content stays yours—always.",
+                  icon: <Code className="h-6 w-6" />,
+                  title: "Performance at Scale",
+                  description: "Reliable architecture and fast response times, tuned for real‑world workloads.",
                   color: "from-indigo-500 to-indigo-600",
                   delay: 0.1
                 },
@@ -300,22 +237,22 @@ export default function AboutPage() {
               {[
                 {
                   icon: <Globe className="h-6 w-6" />,
-                  title: "Self‑Organizing Knowledge",
-                  description: "Information that classifies itself and surfaces when you need it—without folders or friction.",
+                  title: "Orchestrated Work",
+                  description: "Content, people, and tasks move together as one—fewer handoffs, faster outcomes.",
                   color: "from-indigo-600 to-blue-700",
                   delay: 0
                 },
                 {
-                  icon: <Code className="h-6 w-6" />,
-                  title: "Local‑First, Interoperable",
-                  description: "Tools that run close to your data and work across systems with open, developer‑friendly interfaces.",
+                  icon: <Brain className="h-6 w-6" />,
+                  title: "Proactive Assistance",
+                  description: "Intelligent systems that anticipate next steps and reduce friction across writing, hiring, and beyond.",
                   color: "from-indigo-700 to-blue-700",
                   delay: 0.1
                 },
                 {
-                  icon: <Users className="h-6 w-6" />,
-                  title: "Fair, Efficient Workflows",
-                  description: "Writing and hiring experiences that are fast, equitable, and anchored in clear, structured signals.",
+                  icon: <Shield className="h-6 w-6" />,
+                  title: "Clear, Human Control",
+                  description: "Transparency and safeguards so teams stay in command of decisions and outcomes.",
                   color: "from-blue-600 to-blue-700",
                   delay: 0.2
                 }
@@ -347,40 +284,10 @@ export default function AboutPage() {
 
         
 
-        {/* CTA Section */}
-        <section className="py-16 bg-blue-950 relative overflow-hidden">
-          <div className="absolute inset-0">
-            <div className="absolute top-1/4 right-1/4 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
-            <div className="absolute bottom-1/4 left-1/4 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
-            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-white/5 rounded-full blur-3xl"></div>
-          </div>
-          <div className="container relative z-10">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="text-center max-w-4xl mx-auto"
-            >
-              <h2 className="text-3xl font-bold text-white mb-4">Join Us in Shaping the Future</h2>
-              <p className="text-lg text-blue-100 mb-6 leading-relaxed">
-                Experience the power of AI-driven software solutions. Try our products today and see how they transform your workflow.
-              </p>
-              <div className="flex justify-center">
-                <Link href="/trial">
-                  <Button
-                    size="lg"
-                    className="rounded-full bg-white text-blue-600 hover:bg-gray-100 text-lg px-8 py-6 shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 group"
-                  >
-                    Get Started For Free
-                  </Button>
-                </Link>
-              </div>
-            </motion.div>
-          </div>
-          
-        </section>
+        
       </main>
 
+      <Newsletter />
       <Footer />
     </div>
   )

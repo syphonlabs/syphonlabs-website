@@ -29,9 +29,9 @@ export default function Newsletter() {
           viewport={{ once: true }}
           className="max-w-3xl mx-auto text-center"
         >
-          <h2 className="text-3xl font-bold mb-4 text-white">Join Our Waitlist</h2>
+          <h2 className="text-3xl font-bold mb-4 text-white">Join the Syphon Labs Waitlist</h2>
           <p className="text-xl text-blue-100 mb-8">
-            Be the first to experience Syphon Explorer, our intelligent file system. No cloud storage required.
+            Be the first to hear about new releases, product updates, and invites across Syphon Labs.
           </p>
 
           {submitted ? (
@@ -51,11 +51,8 @@ export default function Newsletter() {
                 className="flex-1 rounded-full bg-white"
                 required
               />
-              <Button
-                type="submit"
-                className="rounded-full bg-white text-blue-600 hover:bg-gray-100"
-              >
-                Join Waitlist
+              <Button type="submit" className="rounded-full bg-white text-blue-600 hover:bg-gray-100">
+                Join Company Waitlist
               </Button>
             </form>
           )}

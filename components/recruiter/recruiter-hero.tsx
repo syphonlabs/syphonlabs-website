@@ -54,10 +54,6 @@ export default function RecruiterHero() {
             className="flex flex-col gap-6"
           >
             <div>
-              <div className="inline-flex items-center rounded-full border border-violet-200 bg-violet-50 px-3 py-1 text-sm text-violet-700 mb-6">
-                <span className="flex h-2 w-2 rounded-full bg-violet-500 mr-2"></span>
-                AI-Powered Recruitment
-              </div>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-gray-900 leading-tight">
                 Revolutionize Your Hiring with{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-indigo-600">Recruiter</span>{" "}

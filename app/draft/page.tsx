@@ -14,8 +14,9 @@ import { motion } from "framer-motion"
 import { useEffect, useState } from "react"
 
 // Color utility to match recruiter feature icon styling
-const getColorClasses = (color) => {
-  const colorMap = {
+type ColorKey = "violet" | "blue" | "purple" | "indigo" | "pink" | "gray"
+const getColorClasses = (color: ColorKey): string => {
+  const colorMap: Record<ColorKey, string> = {
     violet: "bg-violet-100 text-violet-600 border-violet-200",
     blue: "bg-blue-100 text-blue-600 border-blue-200",
     purple: "bg-purple-100 text-purple-600 border-purple-200",
@@ -23,7 +24,7 @@ const getColorClasses = (color) => {
     pink: "bg-pink-100 text-pink-600 border-pink-200",
     gray: "bg-gray-100 text-gray-600 border-gray-200",
   }
-  return colorMap[color] || colorMap.violet
+  return colorMap[color]
 }
 
 export default function DraftPage() {
@@ -86,22 +87,7 @@ export default function DraftPage() {
                 transition={{ duration: 0.5 }}
                 className="max-w-4xl mx-auto lg:mx-0 text-center lg:text-left"
               >
-                <motion.div
-                  initial={{ scale: 0.8, opacity: 0 }}
-                  animate={{ scale: 1, opacity: 1 }}
-                  transition={{ duration: 0.5, delay: 0.2 }}
-                  className="flex items-center justify-center lg:justify-start gap-4 mb-6"
-                >
-                  <motion.img
-                    src="/Syphon Labs Logo 2.png"
-                    alt="Syphon Labs"
-                    className="h-16 w-16 rounded-full shadow-lg border-4 border-violet-200 animate-pulse"
-                    initial={{ rotate: -10 }}
-                    animate={{ rotate: 0 }}
-                    transition={{ duration: 0.7, delay: 0.3 }}
-                  />
-                {/* Removed pill */}
-                </motion.div>
+                
                 <motion.h1
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
