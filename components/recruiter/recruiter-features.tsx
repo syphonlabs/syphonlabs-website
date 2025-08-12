@@ -108,10 +108,9 @@ export default function RecruiterFeatures() {
     <section id="features" className="py-20 bg-white">
       <div className="container">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-3xl font-bold mb-4">AI-Powered Recruitment Platform</h2>
+          <h2 className="text-3xl font-bold mb-4">Everything You Need for Modern Recruitment</h2>
           <p className="text-xl text-gray-600">
-            Syphon Recruiter transforms your hiring process with intelligent automation, bias-free evaluation, and
-            data-driven insights.
+            Syphon Recruiter combines AI-powered automation with human insight to transform your hiring process from start to finish.
           </p>
         </div>
 

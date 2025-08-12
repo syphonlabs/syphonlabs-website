@@ -133,7 +133,7 @@ export default function LandingPage() {
               >
                 <Button
                   size="lg"
-                  className="bg-blue-950 hover:bg-blue-900 text-white text-lg px-8 py-4 shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300"
+                  className="relative overflow-hidden rounded-full bg-gradient-to-r from-violet-700 via-blue-700 to-indigo-800 text-white text-lg px-8 py-4 shadow-lg ring-1 ring-indigo-500/40 transition-all duration-200 hover:from-violet-800 hover:via-blue-800 hover:to-indigo-900 hover:shadow-2xl hover:scale-[1.02] active:scale-95"
                   onClick={() => document.getElementById('products')?.scrollIntoView({ behavior: 'smooth' })}
                 >
                   <Rocket className="mr-2 h-5 w-5 group-hover:animate-bounce" />
@@ -293,7 +293,7 @@ export default function LandingPage() {
                     </div>
                     <div className="mt-auto">
                       <Link href="/recruiter">
-                        <Button className="w-full bg-gradient-to-r from-indigo-600 to-blue-700 hover:from-indigo-700 hover:to-blue-800 text-base py-4 shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 group">
+                        <Button className="w-full rounded-full bg-gradient-to-r from-indigo-600 to-blue-700 hover:from-indigo-700 hover:to-blue-800 text-white text-base py-4 shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 group">
                           <span className="group-hover:translate-x-1 transition-transform duration-300">Learn More</span>
                           <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
                         </Button>
@@ -364,7 +364,7 @@ export default function LandingPage() {
                     </div>
                     <div className="mt-auto">
                       <Link href="/draft">
-                        <Button className="w-full bg-gradient-to-r from-indigo-600 to-violet-700 hover:from-indigo-700 hover:to-violet-800 text-base py-4 shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 group">
+                        <Button className="w-full rounded-full bg-gradient-to-r from-indigo-600 to-violet-700 hover:from-indigo-700 hover:to-violet-800 text-white text-base py-4 shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 group">
                           <span className="group-hover:translate-x-1 transition-transform duration-300">Try Syphon Draft</span>
                           <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
                         </Button>
@@ -414,24 +414,28 @@ export default function LandingPage() {
             <div className="max-w-4xl mx-auto space-y-4">
               {[
                 {
-                  question: "How does Syphon Explorer handle my data privacy?",
-                  answer: "Syphon Explorer processes all your files locally on your device. No data is sent to our servers, ensuring complete privacy and security for your sensitive information.",
-                },
-                {
                   question: "Can I integrate Syphon Recruiter with my existing ATS?",
                   answer: "Yes, Syphon Recruiter integrates with popular ATS systems including Workday, BambooHR, Greenhouse, and Lever. We also provide API access for custom integrations.",
                 },
                 {
-                  question: "What file formats does Syphon Explorer support?",
-                  answer: "Syphon Explorer supports all common file formats including documents, spreadsheets, presentations, images, and PDFs. Our AI can analyze and organize any file type.",
+                  question: "What is Syphon Draft and how does it help?",
+                  answer: "Syphon Draft optimizes resumes and cover letters for specific roles using ATS‑friendly formatting, keyword alignment, and role‑specific tailoring.",
                 },
                 {
-                  question: "Is there a free trial available?",
-                  answer: "Yes, we offer a 14-day free trial for all our products. No credit card required to get started and explore our features.",
+                  question: "Does Syphon Draft store my resume or job descriptions?",
+                  answer: "No. Draft processes content securely and only saves results to your account if you choose to. The Open Source option runs locally with your own API key.",
                 },
                 {
-                  question: "Do you offer enterprise support?",
-                  answer: "Yes, our Enterprise plan includes dedicated support, custom integrations, advanced security features, and SLA guarantees for large organizations.",
+                  question: "Do I need my own API key to use Open Source?",
+                  answer: "Yes. The Open Source option is BYO key — use your own API key to run the core optimization engine locally.",
+                },
+                {
+                  question: "Is there a Pro plan?",
+                  answer: "Pro is coming soon with Unlimited Documents, All format downloads, Job Application History, and Document Version History.",
+                },
+                {
+                  question: "How does Syphon Recruiter help reduce bias?",
+                  answer: "Recruiter encourages structured, rubric‑based evaluations and consistent scorecards. It assists with fairness, while final decisions remain human‑led.",
                 },
               ].map((faq, index) => (
                 <motion.div
@@ -484,7 +488,7 @@ export default function LandingPage() {
                 <Link href="#products">
                   <Button 
                     size="lg" 
-                    className="bg-white text-blue-600 hover:bg-gray-100 text-lg px-8 py-6 shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 group"
+                    className="rounded-full bg-white text-blue-600 hover:bg-gray-100 text-lg px-8 py-6 shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 group"
                   >
                     Try Our Products
                     <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
@@ -606,3 +610,4 @@ export default function LandingPage() {
     </div>
   )
 }
+

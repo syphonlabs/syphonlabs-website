@@ -14,30 +14,17 @@ const faqs = [
       "Yes, you can import documents from various formats including Word, Google Docs, Notion, and Markdown. Our platform will preserve the formatting and structure of your documents while making them available for AI enhancement.",
   },
   {
-    question: "How secure is my data?",
+    question: "Can I edit results in real time?",
     answer:
-      "We take security very seriously. All your data is encrypted both in transit and at rest. We use industry-standard security practices and regular audits to ensure your information remains private and secure. We never use your content to train our AI models without explicit permission.",
+      "Yes. Draft includes a real‑time AI chat to refine bullet points, tweak tone, and make quick changes before you download.",
   },
-  {
-    question: "Can I use the platform offline?",
-    answer:
-      "Yes, our platform has offline capabilities. You can continue working on your documents even without an internet connection, and they will automatically sync once you're back online. Some AI features may be limited in offline mode.",
-  },
-  {
-    question: "How does the pricing work for teams?",
-    answer:
-      "Our Pro plan is priced per user per month. You only pay for active users, and you can add or remove team members at any time. For larger teams, we offer volume discounts. Contact our sales team for custom enterprise pricing.",
-  },
+  // Removed offline and team pricing FAQs as requested
   {
     question: "Do you offer a free trial?",
     answer:
-      "Yes, we offer a 14-day free trial on all our plans. No credit card is required to start your trial. You'll get full access to all features during the trial period so you can properly evaluate if our platform meets your needs.",
+      "No trial needed — we offer a Free Account and an Open Source option. The Pro plan is coming soon.",
   },
-  {
-    question: "Does Syphon Labs store my files in the cloud?",
-    answer:
-      "No, Syphon Explorer works entirely with your local file system. All your files remain stored on your device, and the AI processing happens locally. There are no storage requirements or cloud dependencies - Syphon Explorer simply enhances your existing file system with AI capabilities.",
-  },
+  // Removed cloud storage FAQ specific to Explorer
 ]
 
 export default function FAQ() {

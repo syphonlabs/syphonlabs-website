@@ -13,8 +13,9 @@ const plans = [
       "Core optimization engine",
       "Local/private usage",
       "Community support",
+      "Use your own API key",
     ],
-    cta: "Use Open Source",
+    cta: "Try our Open Source Repo",
     popular: false,
   },
   {
@@ -22,103 +23,99 @@ const plans = [
     price: "$0",
     description: "Try Draft with a free account",
     features: [
-      "1 resume optimization",
-      "Basic AI analysis",
-      "Standard formatting",
-      "PDF download",
-      "24-hour access",
+      "10 sets of Documents per month",
+      "Real Time edits",
+      "Choice of ATS approved Templates",
+      "PDF Downloads",
     ],
-    cta: "Try Free",
+    cta: "Try a Free Account",
     popular: true,
   },
   {
     name: "Pro",
-    price: "$29",
-    period: "per month",
-    description: "For active job seekers",
+    price: "Coming Soon",
+    description: "",
     features: [
-      "Unlimited optimizations",
-      "Premium AI analysis",
-      "Custom formatting options",
-      "Multiple cover letter styles",
-      "All format downloads",
-      "Instant processing",
-      "30-day access",
-      "Priority support",
-      "Resume templates",
-      "Interview preparation tips",
+      "Unlimited Documents",
+      "Real Time edits",
+      "Choice of ATS approved Templates",
+      "All document format downloads",
+      "Job Application History",
+      "Document Version History",
     ],
-    cta: "Upgrade to Pro",
+    cta: "Coming Soon",
     popular: false,
   },
 ]
 
 export default function DraftPricing() {
+  const colorSets = [
+    { from: "from-indigo-500", to: "to-violet-600", icon: "text-indigo-600", button: "from-indigo-600 to-violet-700" },
+    { from: "from-blue-500", to: "to-cyan-600", icon: "text-blue-600", button: "from-blue-600 to-cyan-700" },
+    { from: "from-purple-500", to: "to-rose-600", icon: "text-purple-600", button: "from-purple-600 to-rose-700" },
+  ]
+
   return (
-    <section id="pricing" className="py-20 bg-gradient-to-b from-white to-violet-50">
-      <div className="container">
+    <section id="pricing" className="relative overflow-hidden py-20 bg-gradient-to-b from-white via-violet-50 to-indigo-50">
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute -top-10 -left-10 h-64 w-64 rounded-full bg-violet-200 mix-blend-multiply blur-3xl opacity-30" />
+        <div className="absolute bottom-0 right-0 h-72 w-72 rounded-full bg-indigo-200 mix-blend-multiply blur-3xl opacity-30" />
+      </div>
+
+      <div className="container relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-3xl font-bold mb-4">Simple, Pay-Per-Use Pricing</h2>
-          <p className="text-xl text-gray-600">
-            No subscriptions, no hidden fees. Pay only for what you use.
-          </p>
+          <h2 className="text-3xl font-bold mb-4 bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent">Draft Pricing</h2>
+          <p className="text-xl text-gray-600">Choose the option that fits how you work today.</p>
         </div>
 
         <div className="grid gap-8 md:grid-cols-3">
-          {plans.map((plan, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              className="relative"
-            >
-              <div
-                className={`h-full rounded-xl border ${plan.popular ? "border-violet-200 bg-violet-50" : "border-gray-200 bg-white"} p-8 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-200 flex flex-col`}
+          {plans.map((plan, index) => {
+            const c = colorSets[index % colorSets.length]
+            return (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="relative group"
               >
-                {plan.popular && (
-                  <div className="absolute -top-4 left-0 right-0 flex justify-center">
-                    <span className="bg-gradient-to-r from-violet-600 to-indigo-600 text-white text-sm font-medium px-3 py-1 rounded-full">
-                      Most Popular
-                    </span>
-                  </div>
-                )}
+                <div className={`h-full rounded-2xl p-[2px] bg-gradient-to-br ${c.from} ${c.to} shadow-lg transition-transform duration-300 group-hover:scale-[1.02]`}>
+                  <div className="h-full rounded-2xl bg-white p-8 shadow-sm flex flex-col">
+                    <div className="mb-6">
+                      <h3 className="text-xl font-bold mb-2">{plan.name}</h3>
+                      <div className="flex items-baseline mb-2">
+                        <span className="text-3xl font-bold">{plan.price}</span>
+                        {plan.period && <span className="text-gray-500 ml-2">{plan.period}</span>}
+                      </div>
+                      {plan.description && <p className="text-gray-600">{plan.description}</p>}
+                    </div>
 
-                <div className="mb-6">
-                  <h3 className="text-xl font-bold mb-2">{plan.name}</h3>
-                  <div className="flex items-baseline mb-2">
-                    <span className="text-3xl font-bold">{plan.price}</span>
-                    {plan.period && <span className="text-gray-500 ml-2">{plan.period}</span>}
+                    <ul className="space-y-3 mb-8 flex-grow">
+                      {plan.features.map((feature, i) => (
+                        <li key={i} className="flex items-start gap-2">
+                          <Check className={`h-5 w-5 ${c.icon} mt-0.5 flex-shrink-0`} />
+                          <span>{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+
+                    <Button
+                      className={
+                        plan.popular
+                          ? `rounded-full bg-gradient-to-r ${c.button} text-white`
+                          : "rounded-full bg-white text-violet-700 border border-violet-300 hover:bg-violet-50"
+                      }
+                    >
+                      {plan.cta}
+                    </Button>
                   </div>
-                  <p className="text-gray-600">{plan.description}</p>
                 </div>
-
-                <ul className="space-y-3 mb-8 flex-grow">
-                  {plan.features.map((feature, i) => (
-                    <li key={i} className="flex items-start gap-2">
-                      <Check className="h-5 w-5 text-violet-500 mt-0.5 flex-shrink-0" />
-                      <span>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                <Button
-                  className={
-                    plan.popular
-                      ? "bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-700 hover:to-indigo-700 text-white"
-                      : "bg-white text-violet-700 border border-violet-300 hover:bg-violet-50"
-                  }
-                >
-                  {plan.cta}
-                </Button>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            )
+          })}
         </div>
-
-        {/* Removed "All Syphon Draft Plans Include" block as requested */}
       </div>
     </section>
   )
-} 
+}

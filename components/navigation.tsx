@@ -11,10 +11,13 @@ export default function Navigation() {
         <DropdownMenuTrigger asChild>
           <Button
             variant="ghost"
-            className="text-sm font-medium text-gray-700 hover:text-gray-900 flex items-center gap-1"
+            className="group relative overflow-hidden rounded-full px-5 py-2 text-sm font-semibold text-gray-800 bg-gray-50 border border-gray-200 hover:text-white hover:shadow-md transition-colors"
           >
-            Products
-            <ChevronDown className="h-4 w-4" />
+            <span className="absolute inset-0 rounded-full bg-gradient-to-r from-indigo-600 to-blue-700 opacity-0 transition-opacity duration-200 group-hover:opacity-100" />
+            <span className="relative flex items-center gap-1">
+              Products
+              <ChevronDown className="h-4 w-4" />
+            </span>
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent align="start" className="w-[440px] p-2 rounded-2xl shadow-xl ring-1 ring-gray-200 bg-white">
@@ -66,10 +69,13 @@ export default function Navigation() {
       <Link href="/about">
         <Button
           variant="ghost"
-          className="text-sm font-medium text-gray-600 hover:text-gray-900 flex items-center gap-1"
+          className="group relative overflow-hidden rounded-full px-5 py-2 text-sm font-semibold text-gray-800 bg-gray-50 border border-gray-200 hover:text-white hover:shadow-md transition-colors"
         >
-          <Building2 className="h-4 w-4" />
-          About
+          <span className="absolute inset-0 rounded-full bg-gradient-to-r from-indigo-600 to-blue-700 opacity-0 transition-opacity duration-200 group-hover:opacity-100" />
+          <span className="relative flex items-center gap-1">
+            <Building2 className="h-4 w-4" />
+            About
+          </span>
         </Button>
       </Link>
       

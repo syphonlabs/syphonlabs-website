@@ -211,7 +211,7 @@ export default function CompanyPage() {
                   </div>
                   <div className="mt-auto">
                     <Link href="/recruiter">
-                      <Button className="w-full bg-gradient-to-r from-blue-500 to-cyan-600 hover:from-blue-600 hover:to-cyan-700">
+                      <Button className="w-full rounded-full bg-gradient-to-r from-blue-500 to-cyan-600 hover:from-blue-600 hover:to-cyan-700 text-white py-4 shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300">
                         Learn More
                         <ArrowRight className="ml-2 h-4 w-4" />
                       </Button>

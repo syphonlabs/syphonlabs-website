@@ -20,7 +20,7 @@ export default function Newsletter() {
   }
 
   return (
-    <section className="py-20 bg-gradient-to-br from-violet-50 to-indigo-50">
+    <section className="py-20 bg-blue-950 relative overflow-hidden">
       <div className="container">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -29,8 +29,8 @@ export default function Newsletter() {
           viewport={{ once: true }}
           className="max-w-3xl mx-auto text-center"
         >
-          <h2 className="text-3xl font-bold mb-4">Join Our Waitlist</h2>
-          <p className="text-xl text-gray-600 mb-8">
+          <h2 className="text-3xl font-bold mb-4 text-white">Join Our Waitlist</h2>
+          <p className="text-xl text-blue-100 mb-8">
             Be the first to experience Syphon Explorer, our intelligent file system. No cloud storage required.
           </p>
 
@@ -48,19 +48,19 @@ export default function Newsletter() {
                 placeholder="Enter your email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="flex-1"
+                className="flex-1 rounded-full bg-white"
                 required
               />
               <Button
                 type="submit"
-                className="bg-gradient-to-r from-violet-500 to-indigo-600 hover:from-violet-600 hover:to-indigo-700"
+                className="rounded-full bg-white text-blue-600 hover:bg-gray-100"
               >
                 Join Waitlist
               </Button>
             </form>
           )}
 
-          <div className="mt-8 text-sm text-gray-500">
+          <div className="mt-8 text-sm text-blue-200">
             We respect your privacy. No spam, just updates on our product and AI insights.
           </div>
         </motion.div>

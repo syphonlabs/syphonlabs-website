@@ -114,10 +114,6 @@ export default function FeatureOverview() {
     <section className="py-20 bg-gradient-to-b from-violet-50 to-white">
       <div className="container">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center rounded-full border border-violet-200 bg-violet-50 px-3 py-1 text-sm text-violet-700 mb-6">
-            <span className="flex h-2 w-2 rounded-full bg-violet-500 mr-2"></span>
-            Complete Platform
-          </div>
           <h2 className="text-3xl font-bold mb-4">Everything You Need for Modern Recruitment</h2>
           <p className="text-xl text-gray-600">
                             Syphon Recruiter combines AI-powered automation with human insight to transform your hiring process from
@@ -143,37 +139,7 @@ export default function FeatureOverview() {
           ))}
         </div>
 
-        <div className="text-center mt-12">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3, delay: 1.2 }}
-            className="bg-white border border-violet-200 rounded-xl p-8 max-w-4xl mx-auto"
-          >
-            <div className="flex items-center justify-center gap-3 mb-4">
-              <BrainCircuit className="h-8 w-8 text-violet-600" />
-              <h3 className="text-2xl font-bold">AI-First Approach</h3>
-            </div>
-            <p className="text-gray-600 mb-6">
-              Our platform leverages cutting-edge artificial intelligence to automate routine tasks, reduce bias, and
-              provide intelligent insights that help you make better hiring decisions faster.
-            </p>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="text-center">
-                <div className="text-3xl font-bold text-violet-600 mb-2">85%</div>
-                <div className="text-sm text-gray-600">Time Saved on Screening</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-violet-600 mb-2">92%</div>
-                <div className="text-sm text-gray-600">Candidate Match Accuracy</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-violet-600 mb-2">90%</div>
-                <div className="text-sm text-gray-600">Faster Time to Hire</div>
-              </div>
-            </div>
-          </motion.div>
-        </div>
+        {/* Removed "AI-First Approach" metrics section as requested */}
       </div>
     </section>
   )
