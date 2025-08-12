@@ -100,15 +100,7 @@ export default function DraftPage() {
                     animate={{ rotate: 0 }}
                     transition={{ duration: 0.7, delay: 0.3 }}
                   />
-                  <motion.div
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.5, delay: 0.3 }}
-                    className="inline-flex items-center rounded-full border border-violet-200 bg-violet-50 px-3 py-1 text-sm text-violet-700 shadow-md"
-                  >
-                    <span className="flex h-2 w-2 rounded-full bg-violet-500 mr-2 animate-pulse"></span>
-                    AI-Powered Resume Optimization
-                  </motion.div>
+                {/* Removed pill */}
                 </motion.div>
                 <motion.h1
                   initial={{ opacity: 0, y: 20 }}
