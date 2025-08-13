@@ -10,13 +10,26 @@ import { motion } from "framer-motion"
 export default function Newsletter() {
   const [email, setEmail] = useState("")
   const [submitted, setSubmitted] = useState(false)
+  const [submitting, setSubmitting] = useState(false)
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // Handle form submission
-    console.log("Email submitted:", email)
-    setSubmitted(true)
-    setEmail("")
+    try {
+      setSubmitting(true)
+      const res = await fetch("https://sheetdb.io/api/v1/quqp8yg4c1v02", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({ data: [{ emails: email, created_at: new Date().toISOString() }] }),
+      })
+      if (!res.ok) throw new Error("Failed to join waitlist")
+      setSubmitted(true)
+      setEmail("")
+    } catch (err) {
+      console.error(err)
+      alert("Sorry, something went wrong. Please try again.")
+    } finally {
+      setSubmitting(false)
+    }
   }
 
   return (
@@ -51,8 +64,8 @@ export default function Newsletter() {
                 className="flex-1 rounded-full bg-white"
                 required
               />
-              <Button type="submit" className="rounded-full bg-white text-blue-600 hover:bg-gray-100">
-                Join Company Waitlist
+              <Button type="submit" disabled={submitting} className="rounded-full bg-white text-blue-600 hover:bg-gray-100">
+                {submitting ? "Submitting..." : "Join Our Waitlist"}
               </Button>
             </form>
           )}

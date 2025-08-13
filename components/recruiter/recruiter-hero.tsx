@@ -85,7 +85,7 @@ export default function RecruiterHero() {
               </div>
               <div className="flex items-start gap-2">
                 <Users className="h-5 w-5 text-violet-500 mt-0.5 flex-shrink-0" />
-                <span className="text-sm">Candidate Pipeline Management</span>
+                <span className="text-sm">Smart Candidate Pipeline & Search</span>
               </div>
               <div className="flex items-start gap-2">
                 <CheckCircle className="h-5 w-5 text-violet-500 mt-0.5 flex-shrink-0" />

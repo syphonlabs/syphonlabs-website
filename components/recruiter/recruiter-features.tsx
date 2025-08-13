@@ -26,17 +26,10 @@ const features = [
   },
   {
     icon: <Filter className="h-6 w-6 text-indigo-600" />,
-    title: "Smart Candidate Filtering",
+    title: "Smart Filtering & Automated Scheduling",
     description:
-      "Filter candidates with precision using AI-powered criteria matching, skill assessment, and experience validation with customizable filters.",
+      "Precisely filter candidates with AI-driven skill and experience validation, then streamline interviews through automatic calendar syncing and personalized invites.",
     color: "bg-indigo-100",
-  },
-  {
-    icon: <Calendar className="h-6 w-6 text-blue-600" />,
-    title: "Automated Interview Scheduling",
-    description:
-      "Streamline interview scheduling with automatic calendar integration, timezone detection, and personalized invitation emails.",
-    color: "bg-blue-100",
   },
   {
     icon: <BarChart3 className="h-6 w-6 text-teal-600" />,
@@ -47,25 +40,19 @@ const features = [
   },
   {
     icon: <Users className="h-6 w-6 text-amber-600" />,
-    title: "Candidate Pipeline Management",
+    title: "Smart Candidate Pipeline & Search",
     description:
-      "Track candidates through every stage of your hiring process with customizable pipelines and automated status updates.",
+      "Track candidates through customizable pipelines with automated updates, while AI-driven natural language search and semantic matching help you find the perfect fit faster.",
     color: "bg-amber-100",
   },
   {
     icon: <Shield className="h-6 w-6 text-emerald-600" />,
-    title: "Bias-Free Evaluation",
+    title: "Bias-Free Evaluation & Job Matching",
     description:
-      "Reduce unconscious bias in hiring with AI-powered blind resume screening and objective candidate scoring algorithms.",
+      "Eliminate unconscious bias with AI-driven blind resume screening and objective scoring, while advanced algorithms rank candidates by job fit, culture, and career potential.",
     color: "bg-emerald-100",
   },
-  {
-    icon: <Search className="h-6 w-6 text-pink-600" />,
-    title: "Intelligent Candidate Search",
-    description:
-      "Find the perfect candidates using natural language search, semantic matching, and AI-powered talent discovery.",
-    color: "bg-pink-100",
-  },
+  // Removed standalone Intelligent Candidate Search (merged into Smart Candidate Pipeline & Search)
   {
     icon: <Clock className="h-6 w-6 text-purple-600" />,
     title: "Time-to-Hire Optimization",
@@ -80,26 +67,13 @@ const features = [
       "Centralized storage for resumes, cover letters, and interview notes with AI-powered content extraction and organization.",
     color: "bg-cyan-100",
   },
-  {
-    icon: <Target className="h-6 w-6 text-rose-600" />,
-    title: "Job Matching Algorithm",
-    description:
-      "Advanced matching algorithm that scores candidates based on job requirements, cultural fit, and career trajectory predictions.",
-    color: "bg-rose-100",
-  },
+  // Merged Job Matching into Bias-Free Evaluation & Job Matching
   {
     icon: <MessageSquare className="h-6 w-6 text-lime-600" />,
-    title: "Automated Communication",
+    title: "Automated Communication & Integration",
     description:
-      "Send personalized emails, interview invitations, and follow-ups automatically with customizable templates and scheduling.",
+      "Automatically send personalized emails and interview invites with customizable templates, while seamlessly connecting to ATS, job boards, and HR tools to streamline your recruitment.",
     color: "bg-lime-100",
-  },
-  {
-    icon: <Zap className="h-6 w-6 text-orange-600" />,
-    title: "Integration Hub",
-    description:
-      "Seamlessly integrate with popular ATS systems, job boards, and HR tools to centralize your recruitment workflow.",
-    color: "bg-orange-100",
   },
 ]
 

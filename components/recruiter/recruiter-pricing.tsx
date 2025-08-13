@@ -20,7 +20,7 @@ const plans = [
       "Document management for resumes & interview notes",
       "AI recommendations for filter adjustments (e.g., expand experience range)",
     ],
-    cta: "Start Free Trial",
+    cta: "Contact Sales",
     popular: false,
   },
   {
@@ -39,7 +39,7 @@ const plans = [
       "Advanced analytics & reporting (pipeline health, skill gap analysis, conversion rates)",
       "Integration with ATS systems & HR tools",
     ],
-    cta: "Start Free Trial",
+    cta: "Contact Sales",
     popular: true,
   },
   {
@@ -92,12 +92,11 @@ export default function RecruiterPricing() {
       </div>
 
       <div className="container relative z-10">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-3xl font-bold mb-4 bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent">
-            Choose Your Recruitment Plan
-          </h2>
-          <p className="text-xl text-gray-600">Pricing to be announced. Join the waitlist to be notified.</p>
-        </div>
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="text-3xl font-bold mb-4 bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent">
+              Choose Your Recruitment Plan
+            </h2>
+          </div>
 
         <div className="grid gap-8 md:grid-cols-3">
           {plans.map((plan, index) => {
@@ -118,12 +117,6 @@ export default function RecruiterPricing() {
 
                     <div className="mb-6">
                       <h3 className="text-xl font-bold mb-2">{plan.name}</h3>
-                      <div className="flex items-baseline mb-2">
-                        <span className={`${plan.price === "To Be Announced Soon" ? "text-lg" : "text-3xl"} font-bold`}>
-                          {plan.price === "To Be Announced Soon" ? "Price : To Be Announced Soon" : plan.price}
-                        </span>
-                        {plan.period && <span className="text-gray-500 ml-2">{plan.period}</span>}
-                      </div>
                       <p className="text-gray-600">{plan.description}</p>
                     </div>
 

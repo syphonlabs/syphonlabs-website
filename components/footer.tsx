@@ -36,8 +36,8 @@ export default function Footer() {
             <h3 className="font-semibold mb-6 text-lg">Products</h3>
             <ul className="space-y-3 text-gray-400">
               <li>
-                <Link href="/explorer" className="hover:text-white transition-colors">
-                  Syphon Explorer
+                <Link href="/draft" className="hover:text-white transition-colors">
+                  Syphon Draft
                 </Link>
               </li>
               <li>
@@ -65,6 +65,11 @@ export default function Footer() {
           <div>
             <h3 className="font-semibold mb-6 text-lg">Support</h3>
             <ul className="space-y-3 text-gray-400">
+              <li>
+                <Link href="/contact" className="hover:text-white transition-colors">
+                  Contact
+                </Link>
+              </li>
               <li>
                 <Link href="#" className="hover:text-white transition-colors">
                   Privacy Policy

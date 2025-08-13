@@ -1,7 +1,7 @@
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "Syphon Labs | Blog",
+  title: { absolute: "Syphon Labs | Blog" },
   description: "Latest insights on AI, product updates, and industry trends from Syphon Labs.",
   openGraph: {
     title: "Syphon Labs | Blog",

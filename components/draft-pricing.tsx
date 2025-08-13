@@ -6,19 +6,6 @@ import { Check } from "lucide-react"
 
 const plans = [
   {
-    name: "Open Source",
-    price: "$0",
-    description: "Use core tools freely",
-    features: [
-      "Core optimization engine",
-      "Local/private usage",
-      "Community support",
-      "Use your own API key",
-    ],
-    cta: "Try our Open Source Repo",
-    popular: false,
-  },
-  {
     name: "Free Account",
     price: "$0",
     description: "Try Draft with a free account",
@@ -64,11 +51,10 @@ export default function DraftPricing() {
 
       <div className="container relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-3xl font-bold mb-4 bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent">Draft Pricing</h2>
-          <p className="text-xl text-gray-600">Choose the option that fits how you work today.</p>
+          <h2 className="text-3xl font-bold mb-4 bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent">Choose How You Draft</h2>
         </div>
 
-        <div className="grid gap-8 md:grid-cols-3">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-6 justify-items-center w-fit mx-auto">
           {plans.map((plan, index) => {
             const c = colorSets[index % colorSets.length]
             return (
@@ -86,7 +72,6 @@ export default function DraftPricing() {
                       <h3 className="text-xl font-bold mb-2">{plan.name}</h3>
                       <div className="flex items-baseline mb-2">
                         <span className="text-3xl font-bold">{plan.price}</span>
-                        {plan.period && <span className="text-gray-500 ml-2">{plan.period}</span>}
                       </div>
                       {plan.description && <p className="text-gray-600">{plan.description}</p>}
                     </div>

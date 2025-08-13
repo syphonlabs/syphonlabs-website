@@ -1,7 +1,7 @@
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "Syphon Labs | Draft",
+  title: { absolute: "Syphon Labs | Draft" },
   description:
     "Syphon Draft — AI resume and cover letter optimization. ATS-friendly formatting, keyword alignment, tailored letters, and real-time edits.",
   openGraph: {

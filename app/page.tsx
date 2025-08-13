@@ -34,6 +34,8 @@ import {
 } from "lucide-react"
 import Navigation from "@/components/navigation"
 import MobileMenu from "@/components/mobile-menu"
+import Footer from "@/components/footer"
+import Newsletter from "@/components/newsletter"
 
 export default function LandingPage() {
   return (
@@ -169,7 +171,7 @@ export default function LandingPage() {
                 Our Revolutionary Products
               </h2>
               <p className="text-xl text-gray-600 leading-relaxed">
-                We create solutions that think. Step one: revolutionizing applications and recruitment.
+                We create solutions that think. Step one: revolutionizing job applications and recruitment.
               </p>
             </motion.div>
 
@@ -258,7 +260,7 @@ export default function LandingPage() {
                         <Users className="h-8 w-8 text-white group-hover:animate-pulse" />
                       </div>
                       <h3 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent group-hover:scale-105 transition-transform duration-300">
-                        Syphon Recruiter
+                        Recruiter
                       </h3>
                     </div>
                     <p className="text-gray-600 mb-6 text-base leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
@@ -276,19 +278,25 @@ export default function LandingPage() {
                         <div className="h-5 w-5 rounded-full bg-blue-100 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                           <CheckCircle className="h-3 w-3 text-blue-600" />
                         </div>
-                        <span className="font-medium">Automated interview scheduling</span>
-                      </div>
-                      <div className="flex items-center gap-3 text-sm group-hover:translate-x-2 transition-transform duration-300 delay-150">
-                        <div className="h-5 w-5 rounded-full bg-blue-100 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                          <CheckCircle className="h-3 w-3 text-blue-600" />
-                        </div>
-                        <span className="font-medium">Candidate comparison tools</span>
+                        <span className="font-medium">Smart filtering & automated scheduling</span>
                       </div>
                       <div className="flex items-center gap-3 text-sm group-hover:translate-x-2 transition-transform duration-300 delay-200">
                         <div className="h-5 w-5 rounded-full bg-blue-100 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                           <CheckCircle className="h-3 w-3 text-blue-600" />
                         </div>
-                        <span className="font-medium">Applicant portal & tracking</span>
+                        <span className="font-medium">Bias‑free evaluation & objective scorecards</span>
+                      </div>
+                      <div className="flex items-center gap-3 text-sm group-hover:translate-x-2 transition-transform duration-300 delay-[275ms]">
+                        <div className="h-5 w-5 rounded-full bg-blue-100 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                          <CheckCircle className="h-3 w-3 text-blue-600" />
+                        </div>
+                        <span className="font-medium">Automated communication & ATS/HRIS integrations</span>
+                      </div>
+                      <div className="flex items-center gap-3 text-sm group-hover:translate-x-2 transition-transform duration-300 delay-[350ms]">
+                        <div className="h-5 w-5 rounded-full bg-blue-100 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                          <CheckCircle className="h-3 w-3 text-blue-600" />
+                        </div>
+                        <span className="font-medium">Recruitment analytics & time‑to‑hire insights</span>
                       </div>
                     </div>
                     <div className="mt-auto">
@@ -324,7 +332,7 @@ export default function LandingPage() {
                         <FileText className="h-8 w-8 text-white group-hover:animate-pulse" />
                       </div>
                       <h3 className="text-2xl font-bold bg-gradient-to-r from-indigo-600 to-violet-600 bg-clip-text text-transparent group-hover:scale-105 transition-transform duration-300">
-                        Syphon Draft
+                        Draft
                       </h3>
                     </div>
                     <p className="text-gray-600 mb-6 text-base leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
@@ -466,147 +474,10 @@ export default function LandingPage() {
           </div>
         </section>
 
-        {/* CTA Section */}
-        <section className="py-16 bg-blue-950 relative overflow-hidden">
-          <div className="absolute inset-0">
-            <div className="absolute top-1/4 right-1/4 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
-            <div className="absolute bottom-1/4 left-1/4 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
-            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-white/5 rounded-full blur-3xl"></div>
-          </div>
-          <div className="container relative z-10">
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="text-center max-w-4xl mx-auto"
-            >
-              <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-                Ready to Transform Your Workflow?
-              </h2>
-              <div className="mb-8">
-                <Link href="#products">
-                  <Button 
-                    size="lg" 
-                    className="rounded-full bg-white text-blue-600 hover:bg-gray-100 text-lg px-8 py-6 shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 group"
-                  >
-                    Try Our Products
-                    <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
-                  </Button>
-                </Link>
-              </div>
-              {/* CTA temporarily hidden */}
-              {false && (
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Link href="/trial">
-                    <Button 
-                      size="lg" 
-                      className="bg-white text-blue-600 hover:bg-gray-100 text-lg px-8 py-6 shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 group"
-                    >
-                      <Rocket className="mr-2 h-5 w-5 group-hover:animate-bounce" />
-                      Start Free Trial
-                      <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
-                    </Button>
-                  </Link>
-                </div>
-              )}
-            </motion.div>
-          </div>
-        </section>
+        <Newsletter />
       </main>
 
-      {/* Footer */}
-      <footer className="bg-gray-900 text-white py-16">
-        <div className="container">
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-            <div>
-              <div className="flex items-center gap-2 mb-6">
-                <img src="/Syphon Labs Logo.png" alt="Syphon Labs" className="h-10 w-10 rounded-full" />
-                <span className="text-2xl font-bold">Syphon Labs</span>
-              </div>
-              <p className="text-gray-400 mb-6 leading-relaxed">
-                Building the future of AI-powered productivity tools for modern teams.
-              </p>
-              <div className="flex gap-4">
-                <div className="h-10 w-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-gray-700 transition-colors cursor-pointer">
-                  <Mail className="h-5 w-5" />
-                </div>
-                <div className="h-10 w-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-gray-700 transition-colors cursor-pointer">
-                  <Phone className="h-5 w-5" />
-                </div>
-              </div>
-            </div>
-            <div>
-              <h3 className="font-semibold mb-6 text-lg">Products</h3>
-              <ul className="space-y-3 text-gray-400">
-                <li>
-                  <Link href="/explorer" className="hover:text-white transition-colors">
-                    Syphon Explorer
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/recruiter" className="hover:text-white transition-colors">
-                    Syphon Recruiter
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="font-semibold mb-6 text-lg">Company</h3>
-              <ul className="space-y-3 text-gray-400">
-                <li>
-                  <Link href="/company" className="hover:text-white transition-colors">
-                    About
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#careers" className="hover:text-white transition-colors">
-                    Careers
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#contact" className="hover:text-white transition-colors">
-                    Contact
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="hover:text-white transition-colors">
-                    Blog
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="font-semibold mb-6 text-lg">Support</h3>
-              <ul className="space-y-3 text-gray-400">
-                <li>
-                  <Link href="#" className="hover:text-white transition-colors">
-                    Documentation
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="hover:text-white transition-colors">
-                    Help Center
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="hover:text-white transition-colors">
-                    Privacy Policy
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="hover:text-white transition-colors">
-                    Terms of Service
-                  </Link>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
-            <p>&copy; 2024 Syphon Labs. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   )
 }

@@ -104,7 +104,7 @@ export default function DraftPage() {
                   className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto lg:mx-0 leading-relaxed"
                 >
                   <span className="block mt-4 text-lg font-semibold text-violet-700">Stop copy-pasting your resume into ChatGPT and hoping for the best.</span>
-                  <span className="block mt-1 text-base text-gray-700">Syphon Draft uses proprietary prompt engineering to deliver results that are <span className='font-bold text-indigo-700'>ATS-friendly</span>, highly effective, and tailored for real job success.</span>
+                  <span className="block mt-1 text-base text-gray-700">Draft uses proprietary context engineering to deliver results that are <span className='font-bold text-indigo-700'>ATS-friendly</span>, highly effective, and tailored for real job success.</span>
                 </motion.p>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-4 mb-6 justify-items-center lg:justify-items-start text-left max-w-3xl mx-auto lg:mx-0">
@@ -148,6 +148,14 @@ export default function DraftPage() {
                       Try Draft for Free
                     </Button>
                   </Link>
+                  <Link href="https://github.com/" target="_blank">
+                    <Button
+                      size="lg"
+                      className="rounded-full bg-gradient-to-r from-indigo-600 to-violet-700 text-white px-8 py-4 text-lg shadow-lg hover:from-indigo-700 hover:to-violet-800"
+                    >
+                      Try Our Open Source Repo
+                    </Button>
+                  </Link>
                 </motion.div>
 
                 {/* Speed badges removed as requested */}
@@ -167,7 +175,7 @@ export default function DraftPage() {
                       <div className="h-3 w-3 rounded-full bg-green-400"></div>
                     </div>
                     <div className="flex-1 flex justify-center">
-                      <div className="text-sm font-medium text-gray-500">Syphon Draft Demo</div>
+                      <div className="text-sm font-medium text-gray-500">Draft Demo</div>
                     </div>
                   </div>
                   <div className="relative">
@@ -203,7 +211,7 @@ export default function DraftPage() {
         <section id="demo" className="py-20 bg-gradient-to-b from-white to-violet-50">
           <div className="container">
             <div className="text-center max-w-3xl mx-auto mb-16">
-              <h2 className="text-3xl font-bold mb-4">See Syphon Draft in Action</h2>
+              <h2 className="text-3xl font-bold mb-4">See Draft in Action</h2>
             </div>
 
             <div className="max-w-7xl mx-auto">
@@ -255,7 +263,7 @@ export default function DraftPage() {
                         <div className="h-3 w-3 rounded-full bg-green-400"></div>
                       </div>
                       <div className="flex-1 flex justify-center">
-                        <div className="text-sm font-medium text-gray-500">Syphon Draft Demo</div>
+                        <div className="text-sm font-medium text-gray-500">Draft Demo</div>
                       </div>
                     </div>
 
@@ -298,7 +306,7 @@ export default function DraftPage() {
             <div className="text-center max-w-3xl mx-auto mb-16">
               {/* Pill removed as requested */}
               <h2 className="text-3xl font-bold mb-4">Everything You Need for Modern Applications</h2>
-              <p className="text-xl text-gray-600">Syphon Draft combines AI-powered optimization with intuitive controls to transform your application process from start to finish.</p>
+              <p className="text-xl text-gray-600">Draft combines AI-powered optimization with intuitive controls to transform your application process from start to finish.</p>
             </div>
 
             <motion.div
@@ -308,14 +316,14 @@ export default function DraftPage() {
               transition={{ duration: 0.7 }}
               className="grid gap-8 md:grid-cols-3"
             >
-              {[
-                { icon: <Clock className="h-6 w-6" />, title: "Lightning Fast", description: "Get optimized results in under 60 seconds", color: "violet" },
-                { icon: <Upload className="h-6 w-6" />, title: "Personalized", description: "Tailored output based on your role and job description", color: "indigo" },
-                { icon: <Target className="h-6 w-6" />, title: "AI-Powered", description: "Optimizes resume and cover letter with advanced AI", color: "purple" },
-                { icon: <Zap className="h-6 w-6" />, title: "Proprietary Prompts", description: "Battle-tested prompt engineering for superior results", color: "pink" },
-                { icon: <CheckCircle className="h-6 w-6" />, title: "ATS-Friendly", description: "Formatted to pass Applicant Tracking Systems", color: "blue" },
-                { icon: <Star className="h-6 w-6" />, title: "Professional Quality", description: "Polished, industry-standard language and structure", color: "gray" },
-              ].map((feature, index) => (
+                {[
+                	{ icon: <Clock className="h-6 w-6" />, title: "Lightning Fast", description: "Get optimized results in under 60 seconds", color: "violet" as ColorKey },
+                	{ icon: <Upload className="h-6 w-6" />, title: "Personalized", description: "Tailored output based on your role and job description", color: "indigo" as ColorKey },
+                	{ icon: <Target className="h-6 w-6" />, title: "AI-Powered", description: "Optimizes resume and cover letter with advanced AI", color: "purple" as ColorKey },
+                	{ icon: <Zap className="h-6 w-6" />, title: "Proprietary Prompts", description: "Battle-tested prompt engineering for superior results", color: "pink" as ColorKey },
+                	{ icon: <CheckCircle className="h-6 w-6" />, title: "ATS-Friendly", description: "Formatted to pass Applicant Tracking Systems", color: "blue" as ColorKey },
+                	{ icon: <Star className="h-6 w-6" />, title: "Professional Quality", description: "Polished, industry-standard language and structure", color: "gray" as ColorKey },
+                ].map((feature, index) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, y: 20 }}
