@@ -1,50 +1,35 @@
 "use client"
 
-import { useEffect, useState } from "react"
-import { useMobile } from "@/hooks/use-mobile"
+import { Monitor, Smartphone, X } from "lucide-react"
+import { useState } from "react"
 
 export default function MobileDisclaimer() {
-  const isMobile = useMobile()
-  const [isVisible, setIsVisible] = useState(false)
-
-  useEffect(() => {
-    if (!isMobile) return
-    try {
-      const seen = sessionStorage.getItem("mobile_disclaimer_seen")
-      if (!seen) {
-        setIsVisible(true)
-      }
-    } catch (_) {
-      // ignore storage errors
-      setIsVisible(true)
-    }
-  }, [isMobile])
-
-  const handleDismiss = () => {
-    setIsVisible(false)
-    try {
-      sessionStorage.setItem("mobile_disclaimer_seen", "1")
-    } catch (_) {
-      // ignore
-    }
-  }
+  const [isVisible, setIsVisible] = useState(true)
 
   if (!isVisible) return null
 
   return (
-    <div className="fixed top-0 inset-x-0 z-50 px-3 pt-3 sm:px-4">
-      <div className="mx-auto max-w-3xl rounded-2xl border border-violet-200 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/80 shadow-xl">
-        <div className="flex items-start gap-3 p-4">
-          <div className="mt-1 h-2.5 w-2.5 rounded-full bg-gradient-to-r from-violet-600 to-indigo-600" />
-          <div className="flex-1 text-sm text-gray-700 leading-relaxed">
-            For the best experience, view Syphon Labs on a wider screen. Our interactive demos are optimized for desktops and tablets.
+    <div className="md:hidden absolute inset-0 z-50 bg-white/95 backdrop-blur-sm rounded-lg border-2 border-amber-200">
+      <div className="flex flex-col items-center justify-center h-full p-6 text-center">
+        <div className="max-w-sm">
+          <div className="flex items-center justify-center gap-2 mb-4">
+            <Smartphone className="h-6 w-6 text-amber-600" />
+            <h3 className="font-bold text-lg text-amber-800">Mobile Experience Limited</h3>
+          </div>
+          <p className="text-sm text-amber-700 leading-relaxed mb-4">
+            This demo is optimized for larger screens and may not work well on mobile devices. 
+            Please switch to a tablet or desktop computer to fully experience our product.
+          </p>
+          <div className="flex items-center justify-center gap-2 mb-4 text-xs text-amber-600">
+            <Monitor className="h-4 w-4" />
+            <span>Recommended: Desktop or tablet</span>
           </div>
           <button
-            onClick={handleDismiss}
-            className="shrink-0 inline-flex items-center rounded-full bg-gradient-to-r from-violet-600 to-indigo-600 px-3 py-1 text-xs font-semibold text-white shadow hover:from-violet-700 hover:to-indigo-700 focus:outline-none focus:ring-2 focus:ring-violet-400"
-            aria-label="Dismiss mobile disclaimer"
+            onClick={() => setIsVisible(false)}
+            className="inline-flex items-center gap-2 px-4 py-2 bg-amber-600 text-white rounded-lg hover:bg-amber-700 transition-colors text-sm font-medium"
           >
-            Got it
+            <X className="h-4 w-4" />
+            Continue Anyway
           </button>
         </div>
       </div>

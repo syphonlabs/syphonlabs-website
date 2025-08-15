@@ -12,8 +12,8 @@ import { Brain, Code, TrendingUp, Lightbulb, Globe, Award, Zap, Target } from "l
 export default function BlogPage() {
   return (
     <div className="flex min-h-screen flex-col">
-      <header className="sticky top-0 z-40 border-b bg-white/80 backdrop-blur-sm">
-        <div className="container grid grid-cols-3 items-center h-16">
+      <header className="fixed top-0 left-0 right-0 z-40 border-b bg-white/80 backdrop-blur-sm">
+        <div className="container relative grid grid-cols-3 items-center h-16">
           <div className="flex items-center gap-4 justify-self-start">
             <Link href="/">
               <button className="flex items-center gap-2 px-5 py-2 rounded-full bg-gradient-to-r from-violet-500 to-indigo-600 text-white font-semibold shadow-lg hover:from-violet-600 hover:to-indigo-700 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-violet-400">
@@ -37,12 +37,13 @@ export default function BlogPage() {
             >
               Get Started
             </Button>
-            <MobileMenu />
+            {/* Mobile menu is now absolutely positioned */}
           </div>
+          <MobileMenu />
         </div>
       </header>
 
-      <main className="flex-1">
+      <main className="flex-1 pt-16">
         {/* Hero Section */}
         <section className="relative overflow-hidden py-16 md:py-24 bg-gradient-to-br from-white via-violet-50/30 to-indigo-50/30">
           <div className="container relative z-10">

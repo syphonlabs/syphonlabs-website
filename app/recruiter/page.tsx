@@ -15,12 +15,14 @@ import Footer from "@/components/footer"
 import { Button } from "@/components/ui/button"
 import { ArrowLeft } from "lucide-react"
 import Link from "next/link"
+import MobileMenu from "@/components/mobile-menu"
+import MobileDisclaimer from "@/components/mobile-disclaimer"
 
 export default function RecruiterPage() {
   return (
     <div className="flex min-h-screen flex-col">
-      <header className="sticky top-0 z-40 border-b bg-white/80 backdrop-blur-sm">
-        <div className="container grid grid-cols-3 items-center h-16">
+      <header className="fixed top-0 left-0 right-0 z-40 border-b bg-white/80 backdrop-blur-sm">
+        <div className="container relative grid grid-cols-3 items-center h-16">
           <Link href="/" className="flex items-center gap-2 justify-self-start">
             <img src="/Syphon Labs Logo 2.png" alt="Syphon Labs" className="h-8 w-8 rounded-full" />
             <span className="text-xl font-bold">Syphon Labs</span>
@@ -28,11 +30,14 @@ export default function RecruiterPage() {
           <div className="hidden md:block justify-self-center">
             <Navigation />
           </div>
-          <div />
+          <div className="flex items-center gap-4 justify-self-end">
+            {/* Mobile menu is now absolutely positioned */}
+          </div>
+          <MobileMenu />
         </div>
       </header>
 
-      <main className="flex-1">
+      <main className="flex-1 pt-16">
         <RecruiterHero />
 
         <section id="resume-analysis" className="py-20 bg-gradient-to-b from-white to-blue-50">

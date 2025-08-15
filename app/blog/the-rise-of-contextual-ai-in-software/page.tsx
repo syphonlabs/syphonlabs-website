@@ -13,7 +13,7 @@ export default function ContextualAIInSoftwarePage() {
   return (
     <div className="flex min-h-screen flex-col">
       <header className="sticky top-0 z-40 border-b bg-white/80 backdrop-blur-sm">
-        <div className="container grid grid-cols-3 items-center h-16">
+        <div className="container relative grid grid-cols-3 items-center h-16">
           <div className="flex items-center gap-4 justify-self-start">
             <Link href="/blog">
               <button className="flex items-center gap-2 px-5 py-2 rounded-full bg-gradient-to-r from-violet-500 to-indigo-600 text-white font-semibold shadow-lg hover:from-violet-600 hover:to-indigo-700 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-violet-400">
@@ -37,8 +37,9 @@ export default function ContextualAIInSoftwarePage() {
             >
               Get Started
             </Button>
-            <MobileMenu />
+            {/* Mobile menu is now absolutely positioned */}
           </div>
+          <MobileMenu />
         </div>
       </header>
 

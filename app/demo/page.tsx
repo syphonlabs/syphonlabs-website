@@ -10,8 +10,8 @@ export default function DemoPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-violet-50">
       {/* Header */}
-      <header className="sticky top-0 z-40 border-b bg-white/80 backdrop-blur-sm">
-        <div className="container grid grid-cols-3 items-center h-16">
+      <header className="fixed top-0 left-0 right-0 z-40 border-b bg-white/80 backdrop-blur-sm">
+        <div className="container relative grid grid-cols-3 items-center h-16">
           <Link href="/" className="flex items-center gap-2 justify-self-start">
             <img src="/Syphon Labs Logo.png" alt="Syphon Labs" className="h-8 w-8 rounded-full" />
             <span className="text-xl font-bold">Syphon Labs</span>
@@ -29,12 +29,13 @@ export default function DemoPage() {
             >
               Get Started
             </Button>
-            <MobileMenu />
+            {/* Mobile menu is now absolutely positioned */}
           </div>
+          <MobileMenu />
         </div>
       </header>
 
-      <main className="container py-20">
+      <main className="container py-20 pt-36">
         <div className="text-center max-w-4xl mx-auto mb-16">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">Product Demos</h1>
           <p className="text-xl text-gray-600">

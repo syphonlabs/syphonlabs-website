@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
 import { Play, Pause, RotateCcw, ExternalLink } from "lucide-react"
+import MobileDisclaimer from "@/components/mobile-disclaimer"
 
 export default function DraftDemoEmbed() {
   const [isLoading, setIsLoading] = useState(true)
@@ -88,7 +89,7 @@ export default function DraftDemoEmbed() {
         </div>
         
         {/* Embed the actual draft-demo app */}
-        <div className="h-[700px] bg-stone-50/80">
+        <div className="h-[700px] bg-stone-50/80 relative">
           <iframe
             src="/draft-demo"
             className="w-full h-full border-0"
@@ -96,6 +97,7 @@ export default function DraftDemoEmbed() {
             onLoad={() => setIsLoading(false)}
             onError={() => setError("Failed to load demo")}
           />
+          <MobileDisclaimer />
         </div>
       </div>
     </div>

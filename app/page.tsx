@@ -45,8 +45,8 @@ export default function LandingPage() {
   return (
     <div className="flex min-h-screen flex-col">
       {/* Header */}
-      <header className="sticky top-0 z-40 border-b bg-white/80 backdrop-blur-sm">
-        <div className="container grid grid-cols-3 items-center h-16">
+      <header className="fixed top-0 left-0 right-0 z-40 border-b bg-white/80 backdrop-blur-sm">
+        <div className="container relative grid grid-cols-3 items-center h-16">
           <Link href="/" className="flex items-center gap-2 justify-self-start">
             <img src="/Syphon Labs Logo 2.png" alt="Syphon Labs" className="h-8 w-8 rounded-full" />
             <span className="text-xl font-bold">Syphon Labs</span>
@@ -55,12 +55,13 @@ export default function LandingPage() {
             <Navigation />
           </div>
           <div className="flex items-center gap-4 justify-self-end">
-            <MobileMenu />
+            {/* Mobile menu is now absolutely positioned */}
           </div>
+          <MobileMenu />
         </div>
       </header>
 
-      <main className="flex-1">
+      <main className="flex-1 pt-16">
         {/* Hero Section */}
         <section className="relative overflow-hidden min-h-[calc(100vh-4rem)] flex items-center py-16 md:py-24 bg-gradient-to-br from-violet-50 via-white to-indigo-50">
           {/* Animated background elements */}

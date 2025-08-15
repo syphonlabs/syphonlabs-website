@@ -733,7 +733,7 @@ We offer competitive salary, comprehensive benefits, and opportunities for profe
                     </button>
                     
                     {showProfileDropdown && (
-                      <div className="absolute right-0 top-full mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50">
+                      <div className="absolute -right-2 sm:right-0 top-full mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50">
                         <div className="px-4 py-2 border-b border-gray-100">
                           <div className="text-sm font-medium text-gray-900">Sarah Johnson</div>
                           <div className="text-xs text-gray-500">sarah@example.com</div>
@@ -883,7 +883,7 @@ We offer competitive salary, comprehensive benefits, and opportunities for profe
                     </button>
                     
                     {showProfileDropdown && (
-                      <div className="absolute right-0 top-full mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50">
+                      <div className="absolute -right-2 sm:right-0 top-full mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50">
                         <div className="px-4 py-2 border-b border-gray-100">
                           <div className="text-sm font-medium text-gray-900">Sarah Johnson</div>
                           <div className="text-xs text-gray-500">sarah@example.com</div>
@@ -1021,7 +1021,7 @@ We offer competitive salary, comprehensive benefits, and opportunities for profe
                   </button>
                   
                   {showProfileDropdown && (
-                    <div className="absolute right-0 top-full mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50">
+                    <div className="absolute -right-2 sm:right-0 top-full mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50">
                       <div className="px-4 py-2 border-b border-gray-100">
                         <div className="text-sm font-medium text-gray-900">Sarah Johnson</div>
                         <div className="text-xs text-gray-500">sarah@example.com</div>

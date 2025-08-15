@@ -13,8 +13,8 @@ import { GraduationCap, Brain, Lightbulb, Globe, Code, Shield } from "lucide-rea
 export default function AboutPage() {
   return (
     <div className="flex min-h-screen flex-col">
-      <header className="sticky top-0 z-40 border-b bg-white/80 backdrop-blur-sm">
-        <div className="container grid grid-cols-3 items-center h-16">
+      <header className="fixed top-0 left-0 right-0 z-40 border-b bg-white/80 backdrop-blur-sm">
+        <div className="container relative grid grid-cols-3 items-center h-16">
           <div className="flex items-center gap-2 justify-self-start">
             <Link href="/" className="inline-flex" aria-label="Go to home">
               <img src="/Syphon Labs Logo.png" alt="Syphon Labs" className="h-8 w-8 rounded-full" />
@@ -25,12 +25,13 @@ export default function AboutPage() {
             <Navigation />
           </div>
           <div className="flex items-center gap-4 justify-self-end">
-            <MobileMenu />
+            {/* Mobile menu is now absolutely positioned */}
           </div>
+          <MobileMenu />
         </div>
       </header>
 
-      <main className="flex-1">
+      <main className="flex-1 pt-16">
         {/* Hero Section */}
         <section className="relative overflow-hidden py-16 md:py-24 bg-gradient-to-br from-white via-violet-50/30 to-indigo-50/30">
           <div className="container relative z-10">

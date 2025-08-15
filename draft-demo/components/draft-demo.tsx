@@ -400,7 +400,10 @@ export default function DraftDemo() {
                 </div>
 
                 {/* Resume Preview */}
-                <div className="flex-1 overflow-y-auto p-4">
+                <div className="flex-1 overflow-y-auto p-4" style={{
+                  scrollbarWidth: 'thin',
+                  scrollbarColor: '#d1d5db transparent'
+                }}>
                   <div className="bg-white border border-gray-200 rounded-lg p-4">
                     <div className="space-y-4">
                       <div className="text-center border-b border-gray-200 pb-3">
@@ -440,7 +443,10 @@ export default function DraftDemo() {
                       <Zap className="h-4 w-4 text-violet-600" />
                       <div className="text-sm font-medium text-gray-700">AI Assistant</div>
                     </div>
-                    <div className="space-y-2 max-h-32 overflow-y-auto">
+                    <div className="space-y-2 max-h-32 overflow-y-auto" style={{
+                      scrollbarWidth: 'thin',
+                      scrollbarColor: '#d1d5db transparent'
+                    }}>
                       <AnimatePresence>
                         {chatMessages.map((message) => (
                           <motion.div
@@ -465,7 +471,7 @@ export default function DraftDemo() {
                       <input
                         type="text"
                         placeholder="Ask for changes..."
-                        className="flex-1 px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-violet-500"
+                        className="flex-1 px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-violet-500 bg-white"
                         value={chatInput}
                         onChange={(e) => setChatInput(e.target.value)}
                         onKeyPress={(e) => e.key === "Enter" && handleSendMessage()}

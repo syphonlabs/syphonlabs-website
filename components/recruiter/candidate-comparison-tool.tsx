@@ -18,6 +18,7 @@ import {
   Mail,
   Phone,
 } from "lucide-react"
+import MobileDisclaimer from "@/components/mobile-disclaimer"
 
 export default function CandidateComparisonTool() {
   const [selectedCandidates, setSelectedCandidates] = useState([0, 1])
@@ -134,7 +135,7 @@ export default function CandidateComparisonTool() {
   }
 
   return (
-    <div className="rounded-xl border border-gray-200 bg-white shadow-lg overflow-hidden">
+    <div className="rounded-xl border border-gray-200 bg-white shadow-lg overflow-hidden relative">
       {/* Header */}
       <div className="bg-gray-50 border-b border-gray-200 p-4 flex items-center justify-between">
         <div className="flex items-center gap-2">
@@ -586,6 +587,7 @@ export default function CandidateComparisonTool() {
           </div>
         )}
       </div>
+      <MobileDisclaimer />
     </div>
   )
 }

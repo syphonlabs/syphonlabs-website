@@ -8,8 +8,8 @@ import Footer from "@/components/footer"
 export default function HowItWorksPage() {
   return (
     <div className="flex min-h-screen flex-col">
-      <header className="sticky top-0 z-40 border-b bg-white/80 backdrop-blur-sm">
-        <div className="container grid grid-cols-3 items-center h-16">
+      <header className="fixed top-0 left-0 right-0 z-40 border-b bg-white/80 backdrop-blur-sm">
+        <div className="container relative grid grid-cols-3 items-center h-16">
           <div className="flex items-center gap-2 justify-self-start">
             <Link href="/" className="flex items-center gap-2">
               <img src="/Syphon Labs Logo.png" alt="Syphon Labs" className="h-8 w-8 rounded-full" />
@@ -29,12 +29,13 @@ export default function HowItWorksPage() {
             >
               Sign up
             </Button>
-            <MobileMenu />
+            {/* Mobile menu is now absolutely positioned */}
           </div>
+          <MobileMenu />
         </div>
       </header>
 
-      <main className="flex-1">
+      <main className="flex-1 pt-16">
         <section className="py-12 md:py-20 bg-gradient-to-b from-white to-violet-50">
           <div className="container">
             <div className="text-center max-w-3xl mx-auto mb-16">

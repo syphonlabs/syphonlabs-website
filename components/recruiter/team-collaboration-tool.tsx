@@ -22,6 +22,7 @@ import {
   ChevronUp,
   BrainCircuit,
 } from "lucide-react"
+import MobileDisclaimer from "@/components/mobile-disclaimer"
 
 export default function TeamCollaborationTool() {
   const [activeTab, setActiveTab] = useState("candidates")
@@ -234,7 +235,7 @@ export default function TeamCollaborationTool() {
   }
 
   return (
-    <div className="rounded-xl border border-gray-200 bg-white shadow-lg overflow-hidden">
+    <div className="rounded-xl border border-gray-200 bg-white shadow-lg overflow-hidden relative">
       {/* Header */}
       <div className="bg-gray-50 border-b border-gray-200 p-4 flex items-center justify-between">
         <div className="flex items-center gap-2">
@@ -756,6 +757,7 @@ export default function TeamCollaborationTool() {
           )}
         </div>
       </div>
+      <MobileDisclaimer />
     </div>
   )
 }

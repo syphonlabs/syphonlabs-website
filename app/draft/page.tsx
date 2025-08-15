@@ -9,7 +9,8 @@ import DraftPricing from "@/components/draft-pricing"
 import FAQ from "@/components/faq"
 import Newsletter from "@/components/newsletter"
 import DraftDemoEmbed from "@/components/draft-demo-embed"
-import { ArrowLeft, Upload, FileText, Download, Clock, Zap, Target, CheckCircle, Star, Shield, MessageCircle, Play } from "lucide-react"
+import MobileDisclaimer from "@/components/mobile-disclaimer"
+import { ArrowLeft, Upload, FileText, Download, Clock, Zap, Target, CheckCircle, Star, Shield, MessageCircle, Play, Github } from "lucide-react"
 import Link from "next/link"
 import { motion } from "framer-motion"
 import { useEffect, useState } from "react"
@@ -31,8 +32,8 @@ const getColorClasses = (color: ColorKey): string => {
 export default function DraftPage() {
   return (
     <div className="flex min-h-screen flex-col">
-      <header className="sticky top-0 z-40 border-b bg-white/80 backdrop-blur-sm">
-        <div className="container grid grid-cols-3 items-center h-16">
+      <header className="fixed top-0 left-0 right-0 z-40 border-b bg-white/80 backdrop-blur-sm">
+        <div className="container relative grid grid-cols-3 items-center h-16">
           <Link href="/" className="flex items-center gap-2 justify-self-start">
             <img src="/Syphon Labs Logo 2.png" alt="Syphon Labs" className="h-8 w-8 rounded-full" />
             <span className="text-xl font-bold">Syphon Labs</span>
@@ -41,45 +42,35 @@ export default function DraftPage() {
             <Navigation />
           </div>
           <div className="flex items-center gap-4 justify-self-end">
-            <MobileMenu />
+            {/* Mobile menu is now absolutely positioned */}
           </div>
+          <MobileMenu />
         </div>
       </header>
 
-      <main className="flex-1">
+      <main className="flex-1 pt-16">
         {/* Hero Section */}
         <section className="relative overflow-hidden py-20 md:py-32 bg-gradient-to-b from-white to-violet-50">
-          <div className="absolute inset-0 pointer-events-none z-0">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 0.25, scale: 1 }}
-              transition={{ duration: 1.2, delay: 0.2 }}
-              className="absolute top-1/4 left-1/3 h-[32rem] w-[32rem] rounded-full bg-violet-300 blur-3xl animate-pulse"
-            />
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 0.2, scale: 1 }}
-              transition={{ duration: 1.2, delay: 0.5 }}
-              className="absolute bottom-1/4 right-1/4 h-[28rem] w-[28rem] rounded-full bg-indigo-200 blur-3xl animate-pulse"
-            />
-          </div>
           <div className="container relative z-10">
-            <div className="grid gap-12 lg:grid-cols-2 lg:gap-8 items-center">
+            <div className="grid gap-12 lg:grid-cols-2 lg:gap-8 items-start">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
-                className="max-w-4xl mx-auto lg:mx-0 text-center lg:text-left"
+                className="max-w-4xl mx-auto lg:mx-0 text-center lg:text-left pt-8"
               >
                 
                 <motion.h1
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.3 }}
-                  className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-gray-900 leading-tight mb-6 drop-shadow-lg"
+                  className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-gray-900 leading-tight"
                 >
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-indigo-600 animate-gradient-x">Draft</span>
-                  <span className="block">By <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-indigo-600 animate-gradient-x">Syphon Labs</span></span>
+                  <span className="text-black block">Ace Your Applications</span>
+                  <span className="text-black">with </span>
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-indigo-600">Draft</span>
+                  <span className="text-black"> by</span>
+                  <span className="block text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-indigo-600">Syphon Labs</span>
                 </motion.h1>
                 <motion.p
                   initial={{ opacity: 0, y: 20 }}
@@ -87,7 +78,7 @@ export default function DraftPage() {
                   transition={{ duration: 0.5, delay: 0.4 }}
                   className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto lg:mx-0 leading-relaxed"
                 >
-                  <span className="block mt-4 text-lg font-semibold text-violet-700">Stop copy-pasting your resume into ChatGPT and hoping for the best.</span>
+                  <span className="block mt-4 text-lg font-semibold text-gray-700">Stop copy-pasting your resume into ChatGPT and hoping for the best.</span>
                   <span className="block mt-1 text-base text-gray-700">Draft uses proprietary context engineering to deliver results that are <span className='font-bold text-indigo-700'>ATS-friendly</span>, highly effective, and tailored for real job success.</span>
                 </motion.p>
 
@@ -113,8 +104,8 @@ export default function DraftPage() {
                     <span className="text-sm">Keyword Match Optimization</span>
                   </div>
                   <div className="flex items-center justify-center lg:justify-start gap-2">
-                    <Star className="h-5 w-5 text-violet-500 mt-0.5 flex-shrink-0" />
-                    <span className="text-sm">Professional Quality</span>
+                    <Github className="h-5 w-5 text-violet-500 mt-0.5 flex-shrink-0" />
+                    <span className="text-sm">100% Open Source</span>
                   </div>
                 </div>
 
@@ -124,19 +115,20 @@ export default function DraftPage() {
                   transition={{ duration: 0.5, delay: 0.5 }}
                   className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-12"
                 >
-                  <Link href="/trial">
+                  <Link href="/trial" className="w-full sm:w-auto">
                     <Button
                       size="lg"
-                      className="relative overflow-hidden rounded-full bg-gradient-to-r from-violet-700 via-blue-700 to-indigo-800 text-white px-8 py-4 text-lg shadow-lg ring-1 ring-indigo-500/40 transition-all duration-200 hover:from-violet-800 hover:via-blue-800 hover:to-indigo-900 hover:shadow-2xl hover:scale-[1.02] active:scale-95"
+                      className="w-full sm:w-auto relative overflow-hidden rounded-full bg-gradient-to-r from-violet-700 via-blue-700 to-indigo-800 text-white px-8 py-4 text-lg shadow-lg ring-1 ring-indigo-500/40 transition-all duration-200 hover:from-violet-800 hover:via-blue-800 hover:to-indigo-900 hover:shadow-2xl hover:scale-[1.02] active:scale-95"
                     >
                       Try Draft for Free
                     </Button>
                   </Link>
-                  <Link href="https://github.com/" target="_blank">
+                  <Link href="https://github.com/" target="_blank" className="w-full sm:w-auto">
                     <Button
                       size="lg"
-                      className="relative overflow-hidden rounded-full bg-gradient-to-r from-blue-700 via-blue-800 to-blue-900 text-white px-8 py-4 text-lg shadow-lg ring-1 ring-blue-500/40 transition-all duration-200 hover:from-blue-800 hover:via-blue-900 hover:to-blue-950 hover:shadow-2xl hover:scale-[1.02] active:scale-95"
+                      className="w-full sm:w-auto relative overflow-hidden rounded-full bg-gray-50 text-gray-800 px-8 py-4 text-lg shadow-lg ring-1 ring-gray-200 transition-all duration-200 hover:bg-gray-100 hover:shadow-xl hover:scale-[1.02] active:scale-95 flex items-center gap-2"
                     >
+                      <Github className="h-5 w-5" />
                       Try Our Open Source Repo
                     </Button>
                   </Link>
@@ -149,7 +141,7 @@ export default function DraftPage() {
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
-                className="relative mt-8 lg:mt-0"
+                className="relative mt-8 lg:mt-0 flex items-center justify-center"
               >
                 <div className="relative rounded-xl border border-gray-200 bg-white shadow-lg overflow-hidden">
                   <div className="h-10 bg-gray-50 border-b border-gray-200 flex items-center px-4 rounded-t-lg">
@@ -180,12 +172,7 @@ export default function DraftPage() {
             </div>
           </div>
 
-          {/* Background elements - match landing hero spheres */}
-          <div className="absolute inset-0 overflow-hidden">
-            <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-violet-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
-            <div className="absolute top-1/3 right-1/4 w-72 h-72 bg-indigo-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
-            <div className="absolute bottom-1/4 left-1/3 w-72 h-72 bg-purple-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
-          </div>
+
         </section>
 
         {/* Comparison Callout Section removed as requested */}
