@@ -9,15 +9,17 @@ export default function HowItWorksPage() {
   return (
     <div className="flex min-h-screen flex-col">
       <header className="sticky top-0 z-40 border-b bg-white/80 backdrop-blur-sm">
-        <div className="container flex h-16 items-center justify-between">
-          <div className="flex items-center gap-2">
+        <div className="container grid grid-cols-3 items-center h-16">
+          <div className="flex items-center gap-2 justify-self-start">
             <Link href="/" className="flex items-center gap-2">
               <img src="/Syphon Labs Logo.png" alt="Syphon Labs" className="h-8 w-8 rounded-full" />
-                              <span className="text-xl font-bold">Syphon Labs</span>
+              <span className="text-xl font-bold">Syphon Labs</span>
             </Link>
           </div>
-          <Navigation />
-          <div className="flex items-center gap-4">
+          <div className="hidden md:block justify-self-center">
+            <Navigation />
+          </div>
+          <div className="flex items-center gap-4 justify-self-end">
             <Button variant="ghost" size="sm" className="hidden md:inline-flex">
               Log in
             </Button>

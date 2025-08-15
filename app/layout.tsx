@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Script from 'next/script'
 import './globals.css'
+import MobileDisclaimer from '@/components/mobile-disclaimer'
 
 export const metadata: Metadata = {
   title: {
@@ -107,7 +108,10 @@ export default function RootLayout({
           })}
         </Script>
       </head>
-      <body>{children}</body>
+      <body>
+        <MobileDisclaimer />
+        {children}
+      </body>
     </html>
   )
 }

@@ -8,6 +8,7 @@ import Testimonials from "@/components/testimonials"
 import DraftPricing from "@/components/draft-pricing"
 import FAQ from "@/components/faq"
 import Newsletter from "@/components/newsletter"
+import DraftDemoEmbed from "@/components/draft-demo-embed"
 import { ArrowLeft, Upload, FileText, Download, Clock, Zap, Target, CheckCircle, Star, Shield, MessageCircle, Play } from "lucide-react"
 import Link from "next/link"
 import { motion } from "framer-motion"
@@ -28,23 +29,6 @@ const getColorClasses = (color: ColorKey): string => {
 }
 
 export default function DraftPage() {
-  const slides = [
-    { src: "/draft page 1.jpg", caption: "1. Upload your resume and paste the job description" },
-    { src: "/draft page 2.jpg", caption: "2. Review AI‑tailored resume & cover letter, refine, then download" },
-  ]
-  const [demoIndex, setDemoIndex] = useState(0)
-  const [paused, setPaused] = useState(false)
-
-  useEffect(() => {
-    if (paused) return
-    const id = setInterval(() => {
-      setDemoIndex((prev) => (prev + 1) % slides.length)
-    }, 3500)
-    return () => clearInterval(id)
-  }, [paused, slides.length])
-
-  const goPrev = () => setDemoIndex((prev) => (prev - 1 + slides.length) % slides.length)
-  const goNext = () => setDemoIndex((prev) => (prev + 1) % slides.length)
   return (
     <div className="flex min-h-screen flex-col">
       <header className="sticky top-0 z-40 border-b bg-white/80 backdrop-blur-sm">
@@ -151,7 +135,7 @@ export default function DraftPage() {
                   <Link href="https://github.com/" target="_blank">
                     <Button
                       size="lg"
-                      className="rounded-full bg-gradient-to-r from-indigo-600 to-violet-700 text-white px-8 py-4 text-lg shadow-lg hover:from-indigo-700 hover:to-violet-800"
+                      className="relative overflow-hidden rounded-full bg-gradient-to-r from-blue-700 via-blue-800 to-blue-900 text-white px-8 py-4 text-lg shadow-lg ring-1 ring-blue-500/40 transition-all duration-200 hover:from-blue-800 hover:via-blue-900 hover:to-blue-950 hover:shadow-2xl hover:scale-[1.02] active:scale-95"
                     >
                       Try Our Open Source Repo
                     </Button>
@@ -174,20 +158,20 @@ export default function DraftPage() {
                       <div className="h-3 w-3 rounded-full bg-yellow-400"></div>
                       <div className="h-3 w-3 rounded-full bg-green-400"></div>
                     </div>
-                    <div className="flex-1 flex justify-center">
-                      <div className="text-sm font-medium text-gray-500">Draft Demo</div>
-                    </div>
+                                      <div className="flex-1 flex justify-center">
+                    <div className="text-sm font-medium text-gray-500">Draft Demo</div>
                   </div>
-                  <div className="relative">
-                    <video
-                      src="/draft land video.mp4"
-                      autoPlay
-                      muted
-                      loop
-                      playsInline
-                      className="w-full h-[400px] object-cover"
-                    />
-                  </div>
+                </div>
+                <div className="relative">
+                  <video
+                    src="/draft land video.mp4"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    className="w-full h-[400px] object-cover"
+                  />
+                </div>
                 </div>
 
                 <div className="absolute -top-6 -right-6 h-24 w-24 rounded-lg bg-violet-100 blur-2xl opacity-80"></div>
@@ -207,96 +191,67 @@ export default function DraftPage() {
         {/* Comparison Callout Section removed as requested */}
 
         {/* Demo Section */}
-        {/* Interactive Demo with working flow */}
         <section id="demo" className="py-20 bg-gradient-to-b from-white to-violet-50">
           <div className="container">
             <div className="text-center max-w-3xl mx-auto mb-16">
               <h2 className="text-3xl font-bold mb-4">See Draft in Action</h2>
             </div>
 
-            <div className="max-w-7xl mx-auto">
-              <div className="grid gap-10 lg:grid-cols-2 items-center">
-                {/* Explainer (centered and redesigned) */}
-                <div className="lg:col-span-2 px-2">
-                  <div className="rounded-2xl border border-violet-200 bg-white/70 backdrop-blur p-8 shadow-sm max-w-3xl mx-auto text-center space-y-6">
-                    <p className="text-gray-700 text-lg leading-relaxed">
-                      Upload your resume, paste a job description, and Draft generates ATS‑friendly documents tailored to the role. Use AI to refine tone and content instantly, then download.
-                    </p>
-                    <div className="grid gap-6 sm:grid-cols-3">
-                      <div className="flex flex-col items-center gap-2">
-                        <div className="h-10 w-10 rounded-lg bg-violet-100 text-violet-700 flex items-center justify-center">
-                          <Upload className="h-4 w-4" />
-                        </div>
-                        <div className="font-medium">Upload & Paste</div>
-                        <div className="text-gray-600 text-sm">Add your existing resume and the target job description.</div>
+            {/* How Draft Works Instructions */}
+            <div className="max-w-4xl mx-auto mb-12">
+              <div className="bg-gradient-to-br from-indigo-50 via-violet-50 to-purple-50 rounded-2xl border border-violet-200 p-8 shadow-lg">
+
+                
+                {/* Steps Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+                  {/* Step 1 */}
+                  <div className="group bg-white rounded-xl p-4 border border-indigo-100 shadow-sm hover:shadow-md transition-all duration-200 hover:scale-105">
+                    <div className="text-center">
+                      <div className="w-10 h-10 bg-gradient-to-r from-indigo-500 to-indigo-600 rounded-lg flex items-center justify-center mx-auto mb-3 shadow-md">
+                        <span className="text-white font-bold text-sm">1</span>
                       </div>
-                      <div className="flex flex-col items-center gap-2">
-                        <div className="h-10 w-10 rounded-lg bg-indigo-100 text-indigo-700 flex items-center justify-center">
-                          <Zap className="h-4 w-4" />
-                        </div>
-                        <div className="font-medium">AI Analysis</div>
-                        <div className="text-gray-600 text-sm">We align keywords, quantify impact, and optimize structure.</div>
-                      </div>
-                      <div className="flex flex-col items-center gap-2">
-                        <div className="h-10 w-10 rounded-lg bg-purple-100 text-purple-700 flex items-center justify-center">
-                          <Download className="h-4 w-4" />
-                        </div>
-                        <div className="font-medium">Refine & Download</div>
-                        <div className="text-gray-600 text-sm">Make quick edits with AI, then export as a polished PDF.</div>
-                      </div>
+                      <h4 className="font-semibold text-gray-900 mb-2 text-sm">Upload & Paste</h4>
+                      <p className="text-xs text-gray-600 leading-relaxed">Upload your resume and paste the job description</p>
                     </div>
                   </div>
-                </div>
-
-                {/* Viewer */}
-                <div className="rounded-2xl border border-violet-200 bg-white/80 backdrop-blur p-4 md:p-6 shadow-sm lg:col-span-2">
-                  <div
-                    className="relative w-full border border-gray-200 bg-white shadow-lg overflow-hidden"
-                    onMouseEnter={() => setPaused(true)}
-                    onMouseLeave={() => setPaused(false)}
-                  >
-                    {/* Header */}
-                    <div className="h-10 bg-gray-50 border-b border-gray-200 flex items-center px-4">
-                      <div className="flex space-x-2">
-                        <div className="h-3 w-3 rounded-full bg-red-400"></div>
-                        <div className="h-3 w-3 rounded-full bg-yellow-400"></div>
-                        <div className="h-3 w-3 rounded-full bg-green-400"></div>
+                  
+                  {/* Step 2 */}
+                  <div className="group bg-white rounded-xl p-4 border border-violet-100 shadow-sm hover:shadow-md transition-all duration-200 hover:scale-105">
+                    <div className="text-center">
+                      <div className="w-10 h-10 bg-gradient-to-r from-violet-500 to-purple-600 rounded-lg flex items-center justify-center mx-auto mb-3 shadow-md">
+                        <span className="text-white font-bold text-sm">2</span>
                       </div>
-                      <div className="flex-1 flex justify-center">
-                        <div className="text-sm font-medium text-gray-500">Draft Demo</div>
-                      </div>
-                    </div>
-
-                    {/* Content fits image size (no overlay text on image) */}
-                    <div className="bg-white">
-                      <img
-                        src={slides[demoIndex].src}
-                        alt={slides[demoIndex].caption}
-                        className="block w-full h-auto"
-                        draggable={false}
-                      />
+                      <h4 className="font-semibold text-gray-900 mb-2 text-sm">Real-time AI Edits</h4>
+                      <p className="text-xs text-gray-600 leading-relaxed">Watch AI analyze and optimize your resume instantly</p>
                     </div>
                   </div>
-                  {/* Controls outside the image/frame content */}
-                  <div className="flex items-center justify-between gap-3 mt-3">
-                    <div className="flex gap-2">
-                      {slides.map((_, idx) => (
-                        <button
-                          key={idx}
-                          aria-label={`Go to slide ${idx + 1}`}
-                          onClick={() => setDemoIndex(idx)}
-                          className={`h-2.5 w-2.5 rounded-full ${demoIndex === idx ? "bg-violet-600" : "bg-gray-300"}`}
-                        />
-                      ))}
+                  
+                  {/* Step 3 */}
+                  <div className="group bg-white rounded-xl p-4 border border-purple-100 shadow-sm hover:shadow-md transition-all duration-200 hover:scale-105">
+                    <div className="text-center">
+                      <div className="w-10 h-10 bg-gradient-to-r from-purple-500 to-pink-600 rounded-lg flex items-center justify-center mx-auto mb-3 shadow-md">
+                        <span className="text-white font-bold text-sm">3</span>
+                      </div>
+                      <h4 className="font-semibold text-gray-900 mb-2 text-sm">Chat & Refine</h4>
+                      <p className="text-xs text-gray-600 leading-relaxed">Chat with AI to refine and improve content</p>
                     </div>
-                    <div className="flex items-center gap-2">
-                      <Button size="sm" variant="outline" className="text-xs" onClick={goPrev}>Prev</Button>
-                      <Button size="sm" className="text-xs bg-violet-600 hover:bg-violet-700" onClick={goNext}>Next</Button>
+                  </div>
+                  
+                  {/* Step 4 */}
+                  <div className="group bg-white rounded-xl p-4 border border-blue-100 shadow-sm hover:shadow-md transition-all duration-200 hover:scale-105">
+                    <div className="text-center">
+                      <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-cyan-600 rounded-lg flex items-center justify-center mx-auto mb-3 shadow-md">
+                        <span className="text-white font-bold text-sm">4</span>
+                      </div>
+                      <h4 className="font-semibold text-gray-900 mb-2 text-sm">Dashboard & Extension</h4>
+                      <p className="text-xs text-gray-600 leading-relaxed">Access saved jobs through browser extension</p>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
+
+            <DraftDemoEmbed />
           </div>
         </section>
 

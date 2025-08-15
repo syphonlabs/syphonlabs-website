@@ -67,6 +67,40 @@ export default function RecruiterPage() {
           </div>
         </section>
 
+        <section id="interview-scheduling" className="py-20 bg-gradient-to-b from-white to-blue-50">
+          <div className="container">
+            <div className="text-center max-w-3xl mx-auto mb-16">
+              <h2 className="text-3xl font-bold mb-4">Seamless Interview Management</h2>
+              <p className="text-xl text-gray-600">
+                Automate interview scheduling, send personalized invitations, and manage the entire interview process
+                with AI assistance.
+              </p>
+            </div>
+
+            <div className="max-w-5xl mx-auto">
+              <InterviewSchedulingShowcase />
+            </div>
+          </div>
+        </section>
+
+        {/* Feature overview section removed as requested */}
+
+        <section id="analytics-dashboard" className="py-20 bg-white">
+          <div className="container">
+            <div className="text-center max-w-3xl mx-auto mb-16">
+              <h2 className="text-3xl font-bold mb-4">Comprehensive Recruitment Analytics</h2>
+              <p className="text-xl text-gray-600">
+                Get deep insights into your recruitment process with AI-powered analytics, team performance metrics, and
+                diversity tracking.
+              </p>
+            </div>
+
+            <div className="max-w-6xl mx-auto">
+              <RecruiterAnalyticsDashboard />
+            </div>
+          </div>
+        </section>
+
         <section id="candidate-comparison" className="py-20 bg-gradient-to-b from-white to-blue-50">
           <div className="container">
             <div className="text-center max-w-3xl mx-auto mb-16">
@@ -83,25 +117,7 @@ export default function RecruiterPage() {
           </div>
         </section>
 
-        {/* Feature overview section removed as requested */}
-
-        <section id="interview-scheduling" className="py-20 bg-white">
-          <div className="container">
-            <div className="text-center max-w-3xl mx-auto mb-16">
-              <h2 className="text-3xl font-bold mb-4">Seamless Interview Management</h2>
-              <p className="text-xl text-gray-600">
-                Automate interview scheduling, send personalized invitations, and manage the entire interview process
-                with AI assistance.
-              </p>
-            </div>
-
-            <div className="max-w-5xl mx-auto">
-              <InterviewSchedulingShowcase />
-            </div>
-          </div>
-        </section>
-
-        <section id="team-collaboration" className="py-20 bg-gradient-to-b from-white to-blue-50">
+        <section id="team-collaboration" className="py-20 bg-white">
           <div className="container">
             <div className="text-center max-w-3xl mx-auto mb-16">
               <h2 className="text-3xl font-bold mb-4">Seamless Team Collaboration</h2>
@@ -113,22 +129,6 @@ export default function RecruiterPage() {
 
             <div className="max-w-6xl mx-auto">
               <TeamCollaborationTool />
-            </div>
-          </div>
-        </section>
-
-        <section id="analytics-dashboard" className="py-20 bg-white">
-          <div className="container">
-            <div className="text-center max-w-3xl mx-auto mb-16">
-              <h2 className="text-3xl font-bold mb-4">Comprehensive Recruitment Analytics</h2>
-              <p className="text-xl text-gray-600">
-                Get deep insights into your recruitment process with AI-powered analytics, team performance metrics, and
-                diversity tracking.
-              </p>
-            </div>
-
-            <div className="max-w-6xl mx-auto">
-              <RecruiterAnalyticsDashboard />
             </div>
           </div>
         </section>

@@ -1,6 +1,7 @@
 "use client"
 import { motion } from "framer-motion"
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
+import { useState } from "react"
+import { ChevronDown } from "lucide-react"
 
 const faqs = [
   {
@@ -28,6 +29,8 @@ const faqs = [
 ]
 
 export default function FAQ() {
+  const [openIndex, setOpenIndex] = useState<number | null>(null)
+
   return (
     <section id="faq" className="py-20 bg-white">
       <div className="container">
@@ -37,7 +40,7 @@ export default function FAQ() {
         </div>
 
         <div className="max-w-3xl mx-auto">
-          <Accordion type="single" collapsible className="space-y-4">
+          <div className="space-y-4">
             {faqs.map((faq, index) => (
               <motion.div
                 key={index}
@@ -46,15 +49,33 @@ export default function FAQ() {
                 transition={{ duration: 0.3, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <AccordionItem value={`item-${index}`} className="border border-gray-200 rounded-lg overflow-hidden">
-                  <AccordionTrigger className="px-6 py-4 hover:bg-gray-50 text-left font-medium">
-                    {faq.question}
-                  </AccordionTrigger>
-                  <AccordionContent className="px-6 py-4 text-gray-600">{faq.answer}</AccordionContent>
-                </AccordionItem>
+                <div className="border border-gray-200 rounded-lg overflow-hidden">
+                  <button
+                    onClick={() => setOpenIndex(openIndex === index ? null : index)}
+                    className="w-full pr-12 pl-6 py-4 text-left font-medium relative flex items-center bg-white hover:bg-gray-50 transition-colors"
+                  >
+                    <span className="block text-left w-full">{faq.question}</span>
+                    <ChevronDown 
+                      className={`h-4 w-4 absolute right-6 top-1/2 -translate-y-1/2 transition-transform duration-200 ${
+                        openIndex === index ? 'rotate-180' : ''
+                      }`} 
+                    />
+                  </button>
+                  {openIndex === index && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="px-6 py-4 text-gray-600 bg-gray-50"
+                    >
+                      {faq.answer}
+                    </motion.div>
+                  )}
+                </div>
               </motion.div>
             ))}
-          </Accordion>
+          </div>
         </div>
       </div>
     </section>

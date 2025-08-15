@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button"
 import { motion } from "framer-motion"
 import Link from "next/link"
+import { useState } from "react"
 import {
   ArrowRight,
   BrainCircuit,
@@ -31,6 +32,7 @@ import {
   Eye,
   Code,
   Cpu,
+  ChevronDown,
 } from "lucide-react"
 import Navigation from "@/components/navigation"
 import MobileMenu from "@/components/mobile-menu"
@@ -38,6 +40,8 @@ import Footer from "@/components/footer"
 import Newsletter from "@/components/newsletter"
 
 export default function LandingPage() {
+  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null)
+  
   return (
     <div className="flex min-h-screen flex-col">
       {/* Header */}
@@ -89,9 +93,9 @@ export default function LandingPage() {
                 initial={{ opacity: 0, y: 20 }} 
                 animate={{ opacity: 1, y: 0 }} 
                 transition={{ duration: 0.8, delay: 0.2 }}
-                className="flex flex-col lg:flex-row items-center lg:items-start justify-between gap-8 mb-8"
+                className="flex flex-col lg:flex-row items-center justify-center gap-8 mb-8"
               >
-                <div className="flex-1 text-center lg:text-left">
+                <div className="flex-1 text-center">
                   <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-gray-900 leading-tight mb-6">
                     Transform Work with{" "}
                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-600 via-purple-600 to-indigo-600 relative">
@@ -122,9 +126,18 @@ export default function LandingPage() {
                 initial={{ opacity: 0, y: 20 }} 
                 animate={{ opacity: 1, y: 0 }} 
                 transition={{ duration: 0.8, delay: 0.4 }}
-                className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed mb-8"
+                className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed mb-4"
               >
                 We make AI that works for people. Tools that understand you, and make your best self impossible to miss.
+              </motion.p>
+              
+              <motion.p 
+                initial={{ opacity: 0, y: 20 }} 
+                animate={{ opacity: 1, y: 0 }} 
+                transition={{ duration: 0.8, delay: 0.5 }}
+                className="text-lg text-gray-500 max-w-3xl mx-auto leading-relaxed mb-8"
+              >
+                Powered By Syphon AI, our proprietary context engine that connects the dots others miss.
               </motion.p>
               
               <motion.div 
@@ -459,14 +472,11 @@ export default function LandingPage() {
                     <div className="absolute inset-0 bg-gradient-to-br from-violet-500 to-indigo-500 opacity-0 group-hover:opacity-5 transition-opacity duration-500"></div>
                     
                     <div className="relative z-10">
-                      <h3 className="text-lg font-semibold mb-3 text-gray-900 group-hover:scale-105 transition-transform duration-300">{faq.question}</h3>
+                      <h3 className="text-lg font-semibold mb-3 text-gray-900 group-hover:scale-105 transition-transform duration-300" style={{ transformOrigin: 'left center' }}>{faq.question}</h3>
                       <p className="text-gray-600 leading-relaxed text-sm group-hover:text-gray-700 transition-colors duration-300">{faq.answer}</p>
-            </div>
-
-                    {/* Hover indicator */}
-                    <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <div className="w-2 h-2 bg-gradient-to-r from-violet-500 to-indigo-500 rounded-full animate-pulse"></div>
                     </div>
+
+
                   </div>
                 </motion.div>
               ))}

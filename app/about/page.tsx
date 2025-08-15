@@ -14,15 +14,17 @@ export default function AboutPage() {
   return (
     <div className="flex min-h-screen flex-col">
       <header className="sticky top-0 z-40 border-b bg-white/80 backdrop-blur-sm">
-        <div className="container flex h-16 items-center justify-between">
-          <div className="flex items-center gap-4">
+        <div className="container grid grid-cols-3 items-center h-16">
+          <div className="flex items-center gap-2 justify-self-start">
             <Link href="/" className="inline-flex" aria-label="Go to home">
               <img src="/Syphon Labs Logo.png" alt="Syphon Labs" className="h-8 w-8 rounded-full" />
             </Link>
             <span className="text-xl font-bold">Syphon Labs</span>
           </div>
-          <Navigation />
-          <div className="flex items-center gap-4">
+          <div className="hidden md:block justify-self-center">
+            <Navigation />
+          </div>
+          <div className="flex items-center gap-4 justify-self-end">
             <MobileMenu />
           </div>
         </div>
@@ -63,9 +65,18 @@ export default function AboutPage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.4 }}
-                className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-8 leading-relaxed"
+                className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-4 leading-relaxed"
               >
                 Syphon Labs was created by NYU graduates passionate about AI and its potential to transform how we interact with our digital world. We're building the future of intelligent software solutions across multiple domains.
+              </motion.p>
+              
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.5 }}
+                className="text-base text-gray-500 max-w-2xl mx-auto mb-8 leading-relaxed"
+              >
+                At our core is Syphon AI, our proprietary context engine that goes beyond simple pattern matching to understand the deeper meaning and relationships in your work.
               </motion.p>
 
               
@@ -118,7 +129,7 @@ export default function AboutPage() {
                     <div className="mx-auto mb-4 h-1.5 w-16 rounded-full bg-gradient-to-r from-indigo-600 to-blue-700" />
                     <div className="space-y-4 text-base text-gray-700 leading-relaxed">
                       <p>
-                        We founded Syphon Labs to transform scattered files and workflows into a living knowledge layer, organized automatically and surfaced the moment you need it.
+                        Syphon Labs was founded to bridge silos and reveal the connections that move work forward. Tools that understands context, anticipates needs, and makes work feel effortless.
                       </p>
                       <p>
                         We build practical AI that teams can trust: fast, intuitive, and private by design. You keep ownership, we provide the leverage.

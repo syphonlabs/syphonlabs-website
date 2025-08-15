@@ -4,7 +4,7 @@ import { useState } from "react"
 import Link from "next/link"
 import { Menu, X, ChevronDown } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
+import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet"
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible"
 
 export default function MobileMenu() {
@@ -20,6 +20,7 @@ export default function MobileMenu() {
         </Button>
       </SheetTrigger>
       <SheetContent side="right" className="w-[300px] sm:w-[400px]">
+        <SheetTitle className="sr-only">Mobile navigation menu</SheetTitle>
         <div className="flex flex-col gap-6 py-6">
           <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
@@ -46,14 +47,6 @@ export default function MobileMenu() {
                 <ChevronDown className={`h-4 w-4 transition-transform ${productsOpen ? "rotate-180" : ""}`} />
               </CollapsibleTrigger>
               <CollapsibleContent className="pl-4 pt-2 space-y-2">
-                <Link
-                  href="/"
-                  className="block text-base text-gray-600 hover:text-gray-900"
-                  onClick={() => setOpen(false)}
-                >
-                  <div className="font-medium">Syphon Explorer</div>
-                  <div className="text-sm text-gray-500">AI-powered file system</div>
-                </Link>
                 <Link
                   href="/recruiter"
                   className="block text-base text-gray-600 hover:text-gray-900"
