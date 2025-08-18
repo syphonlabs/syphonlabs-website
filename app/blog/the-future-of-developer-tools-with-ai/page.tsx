@@ -257,7 +257,7 @@ export default function FutureOfDeveloperToolsPage() {
                             <span>{article.readTime}</span>
                           </div>
                         </div>
-                        <Link href={`/blog/${article.title.toLowerCase().replace(/\s+/g, '-')}`}>
+                        <Link href={`/blog/${article.title === "Building Scalable AI Solutions: Lessons Learned" ? "building-scalable-ai-solutions-lessons-learned" : "ai-trends-to-watch-in-2025"}`}>
                           <Button variant="ghost" size="sm" className="text-violet-600 hover:text-violet-700">
                             Read
                           </Button>

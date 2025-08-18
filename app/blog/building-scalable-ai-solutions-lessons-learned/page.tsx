@@ -247,7 +247,7 @@ export default function ScalableAISolutionsPage() {
                             <span>{article.readTime}</span>
                           </div>
                         </div>
-                        <Link href={`/blog/${article.title.toLowerCase().replace(/\s+/g, '-')}`}>
+                        <Link href={`/blog/${article.title === "The Future of Developer Tools with AI" ? "the-future-of-developer-tools-with-ai" : "the-rise-of-contextual-ai-in-software"}`}>
                           <Button variant="ghost" size="sm" className="text-violet-600 hover:text-violet-700">
                             Read
                           </Button>

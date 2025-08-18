@@ -12,7 +12,7 @@ import { Brain, Code, TrendingUp, Lightbulb, Globe, Award, Zap, Target } from "l
 export default function AIPoweredFileManagementPage() {
   return (
     <div className="flex min-h-screen flex-col">
-      <header className="sticky top-0 z-40 border-b bg-white/80 backdrop-blur-sm">
+      <header className="sticky top-0 z-40 bg-violet-50">
         <div className="container relative grid grid-cols-3 items-center h-16">
           <div className="flex items-center gap-4 justify-self-start">
             <Link href="/blog">
@@ -23,7 +23,7 @@ export default function AIPoweredFileManagementPage() {
               </button>
             </Link>
             <Link href="/" className="flex items-center gap-2">
-              <img src="/Syphon Labs Logo.png" alt="Syphon Labs" className="h-8 w-8 rounded-full" />
+              <img src="/Syphon Labs Logo 2.png" alt="Syphon Labs" className="h-8 w-8 rounded-full" />
               <span className="text-xl font-bold">Syphon Labs</span>
             </Link>
           </div>
@@ -224,7 +224,7 @@ export default function AIPoweredFileManagementPage() {
                             <span>{article.readTime}</span>
                           </div>
                         </div>
-                        <Link href={`/blog/${article.title.toLowerCase().replace(/\s+/g, '-')}`}>
+                        <Link href={`/blog/${article.title === "Smart File Organization: Beyond Traditional Folders" ? "smart-file-organization-beyond-traditional-folders" : "how-ai-is-transforming-workplace-productivity"}`}>
                           <Button variant="ghost" size="sm" className="text-violet-600 hover:text-violet-700">
                             Read
                           </Button>

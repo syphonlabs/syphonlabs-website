@@ -176,20 +176,20 @@ export default function AIWorkplaceProductivityPage() {
               <div className="grid gap-6 md:grid-cols-2">
                 {[
                   {
-                    title: "The Future of AI-Powered File Management",
-                    excerpt: "Discover how artificial intelligence is revolutionizing the way we organize and interact with our digital files.",
-                    date: "March 15, 2025",
-                    readTime: "5 min read",
-                    tags: ["AI", "File Management", "Product"],
-                    color: "from-violet-500 to-violet-600"
-                  },
-                  {
                     title: "Smart File Organization: Beyond Traditional Folders",
                     excerpt: "Learn how intelligent file systems are moving beyond simple folder structures to create adaptive workspaces.",
                     date: "March 10, 2025",
                     readTime: "6 min read",
                     tags: ["File Management", "Organization", "AI"],
                     color: "from-indigo-500 to-indigo-600"
+                  },
+                  {
+                    title: "The Rise of Contextual AI in Software",
+                    excerpt: "Discover how contextual AI is making software more intuitive and responsive to user needs.",
+                    date: "March 8, 2025",
+                    readTime: "4 min read",
+                    tags: ["AI", "Software", "Development"],
+                    color: "from-violet-500 to-violet-600"
                   }
                 ].map((article, index) => (
                   <motion.div
@@ -223,7 +223,7 @@ export default function AIWorkplaceProductivityPage() {
                             <span>{article.readTime}</span>
                           </div>
                         </div>
-                        <Link href={`/blog/${article.title.toLowerCase().replace(/\s+/g, '-')}`}>
+                        <Link href={`/blog/${article.title === "Smart File Organization: Beyond Traditional Folders" ? "smart-file-organization-beyond-traditional-folders" : "the-rise-of-contextual-ai-in-software"}`}>
                           <Button variant="ghost" size="sm" className="text-violet-600 hover:text-violet-700">
                             Read
                           </Button>

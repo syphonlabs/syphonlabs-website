@@ -194,20 +194,20 @@ export default function ContextualAIInSoftwarePage() {
               <div className="grid gap-6 md:grid-cols-2">
                 {[
                   {
-                    title: "The Future of AI-Powered File Management",
-                    excerpt: "Discover how artificial intelligence is revolutionizing the way we organize and interact with our digital files.",
-                    date: "March 15, 2025",
-                    readTime: "5 min read",
-                    tags: ["AI", "File Management", "Product"],
-                    color: "from-violet-500 to-violet-600"
-                  },
-                  {
                     title: "Building Scalable AI Solutions: Lessons Learned",
                     excerpt: "Insights from developing AI-powered tools that scale from individual users to enterprise teams.",
                     date: "March 5, 2025",
                     readTime: "8 min read",
                     tags: ["Development", "AI", "Scalability"],
                     color: "from-indigo-500 to-indigo-600"
+                  },
+                  {
+                    title: "The Future of Developer Tools with AI",
+                    excerpt: "How artificial intelligence is revolutionizing the tools developers use to build better software.",
+                    date: "March 3, 2025",
+                    readTime: "6 min read",
+                    tags: ["Development", "AI", "Tools"],
+                    color: "from-violet-500 to-violet-600"
                   }
                 ].map((article, index) => (
                   <motion.div
@@ -241,7 +241,7 @@ export default function ContextualAIInSoftwarePage() {
                             <span>{article.readTime}</span>
                           </div>
                         </div>
-                        <Link href={`/blog/${article.title.toLowerCase().replace(/\s+/g, '-')}`}>
+                        <Link href={`/blog/${article.title === "Building Scalable AI Solutions: Lessons Learned" ? "building-scalable-ai-solutions-lessons-learned" : "the-future-of-developer-tools-with-ai"}`}>
                           <Button variant="ghost" size="sm" className="text-violet-600 hover:text-violet-700">
                             Read
                           </Button>

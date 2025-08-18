@@ -12,9 +12,9 @@ import { Brain, Code, TrendingUp, Lightbulb, Globe, Award, Zap, Target, FolderOp
 export default function SmartFileOrganizationPage() {
   return (
     <div className="flex min-h-screen flex-col">
-      <header className="sticky top-0 z-40 border-b bg-white/80 backdrop-blur-sm">
-        <div className="container flex h-16 items-center justify-between">
-          <div className="flex items-center gap-4">
+      <header className="sticky top-0 z-40 bg-violet-50">
+        <div className="container relative grid grid-cols-3 items-center h-16">
+          <div className="flex items-center gap-4 justify-self-start">
             <Link href="/blog">
               <button className="flex items-center gap-2 px-3 py-2 rounded-lg bg-gray-100 text-gray-700 font-medium shadow-sm hover:bg-gray-200 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-gray-400 md:px-4 md:bg-gradient-to-r md:from-violet-500 md:to-indigo-600 md:text-white md:rounded-full md:shadow-lg md:hover:from-violet-600 md:hover:to-indigo-700">
                 <ChevronLeft className="h-4 w-4" />
@@ -23,14 +23,17 @@ export default function SmartFileOrganizationPage() {
               </button>
             </Link>
             <Link href="/" className="flex items-center gap-2">
-              <img src="/Syphon Labs Logo.png" alt="Syphon Labs" className="h-8 w-8 rounded-full" />
+              <img src="/Syphon Labs Logo 2.png" alt="Syphon Labs" className="h-8 w-8 rounded-full" />
               <span className="text-xl font-bold">Syphon Labs</span>
             </Link>
           </div>
-          <Navigation />
-          <div className="flex items-center gap-4">
-            <MobileMenu />
+          <div className="hidden md:block justify-self-center">
+            <Navigation />
           </div>
+          <div className="flex items-center gap-4 justify-self-end">
+            {/* Mobile menu is now absolutely positioned */}
+          </div>
+          <MobileMenu />
         </div>
       </header>
 
@@ -181,20 +184,20 @@ export default function SmartFileOrganizationPage() {
               <div className="grid gap-6 md:grid-cols-2">
                 {[
                   {
-                    title: "The Future of AI-Powered File Management",
-                    excerpt: "Discover how artificial intelligence is revolutionizing the way we organize and interact with our digital files.",
-                    date: "March 15, 2025",
-                    readTime: "5 min read",
-                    tags: ["AI", "File Management", "Product"],
-                    color: "from-violet-500 to-violet-600"
-                  },
-                  {
                     title: "How AI is Transforming Workplace Productivity",
                     excerpt: "Explore the latest AI technologies that are reshaping how teams collaborate and manage their digital workflows.",
                     date: "March 12, 2025",
                     readTime: "4 min read",
                     tags: ["AI", "Productivity", "Workplace"],
                     color: "from-indigo-500 to-indigo-600"
+                  },
+                  {
+                    title: "The Rise of Contextual AI in Software",
+                    excerpt: "Discover how contextual AI is making software more intuitive and responsive to user needs.",
+                    date: "March 8, 2025",
+                    readTime: "4 min read",
+                    tags: ["AI", "Software", "Development"],
+                    color: "from-violet-500 to-violet-600"
                   }
                 ].map((article, index) => (
                   <motion.div
@@ -228,7 +231,7 @@ export default function SmartFileOrganizationPage() {
                             <span>{article.readTime}</span>
                           </div>
                         </div>
-                        <Link href={`/blog/${article.title.toLowerCase().replace(/\s+/g, '-')}`}>
+                        <Link href={`/blog/${article.title === "How AI is Transforming Workplace Productivity" ? "how-ai-is-transforming-workplace-productivity" : "the-rise-of-contextual-ai-in-software"}`}>
                           <Button variant="ghost" size="sm" className="text-violet-600 hover:text-violet-700">
                             Read
                           </Button>
