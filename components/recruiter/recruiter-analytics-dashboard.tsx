@@ -20,8 +20,8 @@ export default function RecruiterAnalyticsDashboard() {
   const [timeRange, setTimeRange] = useState("30d")
   const [department, setDepartment] = useState("All")
 
-  // Mock data
-  const metrics = [
+  // Base metrics (will be derived)
+  const baseMetrics = [
     {
       name: "Total Applications",
       value: 1247,
@@ -52,14 +52,14 @@ export default function RecruiterAnalyticsDashboard() {
     },
   ]
 
-  const departments = [
+  const baseDepartments = [
     { name: "Engineering", openings: 12, applicants: 487, interviews: 42, hires: 8 },
     { name: "Product", openings: 5, applicants: 215, interviews: 18, hires: 3 },
     { name: "Design", openings: 3, applicants: 178, interviews: 15, hires: 2 },
     { name: "Marketing", openings: 4, applicants: 203, interviews: 14, hires: 4 },
   ]
 
-  const sourceData = [
+  const baseSource = [
     { name: "LinkedIn", value: 35 },
     { name: "Indeed", value: 25 },
     { name: "Referrals", value: 20 },
@@ -73,7 +73,95 @@ export default function RecruiterAnalyticsDashboard() {
     education: { bachelors: 55, masters: 30, phd: 10, other: 5 },
   }
 
-  const stageData = [
+  function deriveAnalytics({ timeRange, department, baseMetrics, baseDepartments, baseSource, baseStage }) {
+    // Scale factor by time range (simple demo multipliers)
+    const rangeScale = {
+      "7d": 0.35,
+      "30d": 1,
+      "90d": 2.2,
+      "1y": 8.5,
+    }[timeRange] || 1
+
+    // Filter department rows
+    const departments =
+      department === "All" ? baseDepartments : baseDepartments.filter((d) => d.name === department)
+
+    // Aggregate department totals for selected scope
+    const totals = departments.reduce(
+      (acc, d) => {
+        acc.openings += d.openings
+        acc.applicants += d.applicants
+        acc.interviews += d.interviews
+        acc.hires += d.hires
+        return acc
+      },
+      { openings: 0, applicants: 0, interviews: 0, hires: 0 },
+    )
+
+    // Stage distribution proportional to applicants
+    const appliedBase = baseStage[0].value
+    const proportions = baseStage.map((s) => s.value / appliedBase)
+    const scaledApplied = Math.max(1, Math.round(totals.applicants * rangeScale))
+    const stageData = baseStage.map((s, i) => ({ name: s.name, value: Math.max(1, Math.round(scaledApplied * proportions[i])) }))
+
+    // Scale source distribution (keep normalized to 100)
+    const departmentSourceWeights = {
+      Engineering: [30, 20, 25, 20, 5],
+      Product: [40, 20, 20, 15, 5],
+      Design: [25, 30, 15, 25, 5],
+      Marketing: [20, 35, 15, 20, 10],
+      All: baseSource.map((s) => s.value),
+    } as Record<string, number[]>
+    const weights = department === "All" ? departmentSourceWeights.All : departmentSourceWeights[department] || departmentSourceWeights.All
+    const weightTotal = weights.reduce((a, b) => a + b, 0)
+    const sourceData = baseSource.map((s, idx) => ({ name: s.name, value: Math.round((weights[idx] / weightTotal) * 100) }))
+
+    // Time to hire by department (days)
+    const tthMap = { Engineering: 22, Product: 28, Design: 25, Marketing: 30 } as Record<string, number>
+    const timeToHireDays =
+      department === "All"
+        ? Math.round(
+            baseDepartments.reduce((sum, d) => sum + (tthMap[d.name] || 25) * d.hires, 0) /
+              Math.max(1, baseDepartments.reduce((sum, d) => sum + d.hires, 0)) || 24,
+          )
+        : tthMap[department] || 24
+
+    // Build top cards from totals
+    const metrics = [
+      {
+        name: "Total Applications",
+        value: Math.max(1, Math.round(totals.applicants * rangeScale)),
+        change: 12.5,
+        trend: "up",
+        icon: <Users className="h-5 w-5 text-blue-500" />,
+      },
+      {
+        name: "Time to Hire",
+        value: `${timeToHireDays} days`,
+        change: -15.3,
+        trend: "down",
+        icon: <Clock className="h-5 w-5 text-green-500" />,
+      },
+      {
+        name: "Active Positions",
+        value: Math.max(1, totals.openings),
+        change: 8.2,
+        trend: "up",
+        icon: <Briefcase className="h-5 w-5 text-violet-500" />,
+      },
+      {
+        name: "Interviews Scheduled",
+        value: Math.max(1, Math.round(totals.interviews * rangeScale)),
+        change: 22.7,
+        trend: "up",
+        icon: <Calendar className="h-5 w-5 text-amber-500" />,
+      },
+    ]
+
+    return { metrics, departments, sourceData, stageData }
+  }
+
+  const baseStage = [
     { name: "Applied", value: 1247 },
     { name: "Screened", value: 523 },
     { name: "Interview", value: 215 },
@@ -82,6 +170,16 @@ export default function RecruiterAnalyticsDashboard() {
     { name: "Offer", value: 32 },
     { name: "Hired", value: 17 },
   ]
+
+  // Derive data based on filters
+  const { metrics, departments, sourceData, stageData } = deriveAnalytics({
+    timeRange,
+    department,
+    baseMetrics,
+    baseDepartments,
+    baseSource,
+    baseStage,
+  })
 
   return (
     <div className="rounded-xl border border-gray-200 bg-white shadow-lg overflow-hidden relative">

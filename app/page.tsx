@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button"
 import { motion } from "framer-motion"
 import Link from "next/link"
 import { useState } from "react"
+import { useAnalytics } from "@/hooks/use-analytics"
 import {
   ArrowRight,
   BrainCircuit,
@@ -41,6 +42,7 @@ import Newsletter from "@/components/newsletter"
 
 export default function LandingPage() {
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null)
+  const { trackEvent } = useAnalytics()
   
   return (
     <div className="flex min-h-screen flex-col">
@@ -386,7 +388,10 @@ export default function LandingPage() {
                     </div>
                     <div className="mt-auto">
                       <Link href="/draft">
-                        <Button className="w-full rounded-full bg-gradient-to-r from-indigo-600 to-violet-700 hover:from-indigo-700 hover:to-violet-800 text-white text-base py-4 shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 group">
+                        <Button 
+                          onClick={() => trackEvent('click', 'CTA', 'Try Syphon Draft', 1)}
+                          className="w-full rounded-full bg-gradient-to-r from-indigo-600 to-violet-700 hover:from-indigo-700 hover:to-violet-800 text-white text-base py-4 shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 group"
+                        >
                           <span className="group-hover:translate-x-1 transition-transform duration-300">Try Syphon Draft</span>
                           <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
                         </Button>

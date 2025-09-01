@@ -24,7 +24,7 @@ export default function InterviewSchedulingShowcase() {
   const [playing, setPlaying] = useState(true)
   const [selectedCandidate, setSelectedCandidate] = useState(null)
   const [showScheduler, setShowScheduler] = useState(false)
-  const [selectedSlot, setSelectedSlot] = useState(null)
+  const [selectedSlotId, setSelectedSlotId] = useState<number | null>(null)
   const [scheduledInterviews, setScheduledInterviews] = useState([])
 
   const candidates = [
@@ -58,15 +58,68 @@ export default function InterviewSchedulingShowcase() {
       score: 92,
       avatar: "/placeholder.svg?height=40&width=40",
     },
+    {
+      id: 4,
+      name: "David Kim",
+      role: "Data Scientist",
+      email: "david.kim@email.com",
+      phone: "+1 (555) 456-7890",
+      timezone: "PST",
+      score: 87,
+      avatar: "/placeholder.svg?height=40&width=40",
+    },
+    {
+      id: 5,
+      name: "Alex Turner",
+      role: "Backend Developer",
+      email: "alex.turner@email.com",
+      phone: "+1 (555) 567-8901",
+      timezone: "EST",
+      score: 89,
+      avatar: "/placeholder.svg?height=40&width=40",
+    },
+    {
+      id: 6,
+      name: "Lisa Wang",
+      role: "Marketing Manager",
+      email: "lisa.wang@email.com",
+      phone: "+1 (555) 678-9012",
+      timezone: "PST",
+      score: 91,
+      avatar: "/placeholder.svg?height=40&width=40",
+    },
+    {
+      id: 7,
+      name: "James Miller",
+      role: "Senior Frontend Developer",
+      email: "james.miller@email.com",
+      phone: "+1 (555) 789-0123",
+      timezone: "MST",
+      score: 93,
+      avatar: "/placeholder.svg?height=40&width=40",
+    },
+    {
+      id: 8,
+      name: "Rachel Green",
+      role: "UX Designer",
+      email: "rachel.green@email.com",
+      phone: "+1 (555) 890-1234",
+      timezone: "PST",
+      score: 90,
+      avatar: "/placeholder.svg?height=40&width=40",
+    },
   ]
 
   const timeSlots = [
-    { id: 1, date: "2024-01-15", time: "10:00 AM", available: true },
-    { id: 2, date: "2024-01-15", time: "2:00 PM", available: true },
-    { id: 3, date: "2024-01-15", time: "4:00 PM", available: false },
-    { id: 4, date: "2024-01-16", time: "9:00 AM", available: true },
-    { id: 5, date: "2024-01-16", time: "11:00 AM", available: true },
-    { id: 6, date: "2024-01-16", time: "3:00 PM", available: true },
+    { id: 1, date: "2025-01-15", time: "10:00 AM", available: true },
+    { id: 2, date: "2025-01-15", time: "2:00 PM", available: true },
+    { id: 3, date: "2025-01-15", time: "4:00 PM", available: false },
+    { id: 4, date: "2025-01-16", time: "9:00 AM", available: true },
+    { id: 5, date: "2025-01-16", time: "11:00 AM", available: true },
+    { id: 6, date: "2025-01-16", time: "3:00 PM", available: true },
+    { id: 7, date: "2025-01-17", time: "10:00 AM", available: true },
+    { id: 8, date: "2025-01-17", time: "2:00 PM", available: true },
+    { id: 9, date: "2025-01-17", time: "4:00 PM", available: true },
   ]
 
   const interviewers = [
@@ -90,14 +143,14 @@ export default function InterviewSchedulingShowcase() {
         setStep(2)
       } else if (step === 2) {
         // Select time slot
-        setSelectedSlot(timeSlots[1])
+        setSelectedSlotId(timeSlots[1].id)
         setStep(3)
       } else if (step === 3) {
         // Schedule interview
         const newInterview = {
           id: Date.now(),
           candidate: selectedCandidate,
-          slot: selectedSlot,
+          slot: timeSlots.find((s) => s.id === selectedSlotId) || timeSlots[1],
           interviewer: interviewers[0],
           type: "video",
           status: "scheduled",
@@ -109,7 +162,7 @@ export default function InterviewSchedulingShowcase() {
         // Reset
         setSelectedCandidate(null)
         setShowScheduler(false)
-        setSelectedSlot(null)
+        setSelectedSlotId(null)
         setScheduledInterviews([])
         setStep(0)
       }
@@ -122,18 +175,31 @@ export default function InterviewSchedulingShowcase() {
     setPlaying(!playing)
   }
 
+  const handleCandidateSelect = (candidate) => {
+    setPlaying(false) // Stop auto-play when manually selecting
+    setSelectedCandidate(candidate)
+    setShowScheduler(true) // Open scheduler immediately for clearer UX
+    setSelectedSlotId(null) // Reset any previous selection
+  }
+
   const handleScheduleInterview = (candidate) => {
+    console.log('Scheduling interview for:', candidate.name)
+    setPlaying(false) // Stop auto-play when manually scheduling
     setSelectedCandidate(candidate)
     setShowScheduler(true)
+    setSelectedSlotId(null) // Reset slot selection
   }
 
   const handleSlotSelect = (slot) => {
     if (slot.available) {
-      setSelectedSlot(slot)
+      console.log('Selected slot:', slot)
+      setSelectedSlotId(slot.id)
     }
   }
 
   const handleConfirmSchedule = () => {
+    const selectedSlot = timeSlots.find(s => s.id === selectedSlotId) || null
+    console.log('Confirming schedule for:', selectedCandidate?.name, 'at slot:', selectedSlot)
     if (selectedCandidate && selectedSlot) {
       const newInterview = {
         id: Date.now(),
@@ -143,11 +209,18 @@ export default function InterviewSchedulingShowcase() {
         type: "video",
         status: "scheduled",
       }
+      console.log('Created interview:', newInterview)
       setScheduledInterviews([...scheduledInterviews, newInterview])
       setShowScheduler(false)
       setSelectedCandidate(null)
-      setSelectedSlot(null)
+      setSelectedSlotId(null)
+    } else {
+      console.log('Missing candidate or slot:', { selectedCandidate, selectedSlotId })
     }
+  }
+
+  const handleCancelInterview = (interviewId) => {
+    setScheduledInterviews((prev) => prev.filter((i) => i.id !== interviewId))
   }
 
   return (
@@ -193,7 +266,7 @@ export default function InterviewSchedulingShowcase() {
                       ? "border-violet-300 bg-violet-50"
                       : "border-gray-200 hover:border-gray-300 hover:bg-gray-50"
                   }`}
-                  onClick={() => setSelectedCandidate(candidate)}
+                  onClick={() => handleCandidateSelect(candidate)}
                 >
                   <div className="flex items-start gap-3">
                     <div className="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center">
@@ -263,7 +336,7 @@ export default function InterviewSchedulingShowcase() {
                         onClick={() => handleSlotSelect(slot)}
                         disabled={!slot.available}
                         className={`w-full p-3 rounded-lg border text-left transition-all ${
-                          selectedSlot?.id === slot.id
+                          selectedSlotId === slot.id
                             ? "border-violet-300 bg-violet-50"
                             : slot.available
                               ? "border-gray-200 hover:border-gray-300 hover:bg-gray-50"
@@ -320,10 +393,14 @@ export default function InterviewSchedulingShowcase() {
 
                 <button
                   onClick={handleConfirmSchedule}
-                  disabled={!selectedSlot}
-                  className="w-full bg-violet-600 text-white py-2 px-4 rounded hover:bg-violet-700 disabled:opacity-50 disabled:cursor-not-allowed"
+                  disabled={!selectedSlotId}
+                  className={`w-full py-2 px-4 rounded text-white ${
+                    selectedSlotId 
+                      ? 'bg-violet-600 hover:bg-violet-700' 
+                      : 'bg-gray-400 cursor-not-allowed'
+                  }`}
                 >
-                  Confirm Schedule
+                  {selectedSlotId ? 'Confirm Schedule' : 'Select a time slot first'}
                 </button>
               </div>
             </>
@@ -344,9 +421,18 @@ export default function InterviewSchedulingShowcase() {
                       <div key={interview.id} className="border border-green-200 bg-green-50 rounded-lg p-3">
                         <div className="flex items-center justify-between mb-2">
                           <h4 className="font-medium">{interview.candidate.name}</h4>
-                          <span className="text-xs bg-green-100 text-green-700 px-2 py-1 rounded">
-                            {interview.status}
-                          </span>
+                          <div className="flex items-center gap-2">
+                            <span className="text-xs bg-green-100 text-green-700 px-2 py-1 rounded">
+                              {interview.status}
+                            </span>
+                            <button
+                              aria-label="Cancel interview"
+                              onClick={() => handleCancelInterview(interview.id)}
+                              className="p-1 rounded hover:bg-red-50"
+                            >
+                              <X className="h-4 w-4 text-red-600" />
+                            </button>
+                          </div>
                         </div>
                         <div className="text-sm text-gray-600 space-y-1">
                           <div className="flex items-center gap-2">

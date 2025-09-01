@@ -80,29 +80,55 @@ export default function CandidateFilteringShowcase() {
     },
     {
       id: 5,
-      name: "Lisa Wang",
+      name: "Alex Turner",
       role: "Backend Developer",
+      experience: 4,
+      location: "Boston, MA",
+      education: "MS Computer Science",
+      skills: ["Python", "Node.js", "PostgreSQL", "Redis", "Docker", "AWS"],
+      score: 89,
+      salary: 115000,
+      remote: true,
+      availability: "1 month",
+    },
+    {
+      id: 6,
+      name: "Lisa Wang",
+      role: "Marketing Manager",
       experience: 6,
       location: "Los Angeles, CA",
-      education: "MS Computer Science",
-      skills: ["Java", "Spring", "Microservices", "Docker", "Kubernetes"],
-      score: 90,
-      salary: 125000,
+      education: "MBA Marketing",
+      skills: ["Digital Marketing", "Google Analytics", "Facebook Ads", "Content Strategy", "SEO", "CRM"],
+      score: 91,
+      salary: 135000,
       remote: false,
       availability: "2 weeks",
     },
     {
-      id: 6,
-      name: "James Wilson",
-      role: "DevOps Engineer",
-      experience: 8,
-      location: "Chicago, IL",
-      education: "BS Information Systems",
-      skills: ["AWS", "Docker", "Kubernetes", "Terraform", "CI/CD"],
-      score: 85,
-      salary: 130000,
+      id: 7,
+      name: "James Miller",
+      role: "Senior Frontend Developer",
+      experience: 6,
+      location: "Denver, CO",
+      education: "BS Software Engineering",
+      skills: ["React", "Vue.js", "TypeScript", "CSS3", "Web Accessibility", "Performance"],
+      score: 93,
+      salary: 125000,
       remote: true,
-      availability: "1 month",
+      availability: "3 weeks",
+    },
+    {
+      id: 8,
+      name: "Rachel Green",
+      role: "UX Designer",
+      experience: 3,
+      location: "Portland, OR",
+      education: "BFA Graphic Design",
+      skills: ["Figma", "Sketch", "User Research", "Prototyping", "Mobile Design", "Design Systems"],
+      score: 90,
+      salary: 90000,
+      remote: true,
+      availability: "Immediate",
     },
   ]
 
@@ -119,11 +145,41 @@ export default function CandidateFilteringShowcase() {
       { label: "Remote", value: "remote" },
     ],
     skills: [
-      { label: "React", value: "React" },
-      { label: "Python", value: "Python" },
-      { label: "AWS", value: "AWS" },
-      { label: "Leadership", value: "Leadership" },
-      { label: "Machine Learning", value: "Machine Learning" },
+      // Frontend Skills
+      { label: "React", value: "React", group: "Frontend" },
+      { label: "TypeScript", value: "TypeScript", group: "Frontend" },
+      { label: "Vue.js", value: "Vue.js", group: "Frontend" },
+      { label: "CSS3", value: "CSS3", group: "Frontend" },
+      { label: "HTML/CSS", value: "HTML/CSS", group: "Frontend" },
+      // Backend Skills
+      { label: "Python", value: "Python", group: "Backend" },
+      { label: "Node.js", value: "Node.js", group: "Backend" },
+      { label: "PostgreSQL", value: "PostgreSQL", group: "Backend" },
+      { label: "SQL", value: "SQL", group: "Backend" },
+      // Cloud & DevOps
+      { label: "AWS", value: "AWS", group: "Cloud" },
+      { label: "Docker", value: "Docker", group: "Cloud" },
+      { label: "Redis", value: "Redis", group: "Cloud" },
+      // Design Skills
+      { label: "Figma", value: "Figma", group: "Design" },
+      { label: "Sketch", value: "Sketch", group: "Design" },
+      { label: "User Research", value: "User Research", group: "Design" },
+      { label: "Prototyping", value: "Prototyping", group: "Design" },
+      { label: "Design Systems", value: "Design Systems", group: "Design" },
+      // Data & AI
+      { label: "Machine Learning", value: "Machine Learning", group: "Data" },
+      { label: "TensorFlow", value: "TensorFlow", group: "Data" },
+      { label: "Statistics", value: "Statistics", group: "Data" },
+      // Business Skills
+      { label: "Leadership", value: "Leadership", group: "Business" },
+      { label: "Product Strategy", value: "Product Strategy", group: "Business" },
+      { label: "Agile", value: "Agile", group: "Business" },
+      { label: "Analytics", value: "Analytics", group: "Business" },
+      // Marketing Skills
+      { label: "Digital Marketing", value: "Digital Marketing", group: "Marketing" },
+      { label: "Google Analytics", value: "Google Analytics", group: "Marketing" },
+      { label: "SEO", value: "SEO", group: "Marketing" },
+      { label: "CRM", value: "CRM", group: "Marketing" },
     ],
     salary: [
       { label: "$80k - $100k", value: [80000, 100000] },
@@ -350,19 +406,139 @@ export default function CandidateFilteringShowcase() {
                 <Star className="h-4 w-4" />
                 Skills
               </h4>
-              <div className="space-y-2">
-                {filterOptions.skills.map((option, index) => (
-                  <label key={index} className="flex items-center gap-2 cursor-pointer">
-                    <input
-                      type="radio"
-                      name="skills"
-                      checked={activeFilters.skills === option.value}
-                      onChange={() => toggleFilter("skills", option.value)}
-                      className="text-violet-600"
-                    />
-                    <span className="text-sm">{option.label}</span>
-                  </label>
-                ))}
+              <div className="space-y-3">
+                {/* Frontend Skills */}
+                <div>
+                  <div className="text-xs font-medium text-gray-500 mb-2 uppercase tracking-wide">Frontend</div>
+                  <div className="space-y-2 ml-2">
+                    {filterOptions.skills.filter(skill => skill.group === "Frontend").map((option, index) => (
+                      <label key={index} className="flex items-center gap-2 cursor-pointer">
+                        <input
+                          type="radio"
+                          name="skills"
+                          checked={activeFilters.skills === option.value}
+                          onChange={() => toggleFilter("skills", option.value)}
+                          className="text-violet-600"
+                        />
+                        <span className="text-sm">{option.label}</span>
+                      </label>
+                    ))}
+                  </div>
+                </div>
+                
+                {/* Backend Skills */}
+                <div>
+                  <div className="text-xs font-medium text-gray-500 mb-2 uppercase tracking-wide">Backend</div>
+                  <div className="space-y-2 ml-2">
+                    {filterOptions.skills.filter(skill => skill.group === "Backend").map((option, index) => (
+                      <label key={index} className="flex items-center gap-2 cursor-pointer">
+                        <input
+                          type="radio"
+                          name="skills"
+                          checked={activeFilters.skills === option.value}
+                          onChange={() => toggleFilter("skills", option.value)}
+                          className="text-violet-600"
+                        />
+                        <span className="text-sm">{option.label}</span>
+                      </label>
+                    ))}
+                  </div>
+                </div>
+                
+                {/* Cloud & DevOps Skills */}
+                <div>
+                  <div className="text-xs font-medium text-gray-500 mb-2 uppercase tracking-wide">Cloud & DevOps</div>
+                  <div className="space-y-2 ml-2">
+                    {filterOptions.skills.filter(skill => skill.group === "Cloud").map((option, index) => (
+                      <label key={index} className="flex items-center gap-2 cursor-pointer">
+                        <input
+                          type="radio"
+                          name="skills"
+                          checked={activeFilters.skills === option.value}
+                          onChange={() => toggleFilter("skills", option.value)}
+                          className="text-violet-600"
+                        />
+                        <span className="text-sm">{option.label}</span>
+                      </label>
+                    ))}
+                  </div>
+                </div>
+                
+                {/* Design Skills */}
+                <div>
+                  <div className="text-xs font-medium text-gray-500 mb-2 uppercase tracking-wide">Design</div>
+                  <div className="space-y-2 ml-2">
+                    {filterOptions.skills.filter(skill => skill.group === "Design").map((option, index) => (
+                      <label key={index} className="flex items-center gap-2 cursor-pointer">
+                        <input
+                          type="radio"
+                          name="skills"
+                          checked={activeFilters.skills === option.value}
+                          onChange={() => toggleFilter("skills", option.value)}
+                          className="text-violet-600"
+                        />
+                        <span className="text-sm">{option.label}</span>
+                      </label>
+                    ))}
+                  </div>
+                </div>
+                
+                {/* Data & AI Skills */}
+                <div>
+                  <div className="text-xs font-medium text-gray-500 mb-2 uppercase tracking-wide">Data & AI</div>
+                  <div className="space-y-2 ml-2">
+                    {filterOptions.skills.filter(skill => skill.group === "Data").map((option, index) => (
+                      <label key={index} className="flex items-center gap-2 cursor-pointer">
+                        <input
+                          type="radio"
+                          name="skills"
+                          checked={activeFilters.skills === option.value}
+                          onChange={() => toggleFilter("skills", option.value)}
+                          className="text-violet-600"
+                        />
+                        <span className="text-sm">{option.label}</span>
+                      </label>
+                    ))}
+                  </div>
+                </div>
+                
+                {/* Business Skills */}
+                <div>
+                  <div className="text-xs font-medium text-gray-500 mb-2 uppercase tracking-wide">Business</div>
+                  <div className="space-y-2 ml-2">
+                    {filterOptions.skills.filter(skill => skill.group === "Business").map((option, index) => (
+                      <label key={index} className="flex items-center gap-2 cursor-pointer">
+                        <input
+                          type="radio"
+                          name="skills"
+                          checked={activeFilters.skills === option.value}
+                          onChange={() => toggleFilter("skills", option.value)}
+                          className="text-violet-600"
+                        />
+                        <span className="text-sm">{option.label}</span>
+                      </label>
+                    ))}
+                  </div>
+                </div>
+                
+                {/* Marketing Skills */}
+                <div>
+                  <div className="text-xs font-medium text-gray-500 mb-2 uppercase tracking-wide">Marketing</div>
+                  <div className="space-y-2 ml-2">
+                    {filterOptions.skills.filter(skill => skill.group === "Marketing").map((option, index) => (
+                      <label key={index} className="flex items-center gap-2 cursor-pointer">
+                        <input
+                          type="radio"
+                          name="skills"
+                          checked={activeFilters.skills === option.value}
+                          onChange={() => toggleFilter("skills", option.value)}
+                          className="text-violet-600"
+                        />
+                        <span className="text-sm">{option.label}</span>
+                      </label>
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
 

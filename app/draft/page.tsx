@@ -13,6 +13,9 @@ import { ArrowLeft, Upload, FileText, Download, Clock, Zap, Target, CheckCircle,
 import Link from "next/link"
 import { motion } from "framer-motion"
 import { useEffect, useState } from "react"
+import { useAnalytics } from "@/hooks/use-analytics"
+import { useScrollTracking } from "@/hooks/use-scroll-tracking"
+import { useTimeTracking } from "@/hooks/use-time-tracking"
 
 // Color utility to match recruiter feature icon styling
 type ColorKey = "violet" | "blue" | "purple" | "indigo" | "pink" | "gray"
@@ -29,6 +32,10 @@ const getColorClasses = (color: ColorKey): string => {
 }
 
 export default function DraftPage() {
+  const { trackEvent } = useAnalytics()
+  useScrollTracking('draft-demo-section', [25, 50, 75, 100])
+  useTimeTracking('Draft Demo', [30, 60, 120, 300])
+  
   return (
     <div className="flex min-h-screen flex-col">
       <header className="fixed top-0 left-0 right-0 z-40 bg-violet-50">
@@ -115,6 +122,7 @@ export default function DraftPage() {
                   className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-12"
                 >
                   <Button
+                    onClick={() => trackEvent('click', 'Draft CTA', 'Try Draft for Free', 1)}
                     size="lg"
                     className="w-full sm:w-auto relative overflow-hidden rounded-full bg-gradient-to-r from-violet-700 via-blue-700 to-indigo-800 text-white px-8 py-4 text-lg shadow-lg ring-1 ring-indigo-500/40 transition-all duration-200 hover:from-violet-800 hover:via-blue-800 hover:to-indigo-900 hover:shadow-2xl hover:scale-[1.02] active:scale-95"
                   >
@@ -122,6 +130,7 @@ export default function DraftPage() {
                   </Button>
                   <Link href="https://github.com/" target="_blank" className="w-full sm:w-auto">
                     <Button
+                      onClick={() => trackEvent('click', 'Draft CTA', 'GitHub Repository', 1)}
                       size="lg"
                       className="w-full sm:w-auto relative overflow-hidden rounded-full bg-gray-50 text-gray-800 p-4 shadow-lg ring-1 ring-gray-200 transition-all duration-200 hover:bg-gray-100 hover:shadow-xl hover:scale-[1.02] active:scale-95 flex items-center justify-center"
                     >
@@ -175,6 +184,7 @@ export default function DraftPage() {
 
         {/* Demo Section */}
         <section id="demo" className="py-20 bg-gradient-to-b from-white to-violet-50">
+          <div id="draft-demo-section">
           <div className="container">
             <div className="text-center max-w-3xl mx-auto mb-16">
               <h2 className="text-3xl font-bold mb-4">See Draft in Action</h2>
@@ -234,7 +244,10 @@ export default function DraftPage() {
               </div>
             </div>
 
-            <DraftDemoEmbed />
+            <div onMouseEnter={() => trackEvent('engagement', 'Draft Demo', 'Demo Section Viewed', 1)}>
+              <DraftDemoEmbed />
+            </div>
+          </div>
           </div>
         </section>
 

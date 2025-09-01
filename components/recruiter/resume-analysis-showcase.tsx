@@ -19,16 +19,18 @@ import {
   GraduationCap,
 } from "lucide-react"
 import MobileDisclaimer from "@/components/mobile-disclaimer"
+import { useAnalytics } from "@/hooks/use-analytics"
 
 export default function ResumeAnalysisShowcase() {
+  const { trackEvent } = useAnalytics()
   const [step, setStep] = useState(0)
   const [playing, setPlaying] = useState(true)
   const [uploadProgress, setUploadProgress] = useState(0)
   const [selectedResume, setSelectedResume] = useState<Resume | null>(null)
   const [showAnalysis, setShowAnalysis] = useState<boolean>(false)
   const [selectedResumes, setSelectedResumes] = useState<number[]>([])
-  const [jobType, setJobType] = useState('All')
-
+  const [filterValue, setFilterValue] = useState('all')
+  
   const resumes = [
     {
       id: 1,
@@ -81,34 +83,92 @@ export default function ResumeAnalysisShowcase() {
       status: "pending",
       skills: [],
       experience: "",
-      education: "",
       highlights: [],
       match: 0,
       aiAnalysis: "Data scientist with expertise in machine learning and model development. Shows strong research background and practical implementation skills. Recommended for technical data science interview.",
     },
+    {
+      id: 5,
+      name: "Alex_Turner_Resume.pdf",
+      candidate: "Alex Turner",
+      role: "Backend Developer",
+      score: 0,
+      status: "pending",
+      skills: ["Python", "Node.js", "PostgreSQL", "Redis", "Docker", "AWS"],
+      experience: "4 years",
+      education: "MS Computer Science",
+      highlights: ["Built microservices architecture", "Improved API response time by 60%", "Led database optimization project"],
+      match: 0,
+      aiAnalysis: "Backend developer with strong database design and API development skills. Shows expertise in scalable architecture and performance optimization. Recommended for technical backend interview.",
+    },
+    {
+      id: 6,
+      name: "Lisa_Wang_Resume.pdf",
+      candidate: "Lisa Wang",
+      role: "Marketing Manager",
+      score: 0,
+      status: "pending",
+      skills: ["Digital Marketing", "Google Analytics", "Facebook Ads", "Content Strategy", "SEO", "CRM"],
+      experience: "6 years",
+      education: "MBA Marketing",
+      highlights: ["Increased conversion rate by 45%", "Managed $500K ad budget", "Launched successful brand campaign"],
+      match: 0,
+      aiAnalysis: "Marketing professional with proven track record in digital campaigns and brand growth. Demonstrates strong analytical skills and creative strategy. Recommended for marketing strategy interview.",
+    },
+    {
+      id: 7,
+      name: "James_Miller_Resume.pdf",
+      candidate: "James Miller",
+      role: "Senior Frontend Developer",
+      score: 0,
+      status: "pending",
+      skills: ["React", "Vue.js", "TypeScript", "CSS3", "Web Accessibility", "Performance"],
+      experience: "6 years",
+      education: "BS Software Engineering",
+      highlights: ["Improved page load speed by 50%", "Implemented accessibility standards", "Mentored 3 junior developers"],
+      match: 0,
+      aiAnalysis: "Experienced frontend developer with expertise in modern frameworks and accessibility. Shows strong leadership in technical decisions and team mentoring. Recommended for senior technical interview.",
+    },
+    {
+      id: 8,
+      name: "Rachel_Green_Resume.pdf",
+      candidate: "Rachel Green",
+      role: "UX Designer",
+      score: 0,
+      status: "pending",
+      skills: ["Figma", "Sketch", "User Research", "Prototyping", "Mobile Design", "Design Systems"],
+      experience: "3 years",
+      education: "BFA Graphic Design",
+      highlights: ["Reduced user errors by 30%", "Created mobile-first design system", "Conducted 50+ user interviews"],
+      match: 0,
+      aiAnalysis: "UX designer with focus on mobile-first design and user research. Demonstrates strong empathy for users and data-driven design decisions. Recommended for design portfolio review.",
+    }
   ]
 
   type Resume = typeof resumes[number];
   const [resumeList, setResumeList] = useState<Resume[]>(resumes)
 
-  // Get unique job types from resumes
-  const jobTypes = ['All', ...Array.from(new Set(resumeList.map(r => r.role)))]
-
-  // Filter resumes by job type
-  const filteredResumes: Resume[] = jobType === 'All' ? resumeList : resumeList.filter(r => r.role === jobType)
-
-  // Select all handler
-  const allSelected = filteredResumes.length > 0 && filteredResumes.every(r => selectedResumes.includes(r.id))
-  const handleSelectAll = () => {
-    if (allSelected) {
-      setSelectedResumes(selectedResumes.filter(id => !filteredResumes.some(r => r.id === id)))
-    } else {
-      setSelectedResumes([
-        ...selectedResumes,
-        ...filteredResumes.filter(r => !selectedResumes.includes(r.id)).map(r => r.id)
-      ])
+  // Filter resumes based on selection
+  const filteredResumes: Resume[] = (() => {
+    switch (filterValue) {
+      case 'frontend':
+        return resumeList.filter(r => r.role.includes('Frontend'));
+      case 'product':
+        return resumeList.filter(r => r.role.includes('Product'));
+      case 'design':
+        return resumeList.filter(r => r.role.includes('Design'));
+      case 'data':
+        return resumeList.filter(r => r.role.includes('Data'));
+      case 'pending':
+        return resumeList.filter(r => r.status === 'pending');
+      case 'analyzed':
+        return resumeList.filter(r => r.status === 'analyzed');
+      default:
+        return resumeList;
     }
-  }
+  })()
+
+
   const handleSelectResume = (id: number) => {
     setSelectedResumes(selectedResumes.includes(id)
       ? selectedResumes.filter(rid => rid !== id)
@@ -120,6 +180,7 @@ export default function ResumeAnalysisShowcase() {
   const [analysisProgress, setAnalysisProgress] = useState(0)
 
   const handleResumeClick = (resume: Resume) => {
+    trackEvent('click', 'Recruiter Demo', `Resume Analysis - ${resume.candidate}`, 1)
     if (resume.status === "analyzed" || analyzingId !== null) {
       setSelectedResume(resume)
       setShowAnalysis(true)
@@ -180,6 +241,46 @@ export default function ResumeAnalysisShowcase() {
               match: 87,
               aiAnalysis: "Data scientist with expertise in machine learning and model development. Shows strong research background and practical implementation skills. Recommended for technical data science interview.",
             }
+          } else if (resume.id === 5) {
+            analyzedData = {
+              score: 89,
+              skills: ["Python", "Node.js", "PostgreSQL", "Redis", "Docker", "AWS"],
+              experience: "4 years",
+              education: "MS Computer Science",
+              highlights: ["Built microservices architecture", "Improved API response time by 60%", "Led database optimization project"],
+              match: 89,
+              aiAnalysis: "Backend developer with strong database design and API development skills. Shows expertise in scalable architecture and performance optimization. Recommended for technical backend interview.",
+            }
+          } else if (resume.id === 6) {
+            analyzedData = {
+              score: 91,
+              skills: ["Digital Marketing", "Google Analytics", "Facebook Ads", "Content Strategy", "SEO", "CRM"],
+              experience: "6 years",
+              education: "MBA Marketing",
+              highlights: ["Increased conversion rate by 45%", "Managed $500K ad budget", "Launched successful brand campaign"],
+              match: 91,
+              aiAnalysis: "Marketing professional with proven track record in digital campaigns and brand growth. Demonstrates strong analytical skills and creative strategy. Recommended for marketing strategy interview.",
+            }
+          } else if (resume.id === 7) {
+            analyzedData = {
+              score: 93,
+              skills: ["React", "Vue.js", "TypeScript", "CSS3", "Web Accessibility", "Performance"],
+              experience: "6 years",
+              education: "BS Software Engineering",
+              highlights: ["Improved page load speed by 50%", "Implemented accessibility standards", "Mentored 3 junior developers"],
+              match: 93,
+              aiAnalysis: "Experienced frontend developer with expertise in modern frameworks and accessibility. Shows strong leadership in technical decisions and team mentoring. Recommended for senior technical interview.",
+            }
+          } else if (resume.id === 8) {
+            analyzedData = {
+              score: 90,
+              skills: ["Figma", "Sketch", "User Research", "Prototyping", "Mobile Design", "Design Systems"],
+              experience: "3 years",
+              education: "BFA Graphic Design",
+              highlights: ["Reduced user errors by 30%", "Created mobile-first design system", "Conducted 50+ user interviews"],
+              match: 90,
+              aiAnalysis: "UX designer with focus on mobile-first design and user research. Demonstrates strong empathy for users and data-driven design decisions. Recommended for design portfolio review.",
+            }
           }
           setResumeList((prev) => {
             const updated = prev.map((r) => r.id === resume.id ? { ...r, status: "analyzed", ...analyzedData } : r)
@@ -208,7 +309,13 @@ export default function ResumeAnalysisShowcase() {
                           <span className="text-sm font-medium text-gray-500">Syphon Recruiter - Resume Analysis</span>
         </div>
         <div className="flex items-center gap-3">
-          <button onClick={() => setPlaying(!playing)} className="text-sm bg-violet-100 text-violet-700 px-2 py-1 rounded">
+          <button 
+            onClick={() => {
+              setPlaying(!playing)
+              trackEvent('click', 'Recruiter Demo', playing ? 'Pause Demo' : 'Play Demo', 1)
+            }} 
+            className="text-sm bg-violet-100 text-violet-700 px-2 py-1 rounded"
+          >
             {playing ? "Pause Demo" : "Play Demo"}
           </button>
         </div>
@@ -241,36 +348,31 @@ export default function ResumeAnalysisShowcase() {
 
           {/* Controls */}
           <div className="p-3 border-b border-gray-200 flex items-center gap-2">
-            <input
-              type="checkbox"
-              checked={allSelected}
-              onChange={handleSelectAll}
-              className="mr-2"
-              aria-label="Select all resumes"
-            />
-            <span className="text-sm mr-4">Select All</span>
-            <select
-              value={jobType}
-              onChange={e => setJobType(e.target.value)}
-              className="text-sm border border-gray-200 rounded px-2 py-1 mr-4"
-            >
-              {jobTypes.map(type => (
-                <option key={type} value={type}>{type}</option>
-              ))}
-            </select>
             <div className="relative flex-1">
               <Search className="absolute left-2 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
               <input
                 type="text"
                 placeholder="Search resumes..."
                 className="w-full pl-8 pr-2 py-1 text-sm border border-gray-200 rounded"
-                readOnly
+                defaultValue="Search"
               />
             </div>
-            <button className="flex items-center gap-1 text-sm bg-gray-100 px-2 py-1 rounded">
-              <Filter className="h-3 w-3" />
-              Filter
-            </button>
+            <div className="flex items-center gap-2">
+              <span className="text-sm text-gray-600 font-medium">Filter:</span>
+              <select 
+                value={filterValue}
+                onChange={(e) => setFilterValue(e.target.value)}
+                className="text-sm border border-gray-200 rounded px-2 py-1"
+              >
+                <option value="all">All Resumes</option>
+                <option value="frontend">Frontend Developers</option>
+                <option value="product">Product Managers</option>
+                <option value="design">UX Designers</option>
+                <option value="data">Data Scientists</option>
+                <option value="pending">Pending Analysis</option>
+                <option value="analyzed">Analyzed</option>
+              </select>
+            </div>
           </div>
 
           {/* Resume List */}

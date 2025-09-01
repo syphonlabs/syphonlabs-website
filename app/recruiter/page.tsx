@@ -1,3 +1,5 @@
+"use client"
+
 import RecruiterAnalyticsDashboard from "@/components/recruiter/recruiter-analytics-dashboard"
 import CandidateComparisonTool from "@/components/recruiter/candidate-comparison-tool"
 import ApplicantPortal from "@/components/recruiter/applicant-portal"
@@ -16,8 +18,11 @@ import { Button } from "@/components/ui/button"
 import { ArrowLeft } from "lucide-react"
 import Link from "next/link"
 import MobileMenu from "@/components/mobile-menu"
+import { useAnalytics } from "@/hooks/use-analytics"
 
 export default function RecruiterPage() {
+  const { trackEvent } = useAnalytics()
+  
   return (
     <div className="flex min-h-screen flex-col">
       <header className="fixed top-0 left-0 right-0 z-40 bg-violet-50">

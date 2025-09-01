@@ -3,6 +3,7 @@
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Check } from "lucide-react"
+import { useAnalytics } from "@/hooks/use-analytics"
 
 const plans = [
   {
@@ -62,6 +63,7 @@ const plans = [
 ]
 
 export default function RecruiterPricing() {
+  const { trackEvent } = useAnalytics()
   const colorSets = [
     {
       from: "from-violet-500",
@@ -130,6 +132,7 @@ export default function RecruiterPricing() {
                     </ul>
 
                     <Button
+                      onClick={() => trackEvent('click', 'Recruiter CTA', `${plan.name} - ${plan.cta}`, 1)}
                       className={
                         plan.popular
                           ? `rounded-full bg-gradient-to-r ${c.button} text-white`

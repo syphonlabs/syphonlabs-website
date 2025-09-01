@@ -4,19 +4,22 @@ import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
 import { Play, Pause, RotateCcw, ExternalLink } from "lucide-react"
 import MobileDisclaimer from "@/components/mobile-disclaimer"
+import { useAnalytics } from "@/hooks/use-analytics"
 
 export default function DraftDemoEmbed() {
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
+  const { trackEvent } = useAnalytics()
 
   useEffect(() => {
     // Simulate loading the demo
     const timer = setTimeout(() => {
       setIsLoading(false)
+      trackEvent('engagement', 'Draft Demo', 'Demo Loaded', 1)
     }, 2000)
 
     return () => clearTimeout(timer)
-  }, [])
+  }, [trackEvent])
 
   if (isLoading) {
     return (
@@ -61,7 +64,10 @@ export default function DraftDemoEmbed() {
             <div className="text-center">
               <p className="text-red-600 mb-4">{error}</p>
               <button 
-                onClick={() => window.open('/draft-demo', '_blank')}
+                onClick={() => {
+                  trackEvent('click', 'Draft Demo', 'Open Demo in New Tab', 1)
+                  window.open('/draft-demo', '_blank')
+                }}
                 className="flex items-center gap-2 px-4 py-2 bg-violet-600 text-white rounded-lg hover:bg-violet-700 transition-colors mx-auto"
               >
                 <ExternalLink className="w-4 h-4" />

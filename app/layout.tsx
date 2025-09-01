@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Script from 'next/script'
+import { GoogleAnalytics } from '@next/third-parties/google'
 import './globals.css'
 
 export const metadata: Metadata = {
@@ -9,7 +10,7 @@ export const metadata: Metadata = {
   },
   applicationName: 'Syphon Labs',
   description:
-    'AI-powered productivity tools for modern teams. Syphon Draft optimizes resumes and cover letters; Syphon Recruiter streamlines hiring with context-aware, private-by-design automation.',
+    'We make AI that works for people. Tools that understand you, and make your best self impossible to miss. Powered By Syphon AI, our proprietary context engine that connects the dots others miss.',
   keywords: [
     'Syphon Labs',
     'AI',
@@ -89,7 +90,7 @@ export default function RootLayout({
             url: '/',
             logo: '/Syphon Labs Logo 2.png',
             description:
-              'AI-powered productivity tools for modern teams. Syphon Draft optimizes resumes and cover letters; Syphon Recruiter streamlines hiring with context-aware, private-by-design automation.',
+              'We make AI that works for people. Tools that understand you, and make your best self impossible to miss. Powered By Syphon AI, our proprietary context engine that connects the dots others miss.',
           })}
         </Script>
         {/* Website structured data with SearchAction (AI search optimization) */}
@@ -109,6 +110,7 @@ export default function RootLayout({
       </head>
       <body>
         {children}
+        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID!} />
       </body>
     </html>
   )
