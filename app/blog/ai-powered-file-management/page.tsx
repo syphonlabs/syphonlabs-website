@@ -16,7 +16,7 @@ export default function AIPoweredFileManagementPage() {
         <div className="container relative grid grid-cols-3 items-center h-16">
           <div className="flex items-center gap-4 justify-self-start">
             <Link href="/blog">
-              <button className="flex items-center gap-2 px-3 py-2 rounded-lg bg-gray-100 text-gray-700 font-medium shadow-sm hover:bg-gray-200 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-gray-400 md:px-4 md:bg-gradient-to-r md:from-violet-500 md:to-indigo-600 md:text-white md:rounded-full md:shadow-lg md:hover:from-violet-600 md:hover:to-indigo-700">
+              <button className="flex items-center gap-2 px-4 py-2 rounded-full bg-gray-100 text-gray-700 font-medium shadow-sm hover:bg-gray-200 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-gray-400 md:px-4 md:bg-gradient-to-r md:from-violet-500 md:to-indigo-600 md:text-white md:rounded-full md:shadow-lg md:hover:from-violet-600 md:hover:to-indigo-700">
                 <ChevronLeft className="h-4 w-4" />
                 <span className="hidden md:inline">Back to Blog</span>
                 <span className="md:hidden">Back</span>
@@ -24,7 +24,7 @@ export default function AIPoweredFileManagementPage() {
             </Link>
             <Link href="/" className="flex items-center gap-2">
               <img src="/Syphon Labs Logo 2.png" alt="Syphon Labs" className="h-8 w-8 rounded-full" />
-              <span className="text-xl font-bold">Syphon Labs</span>
+              <span className="text-xl font-bold whitespace-nowrap">Syphon Labs</span>
             </Link>
           </div>
           <div className="hidden md:block justify-self-center">

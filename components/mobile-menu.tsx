@@ -28,7 +28,7 @@ export default function MobileMenu() {
               <div className="flex items-center gap-3">
                 <img src="/Syphon Labs Logo 2.png" alt="Syphon Labs" className="h-8 w-8 rounded-lg" />
                 <div>
-                  <h2 className="text-lg font-bold text-gray-900">Syphon Labs</h2>
+                  <h2 className="text-lg font-bold text-gray-900 whitespace-nowrap">Syphon Labs</h2>
                   <p className="text-xs text-gray-500">AI-powered solutions</p>
                 </div>
               </div>

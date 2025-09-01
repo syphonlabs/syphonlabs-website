@@ -19,7 +19,7 @@ export default function AboutPage() {
             <Link href="/" className="inline-flex" aria-label="Go to home">
               <img src="/Syphon Labs Logo 2.png" alt="Syphon Labs" className="h-8 w-8 rounded-full" />
             </Link>
-            <span className="text-xl font-bold">Syphon Labs</span>
+            <span className="text-xl font-bold whitespace-nowrap">Syphon Labs</span>
           </div>
           <div className="hidden md:block justify-self-center">
             <Navigation />

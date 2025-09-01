@@ -51,7 +51,7 @@ export default function LandingPage() {
         <div className="container relative grid grid-cols-3 items-center h-16">
           <Link href="/" className="flex items-center gap-2 justify-self-start">
             <img src="/Syphon Labs Logo 2.png" alt="Syphon Labs" className="h-8 w-8 rounded-full" />
-            <span className="text-xl font-bold">Syphon Labs</span>
+            <span className="text-xl font-bold whitespace-nowrap">Syphon Labs</span>
           </Link>
           <div className="hidden md:block justify-self-center">
             <Navigation />

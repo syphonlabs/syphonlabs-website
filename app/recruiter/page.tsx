@@ -18,6 +18,7 @@ import { Button } from "@/components/ui/button"
 import { ArrowLeft } from "lucide-react"
 import Link from "next/link"
 import MobileMenu from "@/components/mobile-menu"
+import MobileDisclaimer from "@/components/mobile-disclaimer"
 import { useAnalytics } from "@/hooks/use-analytics"
 
 export default function RecruiterPage() {
@@ -29,7 +30,7 @@ export default function RecruiterPage() {
         <div className="container relative grid grid-cols-3 items-center h-16">
           <Link href="/" className="flex items-center gap-2 justify-self-start">
             <img src="/Syphon Labs Logo 2.png" alt="Syphon Labs" className="h-8 w-8 rounded-full" />
-            <span className="text-xl font-bold">Syphon Labs</span>
+            <span className="text-xl font-bold whitespace-nowrap">Syphon Labs</span>
           </Link>
           <div className="hidden md:block justify-self-center">
             <Navigation />
@@ -55,7 +56,22 @@ export default function RecruiterPage() {
             </div>
 
             <div className="max-w-5xl mx-auto">
-              <ResumeAnalysisShowcase />
+              <div className="md:hidden relative">
+                <video
+                  id="video-resume"
+                  src="/recruiter demo videos/intelligen resume scanning.mp4"
+                  controls
+                  playsInline
+                  autoPlay
+                  muted
+                  loop
+                  className="w-full rounded-xl shadow aspect-video"
+                />
+                <MobileDisclaimer targetVideoId="video-resume" />
+              </div>
+              <div className="hidden md:block">
+                <ResumeAnalysisShowcase />
+              </div>
             </div>
           </div>
         </section>
@@ -71,7 +87,22 @@ export default function RecruiterPage() {
             </div>
 
             <div className="max-w-5xl mx-auto">
-              <CandidateFilteringShowcase />
+              <div className="md:hidden relative">
+                <video
+                  id="video-filtering"
+                  src="/recruiter demo videos/advanced candidte filetring.mp4"
+                  controls
+                  playsInline
+                  autoPlay
+                  muted
+                  loop
+                  className="w-full rounded-xl shadow aspect-video"
+                />
+                <MobileDisclaimer targetVideoId="video-filtering" />
+              </div>
+              <div className="hidden md:block">
+                <CandidateFilteringShowcase />
+              </div>
             </div>
           </div>
         </section>
@@ -87,7 +118,22 @@ export default function RecruiterPage() {
             </div>
 
             <div className="max-w-5xl mx-auto">
-              <InterviewSchedulingShowcase />
+              <div className="md:hidden relative">
+                <video
+                  id="video-interview"
+                  src="/recruiter demo videos/seamless interview management.mp4"
+                  controls
+                  playsInline
+                  autoPlay
+                  muted
+                  loop
+                  className="w-full rounded-xl shadow aspect-video"
+                />
+                <MobileDisclaimer targetVideoId="video-interview" />
+              </div>
+              <div className="hidden md:block">
+                <InterviewSchedulingShowcase />
+              </div>
             </div>
           </div>
         </section>
@@ -105,7 +151,22 @@ export default function RecruiterPage() {
             </div>
 
             <div className="max-w-6xl mx-auto">
-              <RecruiterAnalyticsDashboard />
+              <div className="md:hidden relative">
+                <video
+                  id="video-analytics"
+                  src="/recruiter demo videos/compregensice recruitement analytics.mp4"
+                  controls
+                  playsInline
+                  autoPlay
+                  muted
+                  loop
+                  className="w-full rounded-xl shadow aspect-video"
+                />
+                <MobileDisclaimer targetVideoId="video-analytics" />
+              </div>
+              <div className="hidden md:block">
+                <RecruiterAnalyticsDashboard />
+              </div>
             </div>
           </div>
         </section>
@@ -121,7 +182,22 @@ export default function RecruiterPage() {
             </div>
 
             <div className="max-w-6xl mx-auto">
-              <CandidateComparisonTool />
+              <div className="md:hidden relative">
+                <video
+                  id="video-comparison"
+                  src="/recruiter demo videos/advanced candidate comparison.mp4"
+                  controls
+                  playsInline
+                  autoPlay
+                  muted
+                  loop
+                  className="w-full rounded-xl shadow aspect-video"
+                />
+                <MobileDisclaimer targetVideoId="video-comparison" />
+              </div>
+              <div className="hidden md:block">
+                <CandidateComparisonTool />
+              </div>
             </div>
           </div>
         </section>
@@ -137,7 +213,22 @@ export default function RecruiterPage() {
             </div>
 
             <div className="max-w-6xl mx-auto">
-              <TeamCollaborationTool />
+              <div className="md:hidden relative">
+                <video
+                  id="video-collaboration"
+                  src="/recruiter demo videos/team collaboration.mp4"
+                  controls
+                  playsInline
+                  autoPlay
+                  muted
+                  loop
+                  className="w-full rounded-xl shadow aspect-video"
+                />
+                <MobileDisclaimer targetVideoId="video-collaboration" />
+              </div>
+              <div className="hidden md:block">
+                <TeamCollaborationTool />
+              </div>
             </div>
           </div>
         </section>

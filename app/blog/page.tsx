@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button"
 import Navigation from "@/components/navigation"
 import MobileMenu from "@/components/mobile-menu"
 import Footer from "@/components/footer"
-import { ArrowLeft, Calendar, Clock, User, Tag, ExternalLink, ChevronRight, ChevronDown } from "lucide-react"
+import { ArrowLeft, Calendar, Clock, User, Tag, ExternalLink, ChevronRight, ChevronDown, Filter } from "lucide-react"
 import Link from "next/link"
 import { motion } from "framer-motion"
 import { Brain, Code, TrendingUp, Lightbulb, Globe, Award, Zap, Target } from "lucide-react"
@@ -13,6 +13,7 @@ import { useState, useMemo } from "react"
 export default function BlogPage() {
   // State for filter categories
   const [selectedCategories, setSelectedCategories] = useState<string[]>([])
+  const [showMobileFilters, setShowMobileFilters] = useState(false)
 
   // Available categories
   const categories = [
@@ -133,7 +134,7 @@ export default function BlogPage() {
           <div className="flex items-center gap-2 justify-self-start">
             <Link href="/" className="flex items-center gap-2">
               <img src="/Syphon Labs Logo.png" alt="Syphon Labs" className="h-8 w-8 rounded-full" />
-              <span className="text-xl font-bold">Syphon Labs</span>
+              <span className="text-xl font-bold whitespace-nowrap">Syphon Labs</span>
             </Link>
           </div>
           <div className="hidden md:block justify-self-center">
@@ -240,13 +241,9 @@ export default function BlogPage() {
 
               {/* Right Content - Articles */}
               <div className="flex-1 max-w-4xl mx-auto lg:mx-0">
-                {/* Mobile Filter Section */}
-                <div className="lg:hidden mb-6">
-                  <details className="bg-gray-50 rounded-lg p-4">
-                    <summary className="flex items-center justify-between cursor-pointer font-medium text-gray-900 mb-3">
-                      <span>Filter by Category</span>
-                      <ChevronDown className="h-4 w-4 text-gray-500" />
-                    </summary>
+                {/* Mobile Filter trigger will sit to the right of the title below */}
+                {showMobileFilters && (
+                  <div className="lg:hidden mb-6 bg-gray-50 rounded-xl p-4 border border-violet-100">
                     <div className="space-y-3">
                       {categories.map((category, index) => (
                         <label key={index} className="flex items-center gap-3 cursor-pointer hover:text-violet-600 transition-colors">
@@ -260,35 +257,46 @@ export default function BlogPage() {
                         </label>
                       ))}
                       {selectedCategories.length > 0 && (
-                        <div className="pt-3 border-t border-gray-200">
+                        <div className="pt-3 border-t border-gray-200 flex justify-end">
                           <button 
                             onClick={() => setSelectedCategories([])}
                             className="text-sm text-violet-600 hover:text-violet-700 font-medium"
                           >
-                            Clear all filters
+                            Clear all
                           </button>
                         </div>
                       )}
                     </div>
-                  </details>
-                </div>
+                  </div>
+                )}
 
-                <div className="flex items-center justify-between mb-8">
+                <div className="flex items-center justify-between mb-4">
                   <h2 className="text-2xl font-bold text-gray-900">
                     {selectedCategories.length > 0 ? `Filtered articles (${filteredArticles.length})` : "All articles"}
                   </h2>
-                  {selectedCategories.length > 0 && (
-                    <div className="flex items-center gap-2">
-                      <span className="text-sm text-gray-500">Filtered by:</span>
-                      <div className="flex gap-2">
-                        {selectedCategories.map((category, index) => (
-                          <span key={index} className="px-2 py-1 bg-violet-100 text-violet-700 text-xs rounded-full">
-                            {category}
-                          </span>
-                        ))}
+                  <div className="flex items-center gap-2">
+                    <button
+                      onClick={() => setShowMobileFilters(!showMobileFilters)}
+                      className="lg:hidden inline-flex items-center gap-2 rounded-full border border-violet-200 bg-white px-4 py-2 text-sm font-medium text-violet-700 shadow-sm active:scale-95"
+                      aria-expanded={showMobileFilters}
+                    >
+                      <Filter className="h-4 w-4" />
+                      Filter
+                      <ChevronDown className={`h-4 w-4 transition-transform ${showMobileFilters ? "rotate-180" : "rotate-0"}`} />
+                    </button>
+                    {selectedCategories.length > 0 && (
+                      <div className="hidden lg:flex items-center gap-2">
+                        <span className="text-sm text-gray-500">Filtered by:</span>
+                        <div className="flex gap-2">
+                          {selectedCategories.map((category, index) => (
+                            <span key={index} className="px-2 py-1 bg-violet-100 text-violet-700 text-xs rounded-full">
+                              {category}
+                            </span>
+                          ))}
+                        </div>
                       </div>
-                    </div>
-                  )}
+                    )}
+                  </div>
                 </div>
                 
                 <div className="grid gap-6 grid-cols-1 md:grid-cols-2">

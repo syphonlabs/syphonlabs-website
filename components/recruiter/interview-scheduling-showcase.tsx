@@ -128,6 +128,10 @@ export default function InterviewSchedulingShowcase() {
     { id: 3, name: "Mark Davis", role: "Product Lead", avatar: "/placeholder.svg?height=32&width=32" },
   ]
 
+  // User selections
+  const [selectedType, setSelectedType] = useState<'video' | 'phone' | 'inperson'>('video')
+  const [selectedInterviewerId, setSelectedInterviewerId] = useState<number>(interviewers[0]?.id || 1)
+
   // Auto-play demonstration
   useEffect(() => {
     if (!playing) return
@@ -151,8 +155,8 @@ export default function InterviewSchedulingShowcase() {
           id: Date.now(),
           candidate: selectedCandidate,
           slot: timeSlots.find((s) => s.id === selectedSlotId) || timeSlots[1],
-          interviewer: interviewers[0],
-          type: "video",
+          interviewer: interviewers.find(i => i.id === selectedInterviewerId) || interviewers[0],
+          type: selectedType,
           status: "scheduled",
         }
         setScheduledInterviews([newInterview])
@@ -169,7 +173,7 @@ export default function InterviewSchedulingShowcase() {
     }, 3000)
 
     return () => clearTimeout(timer)
-  }, [step, playing])
+  }, [step, playing, selectedInterviewerId, selectedType])
 
   const handlePlayPause = () => {
     setPlaying(!playing)
@@ -205,8 +209,8 @@ export default function InterviewSchedulingShowcase() {
         id: Date.now(),
         candidate: selectedCandidate,
         slot: selectedSlot,
-        interviewer: interviewers[0],
-        type: "video",
+        interviewer: interviewers.find(i => i.id === selectedInterviewerId) || interviewers[0],
+        type: selectedType,
         status: "scheduled",
       }
       console.log('Created interview:', newInterview)
@@ -363,17 +367,17 @@ export default function InterviewSchedulingShowcase() {
                   <h4 className="font-medium mb-2">Interview Type</h4>
                   <div className="space-y-2">
                     <label className="flex items-center gap-2 cursor-pointer">
-                      <input type="radio" name="type" defaultChecked className="text-violet-600" />
+                      <input type="radio" name="type" checked={selectedType === 'video'} onChange={() => setSelectedType('video')} className="text-violet-600" />
                       <Video className="h-4 w-4" />
                       <span className="text-sm">Video Call</span>
                     </label>
                     <label className="flex items-center gap-2 cursor-pointer">
-                      <input type="radio" name="type" className="text-violet-600" />
+                      <input type="radio" name="type" checked={selectedType === 'phone'} onChange={() => setSelectedType('phone')} className="text-violet-600" />
                       <Phone className="h-4 w-4" />
                       <span className="text-sm">Phone Call</span>
                     </label>
                     <label className="flex items-center gap-2 cursor-pointer">
-                      <input type="radio" name="type" className="text-violet-600" />
+                      <input type="radio" name="type" checked={selectedType === 'inperson'} onChange={() => setSelectedType('inperson')} className="text-violet-600" />
                       <MapPin className="h-4 w-4" />
                       <span className="text-sm">In-Person</span>
                     </label>
@@ -382,7 +386,11 @@ export default function InterviewSchedulingShowcase() {
 
                 <div className="mb-4">
                   <h4 className="font-medium mb-2">Interviewer</h4>
-                  <select className="w-full p-2 border border-gray-300 rounded text-sm">
+                  <select
+                    className="w-full p-2 border border-gray-300 rounded text-sm"
+                    value={selectedInterviewerId}
+                    onChange={(e) => setSelectedInterviewerId(parseInt(e.target.value))}
+                  >
                     {interviewers.map((interviewer) => (
                       <option key={interviewer.id} value={interviewer.id}>
                         {interviewer.name} - {interviewer.role}
@@ -442,8 +450,20 @@ export default function InterviewSchedulingShowcase() {
                             </span>
                           </div>
                           <div className="flex items-center gap-2">
-                            <Video className="h-3 w-3" />
-                            <span>Video Interview</span>
+                            {interview.type === 'video' ? (
+                              <Video className="h-3 w-3" />
+                            ) : interview.type === 'phone' ? (
+                              <Phone className="h-3 w-3" />
+                            ) : (
+                              <MapPin className="h-3 w-3" />
+                            )}
+                            <span>
+                              {interview.type === 'video'
+                                ? 'Video Interview'
+                                : interview.type === 'phone'
+                                  ? 'Phone Interview'
+                                  : 'In-Person Interview'}
+                            </span>
                           </div>
                           <div className="flex items-center gap-2">
                             <User className="h-3 w-3" />

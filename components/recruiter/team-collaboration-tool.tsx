@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useMemo } from "react"
 import {
   Users,
   User,
@@ -29,6 +29,10 @@ export default function TeamCollaborationTool() {
   const [selectedCandidate, setSelectedCandidate] = useState(null)
   const [expandedSection, setExpandedSection] = useState("feedback")
   const [newComment, setNewComment] = useState("")
+  const [searchQuery, setSearchQuery] = useState("")
+  const [positionFilter, setPositionFilter] = useState("All Positions")
+  const [stageFilter, setStageFilter] = useState("All Stages")
+  
 
   // Mock data
   const team = [
@@ -327,6 +331,23 @@ export default function TeamCollaborationTool() {
     }
   }
 
+  // Derived filtered list
+  const filteredCandidates = useMemo(() => {
+    return candidates.filter((candidate) => {
+      const matchesSearch = searchQuery
+        ? `${candidate.name} ${candidate.role}`.toLowerCase().includes(searchQuery.toLowerCase())
+        : true
+
+      const matchesPosition =
+        positionFilter === "All Positions" || candidate.role.toLowerCase().includes(positionFilter.toLowerCase())
+
+      const matchesStage =
+        stageFilter === "All Stages" || candidate.status.toLowerCase() === stageFilter.toLowerCase()
+
+      return matchesSearch && matchesPosition && matchesStage
+    })
+  }, [candidates, searchQuery, positionFilter, stageFilter])
+
   return (
     <div className="rounded-xl border border-gray-200 bg-white shadow-lg overflow-hidden relative">
       {/* Header */}
@@ -412,34 +433,45 @@ export default function TeamCollaborationTool() {
                 type="text"
                 placeholder="Search candidates..."
                 className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg text-sm"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
               />
             </div>
             <div className="flex items-center gap-2 mt-2">
-              <select className="text-xs border border-gray-300 rounded px-2 py-1 flex-1">
+              <select
+                className="text-xs border border-gray-300 rounded px-2 py-1 flex-1"
+                value={positionFilter}
+                onChange={(e) => setPositionFilter(e.target.value)}
+              >
                 <option>All Positions</option>
                 <option>Frontend Developer</option>
+                <option>Senior Frontend Developer</option>
+                <option>Backend Developer</option>
                 <option>UX Designer</option>
                 <option>Data Scientist</option>
+                <option>Marketing Manager</option>
               </select>
-              <select className="text-xs border border-gray-300 rounded px-2 py-1 flex-1">
+              <select
+                className="text-xs border border-gray-300 rounded px-2 py-1 flex-1"
+                value={stageFilter}
+                onChange={(e) => setStageFilter(e.target.value)}
+              >
                 <option>All Stages</option>
-                <option>Applied</option>
                 <option>Screening</option>
+                <option>Assessment</option>
                 <option>Interview</option>
                 <option>Offer</option>
               </select>
-              <button className="flex items-center gap-1 text-xs border border-gray-300 rounded px-2 py-1">
-                <Filter className="h-3 w-3" />
-                More
-              </button>
+              
             </div>
+            
           </div>
 
           {/* Candidates List */}
           <div className="flex-1 overflow-y-auto">
             {activeTab === "candidates" && (
               <div className="p-3 space-y-3">
-                {candidates.map((candidate) => (
+                {filteredCandidates.map((candidate) => (
                   <div
                     key={candidate.id}
                     onClick={() => handleCandidateSelect(candidate)}

@@ -9,6 +9,7 @@ import DraftPricing from "@/components/draft-pricing"
 import FAQ from "@/components/faq"
 import Newsletter from "@/components/newsletter"
 import DraftDemoEmbed from "@/components/draft-demo-embed"
+import MobileDisclaimer from "@/components/mobile-disclaimer"
 import { ArrowLeft, Upload, FileText, Download, Clock, Zap, Target, CheckCircle, Star, Shield, MessageCircle, Play, Github } from "lucide-react"
 import Link from "next/link"
 import { motion } from "framer-motion"
@@ -42,7 +43,7 @@ export default function DraftPage() {
         <div className="container relative grid grid-cols-3 items-center h-16">
           <Link href="/" className="flex items-center gap-2 justify-self-start">
             <img src="/Syphon Labs Logo 2.png" alt="Syphon Labs" className="h-8 w-8 rounded-full" />
-            <span className="text-xl font-bold">Syphon Labs</span>
+            <span className="text-xl font-bold whitespace-nowrap">Syphon Labs</span>
           </Link>
           <div className="hidden md:block justify-self-center">
             <Navigation />
@@ -119,20 +120,20 @@ export default function DraftPage() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.5 }}
-                  className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-12"
+                  className="flex flex-row gap-4 justify-center lg:justify-start mb-12"
                 >
                   <Button
                     onClick={() => trackEvent('click', 'Draft CTA', 'Try Draft for Free', 1)}
                     size="lg"
-                    className="w-full sm:w-auto relative overflow-hidden rounded-full bg-gradient-to-r from-violet-700 via-blue-700 to-indigo-800 text-white px-8 py-4 text-lg shadow-lg ring-1 ring-indigo-500/40 transition-all duration-200 hover:from-violet-800 hover:via-blue-800 hover:to-indigo-900 hover:shadow-2xl hover:scale-[1.02] active:scale-95"
+                    className="relative overflow-hidden rounded-full bg-gradient-to-r from-violet-700 via-blue-700 to-indigo-800 text-white px-8 py-4 text-lg shadow-lg ring-1 ring-indigo-500/40 transition-all duration-200 hover:from-violet-800 hover:via-blue-800 hover:to-indigo-900 hover:shadow-2xl hover:scale-[1.02] active:scale-95"
                   >
                     Try Draft for Free
                   </Button>
-                  <Link href="https://github.com/" target="_blank" className="w-full sm:w-auto">
+                  <Link href="https://github.com/" target="_blank">
                     <Button
                       onClick={() => trackEvent('click', 'Draft CTA', 'GitHub Repository', 1)}
                       size="lg"
-                      className="w-full sm:w-auto relative overflow-hidden rounded-full bg-gray-50 text-gray-800 p-4 shadow-lg ring-1 ring-gray-200 transition-all duration-200 hover:bg-gray-100 hover:shadow-xl hover:scale-[1.02] active:scale-95 flex items-center justify-center"
+                      className="relative overflow-hidden rounded-full bg-gray-50 text-gray-800 w-12 h-12 p-0 sm:w-auto sm:h-auto sm:p-4 shadow-lg ring-1 ring-gray-200 transition-all duration-200 hover:bg-gray-100 hover:shadow-xl hover:scale-[1.02] active:scale-95 flex items-center justify-center"
                     >
                       <Github className="h-6 w-6" />
                     </Button>
@@ -244,8 +245,23 @@ export default function DraftPage() {
               </div>
             </div>
 
-            <div onMouseEnter={() => trackEvent('engagement', 'Draft Demo', 'Demo Section Viewed', 1)}>
-              <DraftDemoEmbed />
+            <div className="max-w-7xl mx-auto">
+              <div className="md:hidden relative">
+                <video
+                  id="video-draft"
+                  src="/draft demo video.mp4"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  controls
+                  className="w-full rounded-xl shadow aspect-video"
+                />
+                <MobileDisclaimer targetVideoId="video-draft" />
+              </div>
+              <div className="hidden md:block" onMouseEnter={() => trackEvent('engagement', 'Draft Demo', 'Demo Section Viewed', 1)}>
+                <DraftDemoEmbed />
+              </div>
             </div>
           </div>
           </div>

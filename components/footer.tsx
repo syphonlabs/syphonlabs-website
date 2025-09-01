@@ -9,7 +9,7 @@ export default function Footer() {
           <div>
             <div className="flex items-center gap-2 mb-6">
               <img src="/Syphon Labs Logo.png" alt="Syphon Labs" className="h-10 w-10 rounded-full" />
-              <span className="text-2xl font-bold">Syphon Labs</span>
+              <span className="text-2xl font-bold whitespace-nowrap">Syphon Labs</span>
             </div>
             <p className="text-gray-400 mb-6 leading-relaxed">
               Building the future of AI-powered productivity tools for modern teams.
