@@ -1,8 +1,8 @@
 "use client"
-
 import { Button } from "@/components/ui/button"
 import { motion } from "framer-motion"
 import Link from "next/link"
+import Image from "next/image"
 import { useState } from "react"
 import { useAnalytics } from "@/hooks/use-analytics"
 import {
@@ -50,7 +50,7 @@ export default function LandingPage() {
       <header className="fixed top-0 left-0 right-0 z-40 bg-violet-50">
         <div className="container relative grid grid-cols-3 items-center h-16">
           <Link href="/" className="flex items-center gap-2 justify-self-start">
-            <img src="/Syphon Labs Logo 2.png" alt="Syphon Labs" className="h-8 w-8 rounded-full" />
+            <Image src="/Syphon Labs Logo 2.png" alt="Syphon Labs" width={32} height={32} className="h-8 w-8 rounded-full" />
             <span className="text-xl font-bold whitespace-nowrap">Syphon Labs</span>
           </Link>
           <div className="hidden md:block justify-self-center">
@@ -67,7 +67,7 @@ export default function LandingPage() {
         {/* Hero Section */}
         <section className="relative overflow-hidden min-h-[calc(100vh-4rem)] flex items-center py-16 md:py-24 bg-gradient-to-br from-violet-50 via-white to-indigo-50">
           {/* Animated background elements */}
-          <div className="absolute inset-0">
+          <div className="absolute inset-0 pointer-events-none">
             <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-violet-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
             <div className="absolute top-1/3 right-1/4 w-72 h-72 bg-indigo-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
             <div className="absolute bottom-1/4 left-1/3 w-72 h-72 bg-purple-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
@@ -115,10 +115,14 @@ export default function LandingPage() {
                     className="relative"
                   >
                     <div className="absolute inset-0 bg-gradient-to-r from-violet-400/20 to-indigo-400/20 rounded-full blur-xl animate-pulse"></div>
-                     <img 
-                      src="/Syphon Labs Logo 2.png" 
-                      alt="Syphon Labs" 
-                      className="relative h-28 w-28 md:h-36 md:w-36 lg:h-48 lg:w-48 rounded-full shadow-2xl border-4 border-white/30 backdrop-blur-sm hover:scale-110 transition-all duration-300 hover:shadow-3xl" 
+                    <Image
+                      src="/Syphon Labs Logo 2.png"
+                      alt="Syphon Labs"
+                      width={192}
+                      height={192}
+                      priority
+                      sizes="(min-width: 1024px) 12rem, (min-width: 768px) 9rem, 7rem"
+                      className="relative h-28 w-28 md:h-36 md:w-36 lg:h-48 lg:w-48 rounded-full shadow-2xl border-4 border-white/30 backdrop-blur-sm hover:scale-110 transition-all duration-300 hover:shadow-3xl"
                     />
                     {/* Removed decorative star */}
                   </motion.div>
@@ -168,7 +172,7 @@ export default function LandingPage() {
         {/* Products Section */}
         <section id="products" className="py-16 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden">
           {/* Background decoration */}
-          <div className="absolute top-0 left-0 w-full h-full">
+          <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
             <div className="absolute top-1/4 right-0 w-96 h-96 bg-gradient-to-br from-violet-100 to-purple-100 rounded-full blur-3xl opacity-30"></div>
             <div className="absolute bottom-1/4 left-0 w-96 h-96 bg-gradient-to-br from-indigo-100 to-blue-100 rounded-full blur-3xl opacity-30"></div>
             <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-br from-purple-100 to-pink-100 rounded-full blur-3xl opacity-20"></div>
@@ -415,7 +419,7 @@ export default function LandingPage() {
         {/* FAQ Section */}
         <section id="faq" className="py-16 bg-gradient-to-br from-violet-50 via-white to-indigo-50 relative overflow-hidden">
           {/* Background decoration */}
-          <div className="absolute inset-0">
+          <div className="absolute inset-0 pointer-events-none">
             <div className="absolute top-0 left-1/4 w-64 h-64 bg-gradient-to-br from-violet-100 to-purple-100 rounded-full blur-3xl opacity-20"></div>
             <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-gradient-to-br from-indigo-100 to-blue-100 rounded-full blur-3xl opacity-20"></div>
             <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-gradient-to-br from-purple-100 to-pink-100 rounded-full blur-3xl opacity-15"></div>

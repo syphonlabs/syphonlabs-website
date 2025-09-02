@@ -26,7 +26,7 @@ export default function MobileMenu() {
           <div className="p-6">
             <div className="flex items-center justify-between mb-6">
               <div className="flex items-center gap-3">
-                <img src="/Syphon Labs Logo 2.png" alt="Syphon Labs" className="h-8 w-8 rounded-lg" />
+                <img src="/Syphon Labs Logo 2.png" alt="Syphon Labs logo" className="h-8 w-8 rounded-full bg-transparent" style={{ backgroundColor: 'transparent' }} />
                 <div>
                   <h2 className="text-lg font-bold text-gray-900 whitespace-nowrap">Syphon Labs</h2>
                   <p className="text-xs text-gray-500">AI-powered solutions</p>

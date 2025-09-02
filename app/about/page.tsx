@@ -6,6 +6,7 @@ import MobileMenu from "@/components/mobile-menu"
 import Footer from "@/components/footer"
 import Newsletter from "@/components/newsletter"
 import { Users } from "lucide-react"
+import Image from "next/image"
 import Link from "next/link"
 import { motion } from "framer-motion"
 import { GraduationCap, Brain, Lightbulb, Globe, Code, Shield } from "lucide-react"
@@ -14,17 +15,15 @@ export default function AboutPage() {
   return (
     <div className="flex min-h-screen flex-col">
       <header className="fixed top-0 left-0 right-0 z-40 bg-violet-50">
-        <div className="container relative grid grid-cols-3 items-center h-16">
-          <div className="flex items-center gap-2 justify-self-start">
-            <Link href="/" className="inline-flex" aria-label="Go to home">
-              <img src="/Syphon Labs Logo 2.png" alt="Syphon Labs" className="h-8 w-8 rounded-full" />
-            </Link>
+        <div className="container relative flex items-center justify-between h-16">
+          <Link href="/" className="flex items-center gap-2 flex-shrink-0">
+            <Image src="/Syphon Labs Logo 2.png" alt="Syphon Labs" width={32} height={32} className="h-8 w-8 rounded-full" />
             <span className="text-xl font-bold whitespace-nowrap">Syphon Labs</span>
-          </div>
-          <div className="hidden md:block justify-self-center">
+          </Link>
+          <div className="hidden md:block">
             <Navigation />
           </div>
-          <div className="flex items-center gap-4 justify-self-end">
+          <div className="flex items-center gap-4">
             {/* Mobile menu is now absolutely positioned */}
           </div>
           <MobileMenu />
@@ -47,7 +46,7 @@ export default function AboutPage() {
                 transition={{ duration: 0.5, delay: 0.2 }}
                 className="flex items-center justify-center gap-4 mb-6"
               >
-                <img src="/Syphon Labs Logo 2.png" alt="Syphon Labs" className="h-16 w-16 rounded-full shadow-lg" />
+                <Image src="/Syphon Labs Logo 2.png" alt="Syphon Labs" width={64} height={64} priority className="h-16 w-16 rounded-full shadow-lg" />
               </motion.div>
               
               <motion.h1
@@ -125,7 +124,7 @@ export default function AboutPage() {
                     <div className="pointer-events-none absolute -top-10 -left-10 h-24 w-24 rounded-full bg-indigo-200/50 blur-2xl" />
                     <div className="pointer-events-none absolute -bottom-12 -right-12 h-28 w-28 rounded-full bg-blue-200/50 blur-2xl" />
                     {/* watermark */}
-                    <img src="/Syphon Labs Logo 2.png" alt="" className="pointer-events-none absolute -top-6 -right-6 h-24 w-24 opacity-10 blur-[1px] rounded-full" />
+                    <img src="/Syphon Labs Logo 2.png" alt="" aria-hidden="true" className="pointer-events-none absolute -top-6 -right-6 h-24 w-24 opacity-10 blur-[1px] rounded-full" />
                     {/* accent bar */}
                     <div className="mx-auto mb-4 h-1.5 w-16 rounded-full bg-gradient-to-r from-indigo-600 to-blue-700" />
                     <div className="space-y-4 text-base text-gray-700 leading-relaxed">

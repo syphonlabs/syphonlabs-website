@@ -6,6 +6,7 @@ import MobileMenu from "@/components/mobile-menu"
 import Footer from "@/components/footer"
 import { ArrowLeft, Calendar, Clock, User, Tag, ChevronLeft, Share2, Bookmark } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 import { motion } from "framer-motion"
 import { Brain, Code, TrendingUp, Lightbulb, Globe, Award, Zap, Target, Terminal } from "lucide-react"
 
@@ -23,7 +24,7 @@ export default function FutureOfDeveloperToolsPage() {
               </button>
             </Link>
             <Link href="/" className="flex items-center gap-2">
-              <img src="/Syphon Labs Logo.png" alt="Syphon Labs" className="h-8 w-8 rounded-full" />
+              <Image src="/Syphon Labs Logo.png" alt="Syphon Labs" width={32} height={32} priority className="h-8 w-8 rounded-full" />
               <span className="text-xl font-bold">Syphon Labs</span>
             </Link>
           </div>

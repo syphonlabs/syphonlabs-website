@@ -20,7 +20,7 @@ export default function Navigation() {
             </span>
           </Button>
         </DropdownMenuTrigger>
-        <DropdownMenuContent align="start" className="w-[440px] p-2 rounded-2xl shadow-xl ring-1 ring-gray-200 bg-white">
+        <DropdownMenuContent align="start" className="z-[60] w-[440px] p-2 rounded-2xl shadow-xl ring-1 ring-gray-200 bg-white">
           {/* Items */}
           <div className="grid gap-2">
             {/* Syphon Draft (first) */}

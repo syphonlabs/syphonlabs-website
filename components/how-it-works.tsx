@@ -86,7 +86,7 @@ export default function HowItWorks() {
                   ) : null
                 ) : (
                   <div className="rounded-xl border border-gray-200 bg-white p-2 shadow-lg">
-                    <img src={step.image || "/placeholder.svg"} alt={step.title} className="w-full h-auto rounded-lg" />
+                    <img src={step.image || "/placeholder.svg"} alt={`${step.title} illustration`} className="w-full h-auto rounded-lg" />
                   </div>
                 )}
 

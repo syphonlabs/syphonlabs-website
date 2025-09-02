@@ -16,7 +16,7 @@ export default function CareersPage() {
         <div className="container relative grid grid-cols-3 items-center h-16">
           <div className="flex items-center gap-2 justify-self-start">
             <Link href="/" className="inline-flex" aria-label="Go to home">
-              <img src="/Syphon Labs Logo 2.png" alt="Syphon Labs" className="h-8 w-8 rounded-full" />
+              <img src="/Syphon Labs Logo 2.png" alt="Syphon Labs logo" className="h-8 w-8 rounded-full" />
             </Link>
             <span className="text-xl font-bold">Syphon Labs</span>
           </div>

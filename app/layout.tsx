@@ -2,6 +2,9 @@ import type { Metadata } from 'next'
 import Script from 'next/script'
 import { GoogleAnalytics } from '@next/third-parties/google'
 import './globals.css'
+import { Inter } from 'next/font/google'
+
+const inter = Inter({ subsets: ['latin'], display: 'swap' })
 
 export const metadata: Metadata = {
   title: {
@@ -108,7 +111,7 @@ export default function RootLayout({
           })}
         </Script>
       </head>
-      <body>
+      <body className={inter.className}>
         {children}
         <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID!} />
       </body>

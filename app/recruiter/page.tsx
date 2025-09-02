@@ -15,6 +15,7 @@ import RecruiterFAQ from "@/components/recruiter/recruiter-faq"
 import Newsletter from "@/components/newsletter"
 import Footer from "@/components/footer"
 import { Button } from "@/components/ui/button"
+import Image from "next/image"
 import { ArrowLeft } from "lucide-react"
 import Link from "next/link"
 import MobileMenu from "@/components/mobile-menu"
@@ -29,7 +30,7 @@ export default function RecruiterPage() {
       <header className="fixed top-0 left-0 right-0 z-40 bg-violet-50">
         <div className="container relative grid grid-cols-3 items-center h-16">
           <Link href="/" className="flex items-center gap-2 justify-self-start">
-            <img src="/Syphon Labs Logo 2.png" alt="Syphon Labs" className="h-8 w-8 rounded-full" />
+            <Image src="/Syphon Labs Logo 2.png" alt="Syphon Labs" width={32} height={32} className="h-8 w-8 rounded-full" />
             <span className="text-xl font-bold whitespace-nowrap">Syphon Labs</span>
           </Link>
           <div className="hidden md:block justify-self-center">
@@ -65,6 +66,8 @@ export default function RecruiterPage() {
                   autoPlay
                   muted
                   loop
+                  preload="none"
+                  poster="/placeholder.jpg"
                   className="w-full rounded-xl shadow aspect-video"
                 />
                 <MobileDisclaimer targetVideoId="video-resume" />
@@ -96,6 +99,8 @@ export default function RecruiterPage() {
                   autoPlay
                   muted
                   loop
+                  preload="none"
+                  poster="/placeholder.jpg"
                   className="w-full rounded-xl shadow aspect-video"
                 />
                 <MobileDisclaimer targetVideoId="video-filtering" />
@@ -127,6 +132,8 @@ export default function RecruiterPage() {
                   autoPlay
                   muted
                   loop
+                  preload="none"
+                  poster="/placeholder.jpg"
                   className="w-full rounded-xl shadow aspect-video"
                 />
                 <MobileDisclaimer targetVideoId="video-interview" />
@@ -160,6 +167,8 @@ export default function RecruiterPage() {
                   autoPlay
                   muted
                   loop
+                  preload="none"
+                  poster="/placeholder.jpg"
                   className="w-full rounded-xl shadow aspect-video"
                 />
                 <MobileDisclaimer targetVideoId="video-analytics" />
@@ -191,6 +200,8 @@ export default function RecruiterPage() {
                   autoPlay
                   muted
                   loop
+                  preload="none"
+                  poster="/placeholder.jpg"
                   className="w-full rounded-xl shadow aspect-video"
                 />
                 <MobileDisclaimer targetVideoId="video-comparison" />
@@ -222,6 +233,8 @@ export default function RecruiterPage() {
                   autoPlay
                   muted
                   loop
+                  preload="none"
+                  poster="/placeholder.jpg"
                   className="w-full rounded-xl shadow aspect-video"
                 />
                 <MobileDisclaimer targetVideoId="video-collaboration" />

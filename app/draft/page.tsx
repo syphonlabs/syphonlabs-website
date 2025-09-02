@@ -1,6 +1,7 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
+import Image from "next/image"
 import Navigation from "@/components/navigation"
 import MobileMenu from "@/components/mobile-menu"
 import Footer from "@/components/footer"
@@ -42,7 +43,7 @@ export default function DraftPage() {
       <header className="fixed top-0 left-0 right-0 z-40 bg-violet-50">
         <div className="container relative grid grid-cols-3 items-center h-16">
           <Link href="/" className="flex items-center gap-2 justify-self-start">
-            <img src="/Syphon Labs Logo 2.png" alt="Syphon Labs" className="h-8 w-8 rounded-full" />
+            <Image src="/Syphon Labs Logo 2.png" alt="Syphon Labs" width={32} height={32} className="h-8 w-8 rounded-full" />
             <span className="text-xl font-bold whitespace-nowrap">Syphon Labs</span>
           </Link>
           <div className="hidden md:block justify-self-center">
@@ -77,7 +78,7 @@ export default function DraftPage() {
                   <span className="text-black">with </span>
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-indigo-600">Draft</span>
                   <span className="text-black"> by</span>
-                  <span className="block text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-indigo-600">Syphon Labs</span>
+                  <span className="block text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-indigo-600 pb-1">Syphon Labs</span>
                 </motion.h1>
                 <motion.p
                   initial={{ opacity: 0, y: 20 }}
@@ -167,6 +168,8 @@ export default function DraftPage() {
                     muted
                     loop
                     playsInline
+                    preload="none"
+                    poster="/placeholder.jpg"
                     className="w-full h-[400px] object-cover"
                   />
                 </div>
@@ -255,6 +258,8 @@ export default function DraftPage() {
                   loop
                   playsInline
                   controls
+                  preload="none"
+                  poster="/placeholder.jpg"
                   className="w-full rounded-xl shadow aspect-video"
                 />
                 <MobileDisclaimer targetVideoId="video-draft" />
