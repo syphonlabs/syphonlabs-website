@@ -131,15 +131,15 @@ export default function BlogPage() {
   return (
     <div className="flex min-h-screen flex-col">
       <header className="fixed top-0 left-0 right-0 z-40 border-b bg-white/80 backdrop-blur-sm">
-        <div className="container relative flex items-center justify-between h-16">
-          <Link href="/" className="flex items-center gap-2 flex-shrink-0">
+        <div className="container relative grid grid-cols-3 items-center h-16">
+          <Link href="/" className="flex items-center gap-2 justify-self-start">
             <Image src="/Syphon Labs Logo 2.png" alt="Syphon Labs" width={32} height={32} priority className="h-8 w-8 rounded-full" />
             <span className="text-xl font-bold whitespace-nowrap">Syphon Labs</span>
           </Link>
-          <div className="hidden md:block">
+          <div className="hidden md:block justify-self-center">
             <Navigation />
           </div>
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-4 justify-self-end">
             {/* Mobile menu is now absolutely positioned */}
           </div>
           <MobileMenu />
