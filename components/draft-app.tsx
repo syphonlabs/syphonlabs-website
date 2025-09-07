@@ -763,10 +763,10 @@ We offer competitive salary, comprehensive benefits, and opportunities for profe
 
         {/* Check if we're in an iframe and adjust layout */}
         <div className="flex flex-col justify-between min-h-screen px-4 relative z-10">
-          <div className="flex-1 flex flex-col items-center justify-center py-8">
-            <div className="text-center max-w-2xl">
-              <h1 className="text-4xl md:text-5xl font-bold text-black mb-6 leading-tight">Designed to get you hired.</h1>
-              <p className="text-lg md:text-xl text-gray-600 mb-8 leading-relaxed">
+          <div className="flex-1 flex flex-col items-center justify-center py-4 sm:py-8 pb-8 sm:pb-12">
+            <div className="text-center max-w-2xl mb-6 sm:mb-8">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-black mb-4 sm:mb-6 leading-tight">Designed to get you hired.</h1>
+              <p className="text-base sm:text-lg md:text-xl text-gray-600 mb-6 sm:mb-8 leading-relaxed">
                 <span style={{ color: "#4f46e5" }}>Draft</span>{" "}
                 <span style={{ color: "#000000" }}>your perfect resumes and cover letters with</span>{" "}
                 <span style={{ color: "#4f46e5" }}>Syphon AI</span>
@@ -774,7 +774,7 @@ We offer competitive salary, comprehensive benefits, and opportunities for profe
               </p>
             </div>
 
-            <div className="relative max-w-2xl w-full">
+            <div className="relative max-w-2xl w-full mb-4 sm:mb-6">
               <div className="relative">
                 <Textarea
                   value={jobDescription}
@@ -785,7 +785,7 @@ We offer competitive salary, comprehensive benefits, and opportunities for profe
                     textarea.style.height = Math.min(textarea.scrollHeight, 200) + "px"
                   }}
                   placeholder="Paste your job description here"
-                  className="w-full h-20 p-4 text-sm border-2 border-indigo-500 rounded-2xl resize-none focus:outline-none focus:ring-0 focus:border-indigo-600 bg-white transition-all duration-300"
+                  className="w-full h-16 sm:h-20 p-3 sm:p-4 text-sm border-2 border-indigo-500 rounded-2xl resize-none focus:outline-none focus:ring-0 focus:border-indigo-600 bg-white transition-all duration-300"
                 />
 
                 <div className="absolute -right-64 -top-48 w-56 bg-white rounded-xl p-3 shadow-xl border border-gray-200 z-10">
@@ -807,11 +807,11 @@ We offer competitive salary, comprehensive benefits, and opportunities for profe
                 </div>
               </div>
 
-              <div className="flex justify-center pt-4">
+              <div className="flex justify-center pt-3 sm:pt-4">
                 <button
                   onClick={handleStartDrafting}
                   disabled={!jobDescription.trim()}
-                  className="h-10 px-6 py-2 rounded-full text-base text-white flex items-center gap-2 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="h-10 sm:h-12 px-6 sm:px-8 py-2 rounded-full text-sm sm:text-base text-white flex items-center gap-2 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
                   style={{
                     background: jobDescription.trim()
                       ? "linear-gradient(to right, #4338CA, #3B82F6)"
@@ -828,7 +828,7 @@ We offer competitive salary, comprehensive benefits, and opportunities for profe
                     }
                   }}
                 >
-                  Start Drafting
+                  Start Drafting →
                 </button>
               </div>
             </div>

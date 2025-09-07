@@ -58,14 +58,14 @@ export default function DraftPage() {
 
       <main className="flex-1 pt-16">
         {/* Hero Section */}
-        <section className="relative overflow-hidden py-20 md:py-32 bg-gradient-to-b from-white to-violet-50">
+        <section className="relative overflow-hidden py-12 sm:py-20 md:py-32 bg-gradient-to-b from-white to-violet-50">
           <div className="container relative z-10">
-            <div className="grid gap-12 lg:grid-cols-2 lg:gap-8 items-start">
+            <div className="grid gap-8 sm:gap-12 lg:grid-cols-2 lg:gap-8 items-start">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
-                className="max-w-4xl mx-auto lg:mx-0 text-center lg:text-left pt-8"
+                className="max-w-4xl mx-auto lg:mx-0 text-center lg:text-left pt-4 sm:pt-8"
               >
                 
                 <motion.h1
@@ -148,7 +148,7 @@ export default function DraftPage() {
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
-                className="relative mt-8 lg:mt-0 flex items-center justify-center"
+                className="relative mt-6 sm:mt-8 lg:mt-0 flex items-center justify-center"
               >
                 <div className="relative rounded-xl border border-gray-200 bg-white shadow-lg overflow-hidden">
                   <div className="h-10 bg-gray-50 border-b border-gray-200 flex items-center px-4 rounded-t-lg">
@@ -170,7 +170,7 @@ export default function DraftPage() {
                     playsInline
                     preload="none"
                     poster="/placeholder.jpg"
-                    className="w-full h-[400px] object-cover"
+                    className="w-full h-[300px] sm:h-[350px] md:h-[400px] object-cover"
                   />
                 </div>
                 </div>
@@ -260,7 +260,7 @@ export default function DraftPage() {
                   controls
                   preload="none"
                   poster="/placeholder.jpg"
-                  className="w-full rounded-xl shadow aspect-video"
+                  className="w-full rounded-xl shadow aspect-video max-h-[60vh] object-cover"
                 />
                 <MobileDisclaimer targetVideoId="video-draft" />
               </div>
