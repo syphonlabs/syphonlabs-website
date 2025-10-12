@@ -1,0 +1,204 @@
+# llms.txt — Guidance for LLMs and AI crawlers
+# Purpose: Declare how AI agents may crawl, index, and use this site’s content.
+# Scope: Voluntary standard; good-faith AI agents should comply.
+
+# --- Site metadata ---
+Site: https://www.syphonlabs.com
+Canonical-Location: https://www.syphonlabs.com/llms.txt
+Aliases: /.well-known/llms.txt, /ai.txt
+Sitemap: https://www.syphonlabs.com/sitemap.xml
+Policy: https://www.syphonlabs.com/terms?policy=v1
+Policy-Version: v1
+License: Proprietary — no training rights without explicit grant
+License-URL: https://www.syphonlabs.com/terms#content-license
+Contact: syphonlabs@gmail.com
+Abuse: syphonlabs@gmail.com
+
+# --- Attribution requirements ---
+Attribution: required
+Attribution-Format: "Source: Syphon Labs — https://www.syphonlabs.com"
+Attribution-Placement: visible-with-snippets
+
+# --- Global defaults (apply to all AI agents unless overridden) ---
+User-Agent: *
+Crawl: allow
+Index: allow
+Train: disallow
+Inference: allow
+Crawl-Delay: 2
+Crawl-Rate: average=1 rps; burst=5 rps
+
+# Content-type guidance
+Images-Train: disallow
+Videos-Train: disallow
+Audio-Train: disallow
+Code-Train: disallow
+
+# Sensitive or non-canonical paths
+Disallow: /api/
+Disallow: /private/
+Disallow: /internal/
+Disallow: /preview/
+Disallow: /draft/
+Disallow: /draft-demo/
+Disallow: /_next/
+Disallow: /node_modules/
+
+# Static assets (OK to crawl, not for training)
+Allow: /public/
+Allow: /images/
+Allow: /assets/
+
+# Targeted carve-outs explicitly allowed for training (tightened scope)
+Allow-Train: /blog/
+
+# CDN/embedding guidance
+CDN-Cache-Training: disallow
+Embed-Training: disallow
+
+# Robots.txt mirroring
+Robots-Mirror: yes
+Robots-Note: High-level rules mirrored in robots.txt comments; robots.txt remains authoritative for web crawling.
+
+# --- Per-agent overrides (training blocked unless explicitly allowed) ---
+
+# OpenAI
+User-Agent: GPTBot
+Train: disallow
+Inference: allow
+Crawl: allow
+Index: allow
+Crawl-Delay: 2
+
+# OpenAI (additional identifiers)
+User-Agent: ChatGPT-User
+Train: disallow
+Inference: allow
+Crawl: allow
+Index: allow
+Crawl-Delay: 2
+
+User-Agent: OAI-SearchBot
+Train: disallow
+Inference: allow
+Crawl: allow
+Index: allow
+Crawl-Delay: 2
+
+# Anthropic (Claude)
+User-Agent: anthropic-ai
+Train: disallow
+Inference: allow
+Crawl: allow
+Index: allow
+Crawl-Delay: 2
+
+# Google AI training (honors robots-like rules for AI training)
+User-Agent: Google-Extended
+Train: disallow
+Inference: allow
+Crawl: allow
+Index: allow
+Crawl-Delay: 2
+
+# Google general web crawling (follows robots.txt for crawl; training still disallowed)
+User-Agent: Googlebot
+Train: disallow
+Inference: allow
+Crawl: allow
+Index: allow
+Crawl-Delay: 2
+
+# Perplexity
+User-Agent: PerplexityBot
+Train: disallow
+Inference: allow
+Crawl: allow
+Index: allow
+Crawl-Delay: 3
+
+# Common Crawl
+User-Agent: CCBot
+Train: disallow
+Inference: allow
+Crawl: allow
+Index: allow
+Crawl-Delay: 5
+
+# xAI (Grok)
+User-Agent: xAIBot
+Train: disallow
+Inference: allow
+Crawl: allow
+Index: allow
+Crawl-Delay: 2
+
+# Apple AI training
+User-Agent: Applebot-Extended
+Train: disallow
+Inference: allow
+Crawl: allow
+Index: allow
+Crawl-Delay: 2
+
+# Meta (Facebook) AI-related agents
+User-Agent: FacebookBot
+Train: disallow
+Inference: allow
+Crawl: allow
+Index: allow
+Crawl-Delay: 2
+
+User-Agent: Meta-ExternalAgent
+Train: disallow
+Inference: allow
+Crawl: allow
+Index: allow
+Crawl-Delay: 2
+
+# Amazon
+User-Agent: Amazonbot
+Train: disallow
+Inference: allow
+Crawl: allow
+Index: allow
+Crawl-Delay: 2
+
+# Phind
+User-Agent: PhindBot
+Train: disallow
+Inference: allow
+Crawl: allow
+Index: allow
+Crawl-Delay: 2
+
+# You.com
+User-Agent: YouBot
+Train: disallow
+Inference: allow
+Crawl: allow
+Index: allow
+Crawl-Delay: 2
+
+# DuckDuckGo (general crawler)
+User-Agent: DuckDuckBot
+Train: disallow
+Inference: allow
+Crawl: allow
+Index: allow
+Crawl-Delay: 2
+
+# --- Guidance & expectations ---
+# - Compliance is expected from good-faith AI agents.
+# - “Train: disallow” prohibits use in training, fine-tuning, embedding generation,
+#   or improving ML systems without explicit license.
+# - “Inference: allow” permits using the content at runtime to answer queries/snippets,
+#   with visible attribution and link.
+# - For any use beyond these terms, obtain a written license: webmaster@syphonlabs.com
+
+# --- Effective dates & review cadence ---
+Effective-Date: 2025-10-10
+Review-Date: 2026-01-10
+Version: 1.1
+
+

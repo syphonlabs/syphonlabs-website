@@ -1,0 +1,82 @@
+# ai.txt — Alias of llms.txt for broader compatibility
+# This file mirrors the policy defined in /llms.txt
+
+Alias-Of: /llms.txt
+Canonical-Location: https://www.syphonlabs.com/llms.txt
+
+# For convenience, include the same core directives here
+
+# --- Site metadata ---
+Site: https://www.syphonlabs.com
+Aliases: /.well-known/llms.txt, /ai.txt
+Sitemap: https://www.syphonlabs.com/sitemap.xml
+Policy: https://www.syphonlabs.com/terms?policy=v1
+Policy-Version: v1
+License: Proprietary — no training rights without explicit grant
+License-URL: https://www.syphonlabs.com/terms#content-license
+Contact: webmaster@syphonlabs.com
+Abuse: abuse@syphonlabs.com
+
+# --- Global defaults ---
+User-Agent: *
+Crawl: allow
+Index: allow
+Train: disallow
+Inference: allow
+Crawl-Delay: 2
+Crawl-Rate: average=1 rps; burst=5 rps
+
+# Paths
+Disallow: /api/
+Disallow: /private/
+Disallow: /internal/
+Disallow: /preview/
+Disallow: /draft/
+Disallow: /draft-demo/
+Disallow: /_next/
+Disallow: /node_modules/
+Allow: /public/
+Allow: /images/
+Allow: /assets/
+Allow-Train: /blog/
+
+# Per-agent overrides (training blocked unless explicitly allowed)
+User-Agent: GPTBot
+Train: disallow
+Inference: allow
+Crawl: allow
+Index: allow
+Crawl-Delay: 2
+
+User-Agent: anthropic-ai
+Train: disallow
+Inference: allow
+Crawl: allow
+Index: allow
+Crawl-Delay: 2
+
+User-Agent: Google-Extended
+Train: disallow
+Inference: allow
+Crawl: allow
+Index: allow
+Crawl-Delay: 2
+
+User-Agent: PerplexityBot
+Train: disallow
+Inference: allow
+Crawl: allow
+Index: allow
+Crawl-Delay: 3
+
+User-Agent: CCBot
+Train: disallow
+Inference: allow
+Crawl: allow
+Index: allow
+Crawl-Delay: 5
+
+Effective-Date: 2025-10-10
+Version: 1.1
+
+
