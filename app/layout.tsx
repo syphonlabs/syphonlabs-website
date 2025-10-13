@@ -70,9 +70,14 @@ export const metadata: Metadata = {
     canonical: '/',
   },
   icons: {
-    icon: ['/Syphon Labs Logo 2.png'],
-    shortcut: ['/Syphon Labs Logo 2.png'],
-    apple: ['/Syphon Labs Logo 2.png'],
+    icon: [
+      { url: '/Syphon-Labs-Logo-2.ico', sizes: 'any' },
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+    ],
+    shortcut: '/Syphon-Labs-Logo-2.ico',
+    apple: [
+      { url: '/Syphon Labs Logo 2.png', sizes: '180x180', type: 'image/png' },
+    ],
   },
 }
 
@@ -84,6 +89,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        {/* Favicon links for better browser compatibility */}
+        <link rel="icon" href="/Syphon-Labs-Logo-2.ico" sizes="any" />
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link rel="apple-touch-icon" href="/Syphon Labs Logo 2.png" />
+        
         {/* Organization structured data */}
         <Script id="ld-json-org" type="application/ld+json" strategy="afterInteractive">
           {JSON.stringify({
