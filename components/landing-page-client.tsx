@@ -123,7 +123,7 @@ export default function LandingPageClient() {
                       height={192}
                       priority
                       sizes="(min-width: 1024px) 12rem, (min-width: 768px) 9rem, 7rem"
-                      className="relative h-28 w-28 md:h-36 md:w-36 lg:h-48 lg:w-48 rounded-full shadow-2xl border-4 border-white/30 backdrop-blur-sm hover:scale-110 transition-all duration-300 hover:shadow-3xl"
+                      className="relative h-30 w-30 md:h-38 md:w-38 lg:h-52 lg:w-52 rounded-full shadow-2xl border-4 border-white/30 backdrop-blur-sm hover:scale-110 transition-all duration-300 hover:shadow-3xl"
                     />
                     {/* Removed decorative star */}
                   </motion.div>
@@ -136,7 +136,7 @@ export default function LandingPageClient() {
                 transition={{ duration: 0.8, delay: 0.4 }}
                 className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed mb-4"
               >
-                We make AI that works for people. Tools that understand you, and make your best self impossible to miss.
+                At Syphon Labs , we make AI that works for people. Tools that understand you, and make your best self impossible to miss.
               </motion.p>
               
               <motion.p 

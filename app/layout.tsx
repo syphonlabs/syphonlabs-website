@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   },
   applicationName: 'Syphon Labs',
   description:
-    'Syphon Labs creates AI-powered productivity tools including Draft for resume optimization and Recruiter for hiring. Transform your work with context-aware AI that understands intent and amplifies productivity.',
+    'Syphon Labs creates AI powered productivity tools . Transform your work with context-aware AI that understands intent and amplifies impact .',
   keywords: [
     'Syphon Labs',
     'AI',
@@ -71,12 +71,12 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: '/Syphon-Labs-Logo-2.ico', sizes: 'any' },
       { url: '/favicon.svg', type: 'image/svg+xml' },
+      { url: '/favicon.ico', sizes: 'any' },
     ],
-    shortcut: '/Syphon-Labs-Logo-2.ico',
+    shortcut: '/favicon.svg',
     apple: [
-      { url: '/Syphon Labs Logo 2.png', sizes: '180x180', type: 'image/png' },
+      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
     ],
   },
 }
@@ -90,9 +90,9 @@ export default function RootLayout({
     <html lang="en">
       <head>
         {/* Favicon links for better browser compatibility */}
-        <link rel="icon" href="/Syphon-Labs-Logo-2.ico" sizes="any" />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-        <link rel="apple-touch-icon" href="/Syphon Labs Logo 2.png" />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         
         {/* Organization structured data */}
         <Script id="ld-json-org" type="application/ld+json" strategy="afterInteractive">
@@ -103,7 +103,7 @@ export default function RootLayout({
             url: '/',
             logo: '/Syphon Labs Logo 2.png',
             description:
-              'We make AI that works for people. Tools that understand you, and make your best self impossible to miss. Powered By Syphon AI, our proprietary context engine that connects the dots others miss.',
+              'At Syphon Labs , we make AI that works for people. Tools that understand you, and make your best self impossible to miss. Powered By Syphon AI, our proprietary context engine that connects the dots others miss.',
           })}
         </Script>
         {/* Website structured data with SearchAction (AI search optimization) */}
