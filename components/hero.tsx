@@ -89,7 +89,7 @@ export default function Hero() {
           >
             <div>
               <div className="flex items-center gap-3 mb-6">
-                <Image src="/Syphon Labs Logo.png" alt="Syphon Labs" width={48} height={48} priority className="h-12 w-12 rounded-full" />
+                <Image src="/Syphon Labs Logo 2.png" alt="Syphon Labs" width={48} height={48} priority className="h-12 w-12 rounded-full" />
                 <div className="inline-flex items-center rounded-full border border-violet-200 bg-violet-50 px-3 py-1 text-sm text-violet-700">
                   <span className="flex h-2 w-2 rounded-full bg-violet-500 mr-2"></span>
                   AI-Powered File System

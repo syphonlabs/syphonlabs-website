@@ -53,7 +53,7 @@ export default function ExplorerPage() {
                 Back to Home
               </button>
             </Link>
-            <img src="/Syphon Labs Logo.png" alt="Syphon Labs logo" className="h-8 w-8 rounded-full ml-4" />
+            <img src="/Syphon Labs Logo 2.png" alt="Syphon Labs logo" className="h-8 w-8 rounded-full ml-4" />
             <span className="text-xl font-bold">Syphon Labs</span>
           </div>
           <div className="hidden md:block justify-self-center">

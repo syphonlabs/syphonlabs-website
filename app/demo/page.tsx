@@ -19,7 +19,7 @@ export default function DemoPage() {
       <header className="fixed top-0 left-0 right-0 z-40 border-b bg-white/80 backdrop-blur-sm">
         <div className="container relative grid grid-cols-3 items-center h-16">
           <Link href="/" className="flex items-center gap-2 justify-self-start">
-            <img src="/Syphon Labs Logo.png" alt="Syphon Labs logo" className="h-8 w-8 rounded-full" />
+            <img src="/Syphon Labs Logo 2.png" alt="Syphon Labs logo" className="h-8 w-8 rounded-full" />
             <span className="text-xl font-bold">Syphon Labs</span>
           </Link>
           <div className="hidden md:block justify-self-center">

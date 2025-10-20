@@ -8,7 +8,7 @@ export default function Footer() {
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
           <div>
             <div className="flex items-center gap-2 mb-6">
-              <img src="/Syphon Labs Logo.png" alt="Syphon Labs logo" className="h-10 w-10 rounded-full" />
+              <img src="/Syphon Labs Logo 2.png" alt="Syphon Labs logo" className="h-10 w-10 rounded-full" />
               <span className="text-2xl font-bold whitespace-nowrap">Syphon Labs</span>
             </div>
             <p className="text-gray-400 mb-6 leading-relaxed">

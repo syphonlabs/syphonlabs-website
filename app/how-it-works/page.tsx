@@ -20,7 +20,7 @@ export default function HowItWorksPage() {
         <div className="container relative grid grid-cols-3 items-center h-16">
           <div className="flex items-center gap-2 justify-self-start">
             <Link href="/" className="flex items-center gap-2">
-              <img src="/Syphon Labs Logo.png" alt="Syphon Labs logo" className="h-8 w-8 rounded-full" />
+              <img src="/Syphon Labs Logo 2.png" alt="Syphon Labs logo" className="h-8 w-8 rounded-full" />
               <span className="text-xl font-bold">Syphon Labs</span>
             </Link>
           </div>
