@@ -339,7 +339,7 @@ export default function BlogIndexClient() {
         </section>
 
         {/* Waitlist Section */}
-        <section className="py-20 bg-blue-950 relative overflow-hidden">
+        <section className="py-8 bg-blue-950 relative overflow-hidden">
           <div className="container">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -348,8 +348,8 @@ export default function BlogIndexClient() {
               viewport={{ once: true }}
               className="max-w-3xl mx-auto text-center"
             >
-              <h2 className="text-3xl font-bold mb-4 text-white">Join the Syphon Labs Waitlist</h2>
-              <p className="text-xl text-blue-100 mb-8">
+              <h2 className="text-2xl md:text-3xl font-bold mb-4 text-white">Join the Syphon Labs Waitlist</h2>
+              <p className="text-lg md:text-xl text-blue-100 mb-8">
                 Be the first to hear about new releases, product updates, and invites across Syphon Labs.
               </p>
 

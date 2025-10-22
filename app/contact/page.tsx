@@ -8,7 +8,7 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import Link from "next/link"
 import { motion } from "framer-motion"
-import { Mail, Phone, Twitter, Linkedin, Github, Instagram } from "lucide-react"
+import { Mail, Phone, Linkedin, Github, Instagram } from "lucide-react"
 import { useState } from "react"
 
 export default function ContactPage() {
@@ -38,16 +38,16 @@ export default function ContactPage() {
   return (
     <div className="flex min-h-screen flex-col">
       {/* Header */}
-      <header className="fixed top-0 left-0 right-0 z-40 border-b bg-white/80 backdrop-blur-sm">
-        <div className="container relative flex items-center justify-between h-16">
-          <Link href="/" className="flex items-center gap-2 flex-shrink-0">
+      <header className="fixed top-0 left-0 right-0 z-40 bg-violet-50">
+        <div className="container relative grid grid-cols-3 items-center h-16">
+          <Link href="/" className="flex items-center gap-2 justify-self-start">
             <img src="/Syphon Labs Logo 2.png" alt="Syphon Labs logo" className="h-8 w-8 rounded-full" />
             <span className="text-xl font-bold whitespace-nowrap">Syphon Labs</span>
           </Link>
-          <div className="hidden md:block">
+          <div className="hidden md:block justify-self-center">
             <Navigation />
           </div>
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-4 justify-self-end">
             {/* Mobile menu is now absolutely positioned */}
           </div>
           <MobileMenu />
@@ -56,7 +56,7 @@ export default function ContactPage() {
 
       <main className="flex-1 pt-16">
         {/* Hero */}
-        <section className="relative overflow-hidden py-16 md:py-24 bg-gradient-to-br from-white via-violet-50/30 to-indigo-50/30">
+        <section className="relative overflow-hidden py-8 md:py-12 bg-gradient-to-br from-white via-violet-50/30 to-indigo-50/30">
           <div className="container relative z-10">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -73,20 +73,22 @@ export default function ContactPage() {
               <div className="mx-auto mb-6 h-1.5 w-16 rounded-full bg-gradient-to-r from-indigo-600 to-blue-700" />
               {/* Social pills */}
               <div className="flex flex-wrap items-center justify-center gap-3">
-                <a href="mailto:admin@syphonlabs.com" aria-label="Email Syphon Labs" className="inline-flex items-center gap-2 rounded-full border border-indigo-200 bg-indigo-50 px-4 py-2 text-sm text-indigo-700 shadow-sm hover:bg-indigo-100 ring-1 ring-indigo-100">
-                  <Mail className="h-4 w-4" /> Email
+                <a href="mailto:admin@syphonlabs.com" aria-label="Email Syphon Labs" className="inline-flex items-center justify-center rounded-full border border-indigo-200 bg-indigo-50 p-3 text-indigo-700 shadow-sm hover:bg-indigo-100 ring-1 ring-indigo-100">
+                  <Mail className="h-4 w-4" />
                 </a>
-                <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" aria-label="Syphon Labs on X (Twitter)" className="inline-flex items-center gap-2 rounded-full border border-sky-200 bg-sky-50 px-4 py-2 text-sm text-sky-700 shadow-sm hover:bg-sky-100 ring-1 ring-sky-100">
-                  <Twitter className="h-4 w-4" /> X/Twitter
+                <a href="https://x.com/SyphonLabs" target="_blank" rel="noopener noreferrer" aria-label="Syphon Labs on X" className="inline-flex items-center justify-center rounded-full border border-sky-200 bg-sky-50 p-3 text-sky-700 shadow-sm hover:bg-sky-100 ring-1 ring-sky-100">
+                  <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                  </svg>
                 </a>
-                <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="Syphon Labs on LinkedIn" className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-4 py-2 text-sm text-blue-700 shadow-sm hover:bg-blue-100 ring-1 ring-blue-100">
-                  <Linkedin className="h-4 w-4" /> LinkedIn
+                <a href="https://www.linkedin.com/company/syphon-labs/" target="_blank" rel="noopener noreferrer" aria-label="Syphon Labs on LinkedIn" className="inline-flex items-center justify-center rounded-full border border-blue-200 bg-blue-50 p-3 text-blue-700 shadow-sm hover:bg-blue-100 ring-1 ring-blue-100">
+                  <Linkedin className="h-4 w-4" />
                 </a>
-                <a href="https://github.com/" target="_blank" rel="noopener noreferrer" aria-label="Syphon Labs on GitHub" className="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-gray-50 px-4 py-2 text-sm text-gray-800 shadow-sm hover:bg-gray-100 ring-1 ring-gray-100">
-                  <Github className="h-4 w-4" /> GitHub
+                <a href="https://github.com/" target="_blank" rel="noopener noreferrer" aria-label="Syphon Labs on GitHub" className="inline-flex items-center justify-center rounded-full border border-gray-200 bg-gray-50 p-3 text-gray-800 shadow-sm hover:bg-gray-100 ring-1 ring-gray-100">
+                  <Github className="h-4 w-4" />
                 </a>
-                <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Syphon Labs on Instagram" className="inline-flex items-center gap-2 rounded-full border border-pink-200 bg-pink-50 px-4 py-2 text-sm text-pink-700 shadow-sm hover:bg-pink-100 ring-1 ring-pink-100">
-                  <Instagram className="h-4 w-4" /> Instagram
+                <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Syphon Labs on Instagram" className="inline-flex items-center justify-center rounded-full border border-pink-200 bg-pink-50 p-3 text-pink-700 shadow-sm hover:bg-pink-100 ring-1 ring-pink-100">
+                  <Instagram className="h-4 w-4" />
                 </a>
               </div>
             </motion.div>
