@@ -69,6 +69,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/',
   },
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
+  },
   icons: {
     icon: [
       { url: '/favicon.svg', type: 'image/svg+xml' },
@@ -117,6 +120,27 @@ export default function RootLayout({
               '@type': 'SearchAction',
               target: '/search?q={search_term_string}',
               'query-input': 'required name=search_term_string',
+            },
+          })}
+        </Script>
+        {/* Software Application Schema */}
+        <Script id="ld-json-software" type="application/ld+json" strategy="afterInteractive">
+          {JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'SoftwareApplication',
+            name: 'Syphon Draft',
+            applicationCategory: 'BusinessApplication',
+            operatingSystem: 'Web Browser',
+            description: 'AI-powered resume and cover letter optimization tool',
+            url: '/draft',
+            author: {
+              '@type': 'Organization',
+              name: 'Syphon Labs',
+            },
+            offers: {
+              '@type': 'Offer',
+              price: '0',
+              priceCurrency: 'USD',
             },
           })}
         </Script>

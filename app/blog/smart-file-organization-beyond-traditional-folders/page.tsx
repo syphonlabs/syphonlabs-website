@@ -15,6 +15,7 @@ import { ArrowLeft, Calendar, Clock, User, Tag, ChevronLeft, Share2, Bookmark } 
 import Link from "next/link"
 import Image from "next/image"
 import { Brain, Code, TrendingUp, Lightbulb, Globe, Award, Zap, Target, FolderOpen } from "lucide-react"
+import SocialSharing from "@/components/social-sharing"
 
 export default function SmartFileOrganizationPage() {
   return (
@@ -45,7 +46,7 @@ export default function SmartFileOrganizationPage() {
 
       <main className="flex-1">
         {/* Article Header */}
-        <section className="py-16 bg-gradient-to-br from-white via-violet-50/30 to-indigo-50/30">
+        <section className="py-8 md:py-16 bg-gradient-to-br from-white via-violet-50/30 to-indigo-50/30">
           <div className="container max-w-4xl mx-auto">
             <div
               
@@ -66,7 +67,8 @@ export default function SmartFileOrganizationPage() {
                 Learn how intelligent file systems are moving beyond simple folder structures to create adaptive workspaces that understand your workflow and organize content intelligently.
               </p>
               
-              <div className="flex items-center justify-between mb-8">
+              {/* Desktop Layout */}
+              <div className="hidden md:flex items-center justify-between mb-8">
                 <div className="flex items-center gap-6 text-sm text-gray-600">
                   <div className="flex items-center gap-2">
                     <Calendar className="h-4 w-4" />
@@ -82,13 +84,40 @@ export default function SmartFileOrganizationPage() {
                   </div>
                 </div>
                 
-                <div className="flex items-center gap-3">
-                  <Button 
-                    variant="ghost" 
-                    size="sm"
-                  >
-                    <Share2 className="h-4 w-4" />
-                  </Button>
+                <SocialSharing 
+                  title="Smart File Organization: Beyond Traditional Folders"
+                  url="/blog/smart-file-organization-beyond-traditional-folders"
+                  description="Learn how intelligent file systems are moving beyond simple folder structures to create adaptive workspaces that understand your workflow and organize content intelligently."
+                />
+              </div>
+
+              {/* Mobile Layout - Table View */}
+              <div className="md:hidden mb-8">
+                <div className="grid grid-cols-2 gap-4">
+                  {/* Left Column - Metadata */}
+                  <div className="space-y-3">
+                    <div className="flex items-center gap-2 text-sm text-gray-600">
+                      <Calendar className="h-4 w-4 flex-shrink-0" />
+                      <span className="text-xs">March 10, 2025</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-sm text-gray-600">
+                      <Clock className="h-4 w-4 flex-shrink-0" />
+                      <span className="text-xs">6 min read</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-sm text-gray-600">
+                      <User className="h-4 w-4 flex-shrink-0" />
+                      <span className="text-xs">By Syphon Labs Team</span>
+                    </div>
+                  </div>
+                  
+                  {/* Right Column - Social Sharing */}
+                  <div className="flex flex-col justify-center">
+                    <SocialSharing 
+                      title="Smart File Organization: Beyond Traditional Folders"
+                      url="/blog/smart-file-organization-beyond-traditional-folders"
+                      description="Learn how intelligent file systems are moving beyond simple folder structures to create adaptive workspaces that understand your workflow and organize content intelligently."
+                    />
+                  </div>
                 </div>
               </div>
             </div>
@@ -96,7 +125,7 @@ export default function SmartFileOrganizationPage() {
         </section>
 
         {/* Article Content */}
-        <section className="py-16 bg-white">
+        <section className="py-8 md:py-16 bg-white">
           <div className="container max-w-4xl mx-auto">
             <div
               

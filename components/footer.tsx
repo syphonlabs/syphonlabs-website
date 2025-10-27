@@ -5,8 +5,8 @@ export default function Footer() {
   return (
     <footer className="bg-gray-900 text-white py-16">
       <div className="container">
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-          <div>
+        <div className="space-y-8 md:grid md:grid-cols-2 lg:grid-cols-4 md:gap-8 md:space-y-0">
+          <div className="md:col-span-2 lg:col-span-1">
             <div className="flex items-center gap-2 mb-6">
               <img src="/Syphon Labs Logo 2.png" alt="Syphon Labs logo" className="h-10 w-10 rounded-full" />
               <span className="text-2xl font-bold whitespace-nowrap">Syphon Labs</span>
@@ -52,38 +52,42 @@ export default function Footer() {
               </a>
             </div>
           </div>
-          <div>
-            <h3 className="font-semibold mb-6 text-lg">Products</h3>
-            <ul className="space-y-3 text-gray-400">
-              <li>
-                <Link href="/draft" className="hover:text-white transition-colors">
-                  Syphon Draft
-                </Link>
-              </li>
-              <li>
-                <Link href="/recruiter" className="hover:text-white transition-colors">
-                  Syphon Recruiter
-                </Link>
-              </li>
-            </ul>
+          
+          {/* Mobile: Products and Company side by side */}
+          <div className="grid grid-cols-2 gap-8 md:contents md:ml-48 lg:ml-72">
+            <div>
+              <h3 className="font-semibold mb-6 text-lg">Products</h3>
+              <ul className="space-y-3 text-gray-400">
+                <li>
+                  <Link href="/draft" className="hover:text-white transition-colors">
+                    Syphon Draft
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/recruiter" className="hover:text-white transition-colors">
+                    Syphon Recruiter
+                  </Link>
+                </li>
+              </ul>
+            </div>
+            <div className="pl-24 md:pl-0 md:ml-8 lg:ml-12">
+              <h3 className="font-semibold mb-6 text-lg">Company</h3>
+              <ul className="space-y-3 text-gray-400">
+                <li>
+                  <Link href="/about" className="hover:text-white transition-colors">
+                    About
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/blog" className="hover:text-white transition-colors">
+                    Blog
+                  </Link>
+                </li>
+              </ul>
+            </div>
           </div>
-          <div>
-            <h3 className="font-semibold mb-6 text-lg">Company</h3>
-            <ul className="space-y-3 text-gray-400">
-              <li>
-                <Link href="/about" className="hover:text-white transition-colors">
-                  About
-                </Link>
-              </li>
-              <li>
-                <Link href="/blog" className="hover:text-white transition-colors">
-                  Blog
-                </Link>
-              </li>
-
-            </ul>
-          </div>
-          <div>
+          
+          <div className="md:ml-24 lg:ml-36">
             <h3 className="font-semibold mb-6 text-lg">Support</h3>
             <ul className="space-y-3 text-gray-400">
               <li>

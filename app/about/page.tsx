@@ -124,7 +124,7 @@ export default function AboutPage() {
                     <div className="pointer-events-none absolute -top-10 -left-10 h-24 w-24 rounded-full bg-indigo-200/50 blur-2xl" />
                     <div className="pointer-events-none absolute -bottom-12 -right-12 h-28 w-28 rounded-full bg-blue-200/50 blur-2xl" />
                     {/* watermark */}
-                    <img src="/Syphon Labs Logo 2.png" alt="" aria-hidden="true" className="pointer-events-none absolute -top-6 -right-6 h-24 w-24 opacity-10 blur-[1px] rounded-full" />
+                    <img src="/Syphon Labs Logo 2.png" alt="Syphon Labs decorative background logo" aria-hidden="true" className="pointer-events-none absolute -top-6 -right-6 h-24 w-24 opacity-10 blur-[1px] rounded-full" />
                     {/* accent bar */}
                     <div className="mx-auto mb-4 h-1.5 w-16 rounded-full bg-gradient-to-r from-indigo-600 to-blue-700" />
                     <div className="space-y-4 text-base text-gray-700 leading-relaxed">

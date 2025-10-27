@@ -48,7 +48,7 @@ export default function Newsletter() {
                 placeholder="Enter your email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="flex-1 rounded-full bg-white text-left"
+                className="flex-1 rounded-full bg-white text-center"
                 required
               />
               <Button type="submit" className="rounded-full bg-white text-blue-600 hover:bg-gray-100">

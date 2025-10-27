@@ -3,6 +3,7 @@
 import Navigation from "@/components/navigation"
 import MobileMenu from "@/components/mobile-menu"
 import Footer from "@/components/footer"
+import Breadcrumbs from "@/components/breadcrumbs"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
@@ -55,6 +56,11 @@ export default function ContactPage() {
       </header>
 
       <main className="flex-1 pt-16">
+        {/* Breadcrumbs */}
+        <div className="container pt-4">
+          <Breadcrumbs items={[{ label: "Contact" }]} />
+        </div>
+        
         {/* Hero */}
         <section className="relative overflow-hidden py-8 md:py-12 bg-gradient-to-br from-white via-violet-50/30 to-indigo-50/30">
           <div className="container relative z-10">

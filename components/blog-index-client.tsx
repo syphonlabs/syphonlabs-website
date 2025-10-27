@@ -357,7 +357,7 @@ export default function BlogIndexClient() {
                 <input
                   type="email"
                   placeholder="Enter your email"
-                  className="flex-1 px-4 py-3 rounded-full bg-white text-left border-0 focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-blue-600"
+                  className="flex-1 px-4 py-3 rounded-full bg-white text-center border-0 focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-blue-600"
                   required
                 />
                 <Button
