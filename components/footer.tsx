@@ -3,7 +3,7 @@ import { Mail, Phone, Linkedin } from "lucide-react"
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-white py-16">
+    <footer className="bg-gray-900 text-white py-14">
       <div className="container">
         <div className="space-y-8 md:grid md:grid-cols-2 lg:grid-cols-4 md:gap-8 md:space-y-0">
           <div className="md:col-span-2 lg:col-span-1">
@@ -107,9 +107,6 @@ export default function Footer() {
               </li>
             </ul>
           </div>
-        </div>
-        <div className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
-          <p>&copy; {new Date().getFullYear()} Syphon Labs. All rights reserved.</p>
         </div>
       </div>
     </footer>

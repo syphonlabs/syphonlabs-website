@@ -16,16 +16,22 @@ export const metadata: Metadata = {
     'Syphon Labs creates AI powered productivity tools . Transform your work with context-aware AI that understands intent and amplifies impact .',
   keywords: [
     'Syphon Labs',
-    'AI',
-    'productivity',
-    'resume optimization',
-    'ATS',
-    'recruiting',
-    'hiring',
+    'AI resume builder',
+    'ATS optimization',
+    'resume scanner',
+    'AI productivity tools',
+    'recruitment software',
+    'hiring platform',
+    'talent acquisition',
+    'workflow automation',
+    'smart file management',
     'context-aware AI',
     'local-first',
     'privacy-first',
     'automation',
+    'resume optimization',
+    'recruiting',
+    'hiring',
   ],
   authors: [{ name: 'Syphon Labs' }],
   creator: 'Syphon Labs',
@@ -142,6 +148,40 @@ export default function RootLayout({
               price: '0',
               priceCurrency: 'USD',
             },
+          })}
+        </Script>
+        
+        {/* FAQ Schema for common questions */}
+        <Script id="ld-json-faq" type="application/ld+json" strategy="afterInteractive">
+          {JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            mainEntity: [
+              {
+                '@type': 'Question',
+                name: 'What is Syphon Labs?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'Syphon Labs creates AI-powered productivity tools that understand intent and amplify impact, helping people and teams move from idea to impact with clarity.'
+                }
+              },
+              {
+                '@type': 'Question',
+                name: 'What products does Syphon Labs offer?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'Syphon Labs offers Syphon Draft for AI-powered resume optimization and Syphon Recruiter for intelligent talent acquisition.'
+                }
+              },
+              {
+                '@type': 'Question',
+                name: 'Is Syphon Labs free to use?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'Yes, Syphon Labs offers free trials and basic features. Check our pricing page for detailed information.'
+                }
+              }
+            ]
           })}
         </Script>
       </head>

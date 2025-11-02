@@ -32,13 +32,13 @@ export default function AboutPage() {
 
       <main className="flex-1 pt-16">
         {/* Hero Section */}
-        <section className="relative overflow-hidden py-16 md:py-24 bg-gradient-to-br from-white via-violet-50/30 to-indigo-50/30">
+        <section className="relative overflow-hidden pt-14 md:pt-24 pb-16 bg-gradient-to-br from-white via-violet-50/30 to-indigo-50/30">
           <div className="container relative z-10">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="text-center max-w-5xl mx-auto"
+              className="text-center max-w-7xl mx-auto"
             >
               <motion.div
                 initial={{ scale: 0.8, opacity: 0 }}
@@ -53,7 +53,7 @@ export default function AboutPage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.3 }}
-                className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-gray-900 leading-tight mb-6"
+                className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-gray-900 leading-tight mb-6"
               >
                 Pioneering the Future of{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-700 to-blue-700">
@@ -65,7 +65,7 @@ export default function AboutPage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.4 }}
-                className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-4 leading-relaxed"
+                className="text-xl md:text-2xl text-gray-600 max-w-5xl mx-auto mb-4 leading-relaxed"
               >
                 Syphon Labs was created by NYU graduates passionate about AI and its potential to transform how we interact with our digital world. We're building the future of intelligent software solutions across multiple domains.
               </motion.p>
@@ -74,7 +74,7 @@ export default function AboutPage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.5 }}
-                className="text-base text-gray-500 max-w-2xl mx-auto mb-8 leading-relaxed"
+                className="text-lg text-gray-500 max-w-4xl mx-auto mb-0 leading-relaxed"
               >
                 At our core is Syphon AI, our proprietary context engine that goes beyond simple pattern matching to understand the deeper meaning and relationships in your work.
               </motion.p>
@@ -94,7 +94,7 @@ export default function AboutPage() {
         
 
         {/* Our Story Section */}
-        <section className="relative overflow-hidden py-16 bg-gradient-to-br from-gray-50 to-white">
+        <section className="relative overflow-hidden pt-14 pb-16 bg-gradient-to-br from-gray-50 to-white">
           {/* subtle grid overlay */}
           <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23e5e7eb%22%20fill-opacity%3D%220.25%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%221%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-30 pointer-events-none"></div>
           <div className="container relative z-10">
@@ -103,14 +103,14 @@ export default function AboutPage() {
                 initial={{ opacity: 0, x: -30 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6 }}
-                className="relative space-y-6 px-4 text-center max-w-3xl"
+                className="relative space-y-6 px-4 text-center max-w-5xl"
               >
                 <div className="space-y-3">
                   <div className="inline-flex items-center rounded-full border border-violet-200 bg-violet-50 px-3 py-1 text-sm text-violet-700 font-medium">
                     <GraduationCap className="h-4 w-4 mr-2" />
                     Our Story
                   </div>
-                  <h2 className="text-3xl font-bold text-gray-900 leading-tight">
+                  <h2 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
                     Turning information into{" "}
                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-700 to-blue-700">
                       momentum
@@ -118,7 +118,7 @@ export default function AboutPage() {
                   </h2>
                 </div>
 
-                <div className="group/story relative overflow-hidden rounded-3xl p-[2px] bg-gradient-to-r from-indigo-500/25 via-blue-500/20 to-sky-500/25 max-w-3xl mx-auto shadow-xl">
+                <div className="group/story relative overflow-hidden rounded-3xl p-[2px] bg-gradient-to-r from-indigo-500/25 via-blue-500/20 to-sky-500/25 max-w-5xl mx-auto shadow-xl">
                   <div className="relative rounded-3xl border border-white/70 bg-white/95 backdrop-blur-sm p-8">
                     {/* decorative glows */}
                     <div className="pointer-events-none absolute -top-10 -left-10 h-24 w-24 rounded-full bg-indigo-200/50 blur-2xl" />
@@ -127,7 +127,7 @@ export default function AboutPage() {
                     <img src="/Syphon Labs Logo 2.png" alt="Syphon Labs decorative background logo" aria-hidden="true" className="pointer-events-none absolute -top-6 -right-6 h-24 w-24 opacity-10 blur-[1px] rounded-full" />
                     {/* accent bar */}
                     <div className="mx-auto mb-4 h-1.5 w-16 rounded-full bg-gradient-to-r from-indigo-600 to-blue-700" />
-                    <div className="space-y-4 text-base text-gray-700 leading-relaxed">
+                    <div className="space-y-4 text-lg text-gray-700 leading-relaxed">
                       <p>
                         Syphon Labs was founded to bridge silos and reveal the connections that move work forward. Tools that understands context, anticipates needs, and makes work feel effortless.
                       </p>
@@ -144,11 +144,6 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Divider */}
-        <div className="container">
-          <div className="h-px w-full bg-gradient-to-r from-transparent via-gray-200 to-transparent" />
-        </div>
-
         {/* Mission Section */}
         <section className="py-16 bg-white">
           <div className="container">
@@ -156,19 +151,19 @@ export default function AboutPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="text-center max-w-4xl mx-auto mb-12"
+              className="text-center max-w-6xl mx-auto mb-12"
             >
               <div className="inline-flex items-center rounded-full border border-violet-200 bg-violet-50 px-3 py-1 text-sm text-violet-700 font-medium mb-4">
                 <Globe className="h-4 w-4 mr-2" />
                 Our Mission
               </div>
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
                 Make work effortless with{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-700 to-blue-700">
                   trusted, human‑centered AI
                 </span>
               </h2>
-              <p className="text-lg text-gray-600 leading-relaxed">
+              <p className="text-xl md:text-2xl text-gray-600 leading-relaxed">
                 Our mission is to transform how people work by creating AI that understands goals, anticipates needs, and eliminates busywork. Every tool we make removes friction, connects the dots, and leaves you more time for the work that matters.
               </p>
             </motion.div>
@@ -224,22 +219,22 @@ export default function AboutPage() {
         </section>
 
         {/* Vision Section */}
-        <section className="py-16 bg-gradient-to-br from-gray-50 to-white">
+        <section className="py-16 bg-white">
           <div className="container">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="text-center max-w-4xl mx-auto mb-12"
+              className="text-center max-w-6xl mx-auto mb-12"
             >
               <div className="inline-flex items-center rounded-full border border-indigo-200 bg-indigo-50 px-3 py-1 text-sm text-indigo-700 font-medium mb-4">
                 <Lightbulb className="h-4 w-4 mr-2" />
                 Our Vision
               </div>
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
                 Software that understands intent and amplifies human work
               </h2>
-              <p className="text-lg text-gray-600 leading-relaxed">
+              <p className="text-xl md:text-2xl text-gray-600 leading-relaxed">
                 Our vision is to create intelligent systems that connect tools, anticipate needs, and transform scattered information and processes into proactive, privacy‑respecting assistance so that  teams move from idea to impact with clarity and confidence across writing, hiring, and beyond.
               </p>
             </motion.div>
@@ -249,7 +244,7 @@ export default function AboutPage() {
                 {
                   icon: <Globe className="h-6 w-6" />,
                   title: "Orchestrated Work",
-                  description: "Content, people, and tasks move together as one—fewer handoffs, faster outcomes.",
+                  description: "Content, people, and tasks move together as one, fewer handoffs, faster outcomes.",
                   color: "from-indigo-600 to-blue-700",
                   delay: 0
                 },
