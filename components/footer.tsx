@@ -108,6 +108,9 @@ export default function Footer() {
             </ul>
           </div>
         </div>
+        <div className="border-t border-gray-800 mt-16 pt-0 pb-0 text-center text-gray-400">
+          <p className="py-1">&copy; {new Date().getFullYear()} Syphon Labs. All rights reserved.</p>
+        </div>
       </div>
     </footer>
   )

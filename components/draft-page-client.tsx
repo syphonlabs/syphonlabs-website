@@ -101,8 +101,8 @@ export default function DraftPageClient() {
                     <span className="text-sm">Keyword Match Optimization</span>
                   </div>
                   <div className="flex items-start gap-2">
-                    <Github className="h-5 w-5 text-violet-500 mt-0.5 flex-shrink-0" />
-                    <span className="text-sm">100% Open Source</span>
+                    <Download className="h-5 w-5 text-violet-500 mt-0.5 flex-shrink-0" />
+                    <span className="text-sm">Multi-Format Export</span>
                   </div>
                 </div>
 
@@ -114,15 +114,6 @@ export default function DraftPageClient() {
                   >
                     Try Draft for Free
                   </Button>
-                  <Link href="https://github.com/" target="_blank">
-                    <Button
-                      onClick={() => trackEvent('click', 'Draft CTA', 'GitHub Repository', 1)}
-                      size="lg"
-                      className="relative overflow-hidden rounded-full bg-gray-50 text-gray-800 w-12 h-12 p-0 sm:w-auto sm:h-auto sm:p-4 shadow-lg ring-1 ring-gray-200 transition-all duration-200 hover:bg-gray-100 hover:shadow-xl hover:scale-[1.02] active:scale-95 flex items-center justify-center"
-                    >
-                      <Github className="h-6 w-6" />
-                    </Button>
-                  </Link>
                 </div>
               </motion.div>
 
